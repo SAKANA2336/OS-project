@@ -1,0 +1,43 @@
+# Normalize repository text independently of platform Git settings.
+* text=auto eol=lf
+
+# Windows-native launchers.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Documents and images.
+*.pdf binary
+*.docx binary
+*.pptx binary
+*.xlsx binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg text eol=lf
+
+# Archives, executables, objects, traces and VM/disk images.
+*.zip binary
+*.tar binary
+*.gz binary
+*.xz binary
+*.7z binary
+*.o binary
+*.obj binary
+*.a binary
+*.so binary
+*.dylib binary
+*.dll binary
+*.exe binary
+*.pcap binary
+*.pcapng binary
+*.trace binary
+*.img binary
+*.iso binary
+*.qcow binary
+*.qcow2 binary
+*.vdi binary
+*.vmdk binary
+*.core binary
+*.dmp binary

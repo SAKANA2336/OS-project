@@ -1,0 +1,92 @@
+# Operating system and editor metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Local project state and temporary content
+.local/
+scratch/
+tmp/
+*.partial
+*.tmp
+*.bak
+
+# Local course handout; redistribution/publication has not been authorized
+/2609_CS340_Research_Paper_Replication (1).pdf
+
+# Secrets and machine-specific authentication
+.env
+.env.*
+!.env.example
+.aws/
+.ssh/
+*.key
+*.pem
+*.p12
+*.pfx
+client_secret*.json
+credentials*.json
+service[-_]account*.json
+
+# Language environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+node_modules/
+
+# Build outputs and coverage
+build/
+out/
+dist/
+target/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.dll
+*.class
+coverage/
+htmlcov/
+.coverage
+
+# OS experiment artifacts that must remain local
+*.img
+*.iso
+*.qcow
+*.qcow2
+*.vdi
+*.vmdk
+*.core
+core
+core.*
+*.dmp
+*.pcap
+*.pcapng
+perf.data*
+vm-artifacts/
+
+# Downloaded workloads and large raw run artifacts
+workloads/downloads/
+runs/**/large-artifacts/
+runs/**/large-traces/
+
+# Generated report/presentation build directories
+report/build/
+presentation/build/
+
+# Nested local workspaces are never repository content
+.workspaces/
