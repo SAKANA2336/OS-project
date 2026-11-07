@@ -3,18 +3,18 @@
 | 字段 | 当前值 |
 | --- | --- |
 | `controlled_object_id` | `project-protocol-index` |
-| `exact_version` | `v0.0` |
+| `exact_version` | `v0.1` |
 | `status` | `draft_index` |
 | `document_role` | `current_protocol_index` |
-| `created_at` | `2026-10-30 (Asia/Shanghai)` |
-| `last_verified_at` | `2026-10-30 (Asia/Shanghai)` |
-| `approval_state` | 已授权建立项目规则与治理入口；未授权正式复现实验、commit、push 或标签 |
+| `created_at` | `2026-11-07 (Asia/Shanghai)` |
+| `last_verified_at` | `2026-11-07 (Asia/Shanghai)` |
+| `approval_state` | 方向 8 选题已确认；本次授权补登记状态；实验方案仍待确认 |
 | `freeze_state` | `not_frozen` |
-| `supersedes` | `none` |
-| `next_allowed_version` | `v0.1` |
+| `supersedes` | `v0.0` |
+| `next_allowed_version` | `v0.2` |
 | `major_version_authorization` | `absent` |
-| `archive_ref` | [`PROTOCOL_VERSION_ARCHIVE.md#v00`](PROTOCOL_VERSION_ARCHIVE.md#v00) |
-| `source_of_authority` | 用户于 2026-10-30 要求参照既有仓库规则建立本项目制度；课程任务书 |
+| `archive_ref` | [`PROTOCOL_VERSION_ARCHIVE.md#v01`](PROTOCOL_VERSION_ARCHIVE.md#v01) |
+| `source_of_authority` | 用户于 2026-10-30 确认方向 8，并于 2026-11-07 要求更新正确状态；`docs/DECISIONS.md` D-007；课程任务书 |
 
 本文件是当前复现协议的唯一项目级入口。它索引已采纳的论文、主张和实验边界；不把课程清单、候选论文或目录模板冒充已选择方案。
 
@@ -22,13 +22,24 @@
 
 | 项目 | 当前值 | 状态 |
 | --- | --- | --- |
-| 所选论文 | 待定 | 未选择 |
-| 论文版本／发布日期 | 待定 | 未核实 |
+| 所选论文 | 方向 8：AddressSanitizer: A Fast Address Sanity Checker | 用户已于 2026-10-30 确认 |
+| 论文版本／发表时间 | USENIX ATC '12 会议发表版本，2012 年 6 月 | 官方书目信息已核对 |
 | 主张及对应表／图 | 待定 | 未登记 |
 | 起始代码仓库／commit | 待定 | 未登记 |
 | 许可证 | 待定 | 未核实 |
 | 复现尺度 | 待定 | 未决定 |
 | 扩展实验问题 | 待定 | 未决定 |
+
+## 已确认论文与来源
+
+Konstantin Serebryany, Derek Bruening, Alexander Potapenko, and Dmitry Vyukov. *AddressSanitizer: A Fast Address Sanity Checker*. USENIX Annual Technical Conference (ATC '12), 2012.
+
+- 官方入口：[USENIX 论文页面](https://www.usenix.org/conference/atc12/addresssanitizer-fast-address-sanity-checker)。
+- 正文入口：[USENIX 会议论文 PDF](https://www.usenix.org/system/files/conference/atc12/atc12-final39.pdf)。
+- 选题确认日期：2026-10-30；补登记日期：2026-11-07，见 [D-007](DECISIONS.md#d-007-方向-8-选题确认补登记)。
+- 来源状态：已核对官方书目信息；本次只登记引用与公开入口，未将论文 PDF 作为仓库资产入库。资产获取记录、字节数、SHA-256 和使用／再分发许可在获取与入库前另行核实登记。
+
+方向 8 是已采纳的复现主题。历史／现代工具链路线、具体主张、benchmark、测量指标、资源预算和扩展方案均未采纳；先前讨论的推荐选项不构成正式协议。
 
 ## 课程级固定边界
 
@@ -45,9 +56,9 @@
 
 ## 进入实现前必须建立
 
-下一连续版本至少明确：
+进入实现前应在后续连续版本中补齐：
 
-1. 论文引用、版本、来源与许可；
+1. 已登记论文的资产获取信息与许可；
 2. 一至三个主张及论文表／图／数值定位；
 3. 起始代码、精确 commit、许可证和修改文件清单；
 4. 硬件、OS、内核、编译器、依赖、构建设置和隔离方式；
@@ -60,6 +71,6 @@
 
 ## 当前未冻结事项
 
-除课程级固定边界外，论文、主张、代码、环境、硬件、内核、编译器、workload、输入、复现尺度、指标细节、成功阈值、统计方案、扩展条件、预算和运行入口均未冻结。未知项保持“待定”，不得用默认值填充后称为已采纳协议。
+论文主题及会议发表版本已登记。主张、代码、环境、硬件、内核、编译器、workload、输入、复现尺度、指标细节、成功阈值、统计方案、扩展条件、预算和运行入口仍未冻结。未知项保持“待定”，不得用默认值填充后称为已采纳协议。
 
-本版本只建立治理索引，不授权下载、构建、实验或发布，也不产生任何复现结论。
+本版本补登记已确认选题并保留实验待定项，不授权代码下载、构建、实验或发布，也不产生任何复现结论。
