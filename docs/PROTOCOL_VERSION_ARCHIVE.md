@@ -42,3 +42,9 @@
 - 正文 SHA-256：`0fbc16f09648f724b8a4ac551e3afb3d9bddd877b9c29105cae736c6dae17a9f`
 - 不可变快照：[`governance/snapshots/project-protocol-index-v0.1.md.snapshot`](governance/snapshots/project-protocol-index-v0.1.md.snapshot)
 - Git 恢复：本次尚未创建 commit；以正文哈希和不可变快照恢复，后续获准提交后追加 commit 记录。
+
+### v0.1 Git 恢复与发布授权补录（2026-11-07）
+
+- Git 恢复：`fdedccb0e5df61109aa0e302f1567489dcc43997` 中的 `docs/PROTOCOL.md` 与 v0.1 快照一致，使用上述 SHA-256 核验。
+- 后续授权：用户在本地修正完成后明确要求 push，见 `docs/DECISIONS.md` D-009；此前条目中的“本地状态更新”是修订当时的授权范围，本次发布已另获授权。
+- 本补录只增加恢复依据与发布授权说明，不改变 v0.1 正文、快照、实验待定项或冻结状态。
