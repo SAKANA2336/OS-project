@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "cmake",
+    "--version"
+  ],
+  "returncode": 0,
+  "timed_out": false,
+  "stdout": "cmake version 3.28.3\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).\n",
+  "stderr": ""
+}

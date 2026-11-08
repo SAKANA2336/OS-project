@@ -1,0 +1,16 @@
+{
+  "kernel": "6.18.33.2-microsoft-standard-WSL2",
+  "architecture": "x86_64",
+  "os_release": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+  "limits": {
+    "memory.max": "2147483648",
+    "pids.max": "128",
+    "cpu.max": "200000 100000"
+  },
+  "asan_options": "detect_leaks=0:detect_stack_use_after_return=0:halt_on_error=1:abort_on_error=0:exitcode=86:symbolize=1",
+  "sources_sha256": {
+    "cases.c": "b596606bd946367a68f5ca89c462b48878b060ef7bf75c19da63d4c0f3032960",
+    "normal.cpp": "bec9658ccd86f20ca9e3915583e6521fa2b3e3bac048ff3a4808b027b8de1529",
+    "verify.py": "4b1f2ead1a0ccbf6edacb370135b61d29dd682798733292618c87be28448ff83"
+  }
+}

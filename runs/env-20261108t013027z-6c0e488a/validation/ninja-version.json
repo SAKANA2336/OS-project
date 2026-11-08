@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "ninja",
+    "--version"
+  ],
+  "returncode": 0,
+  "timed_out": false,
+  "stdout": "1.11.1\n",
+  "stderr": ""
+}

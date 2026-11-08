@@ -1,0 +1,30 @@
+{
+    "run_id":  "env-20261108t005237z-5e6fe72f",
+    "kind":  "environment-functional-validation",
+    "status":  "failed",
+    "started_at":  "2026-11-08T00:52:37.4288045Z",
+    "context":  "desktop-linux",
+    "paper_claims_tested":  [
+
+                            ],
+    "base_digest":  null,
+    "image_id":  null,
+    "image_tag":  null,
+    "checks_passed":  0,
+    "kit_sha256":  {
+                       "cases.c":  "b596606bd946367a68f5ca89c462b48878b060ef7bf75c19da63d4c0f3032960",
+                       ".dockerignore":  "6ba5b3fd1be5dff60c742d48a3d95bf21c89843cca4878ca1b8946688f7a8220",
+                       "normal.cpp":  "bec9658ccd86f20ca9e3915583e6521fa2b3e3bac048ff3a4808b027b8de1529",
+                       "setup.ps1":  "67daeb05b92f6d41309391fef7a437717f644ca605d0bf274b104212c57aa923",
+                       "verify.py":  "4b1f2ead1a0ccbf6edacb370135b61d29dd682798733292618c87be28448ff83",
+                       "Dockerfile":  "a917270b28966f7c55501291fda9ad268f8a7d2a66d1040e414692275f3d9bc5"
+                   },
+    "smoke_limits":  {
+                         "pids":  128,
+                         "cpus":  2,
+                         "timeout_seconds":  300,
+                         "memory_bytes":  2147483648
+                     },
+    "error":  "pull failed (exit 1): Error response from daemon: failed to resolve reference \"docker.io/library/ubuntu:24.04\": failed to do request: Head \"https://registry-1.docker.io/v2/library/ubuntu/manifests/24.04\": dialing registry-1.docker.io:443 container via direct connection because Docker Desktop has no HTTPS proxy: connecting to registry-1.docker.io:443: dial tcp 108.160.166.142:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.\n",
+    "finished_at":  "2026-11-08T00:52:59.6182837Z"
+}

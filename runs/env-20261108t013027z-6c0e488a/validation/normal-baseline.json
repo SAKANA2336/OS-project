@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "/tmp/asan-check-gzxouvdt/baseline",
+    "normal"
+  ],
+  "returncode": 0,
+  "timed_out": false,
+  "stdout": "OK 7\n",
+  "stderr": ""
+}

@@ -1,0 +1,29 @@
+{
+    "run_id":  "env-20261108t013027z-6c0e488a",
+    "kind":  "environment-functional-validation",
+    "status":  "passed",
+    "started_at":  "2026-11-08T01:30:27.8662037Z",
+    "context":  "desktop-linux",
+    "paper_claims_tested":  [
+
+                            ],
+    "base_digest":  "ubuntu@sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852",
+    "image_id":  "sha256:d79f3238f8d650516f45e8e4ae1072dfea32d5b9f4f7733fedd7a83ae10c3b77",
+    "image_tag":  "os-project-asan:env-20261108t013027z-6c0e488a",
+    "checks_passed":  7,
+    "kit_sha256":  {
+                       "cases.c":  "b596606bd946367a68f5ca89c462b48878b060ef7bf75c19da63d4c0f3032960",
+                       ".dockerignore":  "6ba5b3fd1be5dff60c742d48a3d95bf21c89843cca4878ca1b8946688f7a8220",
+                       "normal.cpp":  "bec9658ccd86f20ca9e3915583e6521fa2b3e3bac048ff3a4808b027b8de1529",
+                       "setup.ps1":  "6f15e66b9d0cf5b4e04a3799db11f881b3f2c0520d26bf4068d3d32b4111f71b",
+                       "verify.py":  "4b1f2ead1a0ccbf6edacb370135b61d29dd682798733292618c87be28448ff83",
+                       "Dockerfile":  "5539b93c34e6be15eec6e5653543ffe43d48218fc04cadcd9410f9b50c96fd3c"
+                   },
+    "smoke_limits":  {
+                         "pids":  128,
+                         "cpus":  2,
+                         "timeout_seconds":  300,
+                         "memory_bytes":  2147483648
+                     },
+    "finished_at":  "2026-11-08T01:34:51.6810035Z"
+}

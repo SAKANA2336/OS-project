@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "clang-18",
+    "-O1",
+    "-g",
+    "-fno-omit-frame-pointer",
+    "-fno-optimize-sibling-calls",
+    "/opt/asan-check/cases.c",
+    "-o",
+    "/tmp/asan-check-gzxouvdt/baseline"
+  ],
+  "returncode": 0,
+  "timed_out": false,
+  "stdout": "",
+  "stderr": ""
+}

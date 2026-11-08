@@ -10,6 +10,7 @@ Desktop.ini
 
 # Local project state and temporary content
 .local/
+/work/
 scratch/
 tmp/
 *.partial

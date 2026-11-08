@@ -1,0 +1,28 @@
+{
+  "run_id": "env-20261108t012755z-7026d8b6",
+  "kind": "environment-functional-validation",
+  "status": "failed",
+  "started_at": "2026-11-08T01:27:55.3627416Z",
+  "context": "desktop-linux",
+  "paper_claims_tested": [],
+  "base_digest": null,
+  "image_id": null,
+  "image_tag": null,
+  "checks_passed": 0,
+  "kit_sha256": {
+    "verify.py": "4b1f2ead1a0ccbf6edacb370135b61d29dd682798733292618c87be28448ff83",
+    ".dockerignore": "6ba5b3fd1be5dff60c742d48a3d95bf21c89843cca4878ca1b8946688f7a8220",
+    "normal.cpp": "bec9658ccd86f20ca9e3915583e6521fa2b3e3bac048ff3a4808b027b8de1529",
+    "Dockerfile": "5539b93c34e6be15eec6e5653543ffe43d48218fc04cadcd9410f9b50c96fd3c",
+    "cases.c": "b596606bd946367a68f5ca89c462b48878b060ef7bf75c19da63d4c0f3032960",
+    "setup.ps1": "6f15e66b9d0cf5b4e04a3799db11f881b3f2c0520d26bf4068d3d32b4111f71b"
+  },
+  "smoke_limits": {
+    "cpus": 2,
+    "pids": 128,
+    "timeout_seconds": 300,
+    "memory_bytes": 2147483648
+  },
+  "error": "engine failed (exit 1): permission denied while trying to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine\n",
+  "finished_at": "2026-11-08T01:27:55.9546264Z"
+}

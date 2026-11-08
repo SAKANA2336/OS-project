@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "/tmp/asan-check-gzxouvdt/normal-cpp"
+  ],
+  "returncode": 0,
+  "timed_out": false,
+  "stdout": "OK 7\n",
+  "stderr": ""
+}

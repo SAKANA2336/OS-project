@@ -2,7 +2,7 @@
 
 本文件追加保存 `docs/PROTOCOL.md` 的版本依据、差异、已知结果、影响和恢复信息。正文保存当前有效协议；历史条目不得覆盖或删除。
 
-当前版本：[`project-protocol-index v0.1`](PROTOCOL.md)，`draft_index / not_frozen`。
+当前版本：[`project-protocol-index v0.3`](PROTOCOL.md)，`draft_index / not_frozen`。
 
 ## v0.0
 
@@ -48,3 +48,34 @@
 - Git 恢复：`fdedccb0e5df61109aa0e302f1567489dcc43997` 中的 `docs/PROTOCOL.md` 与 v0.1 快照一致，使用上述 SHA-256 核验。
 - 后续授权：用户在本地修正完成后明确要求 push，见 `docs/DECISIONS.md` D-009；此前条目中的“本地状态更新”是修订当时的授权范围，本次发布已另获授权。
 - 本补录只增加恢复依据与发布授权说明，不改变 v0.1 正文、快照、实验待定项或冻结状态。
+
+## v0.2
+
+- `controlled_object_id`: `project-protocol-index`
+- `exact_version`: `v0.2`
+- 修订日期：2026-11-08（Asia/Shanghai）；取代 v0.1；下一合法版本 v0.3；主版本升级授权 `absent`。
+- 状态：`draft_index / not_frozen`。
+- 依据：用户要求搭建复现环境，并以“按照你的来”接受现代路线；见 D-010。
+- 差异：登记 Ubuntu 24.04 / Clang-LLVM 18 准备环境、功能验收、限额、超时、证据位置、历史环境偏离与依赖固定限制；保留正式 benchmark 和主张待定。
+- 备选：2012 年工具链复刻本轮不采用；不承诺现代环境复现论文数值。
+- 修改时已知结果：已有用户 Docker 引擎检查与 pull 失败证据，镜像未构建、七项容器检查未运行；本地 14 项 Python 测试与 PowerShell 语法检查通过。
+- 影响：同步本地 README、状态、决策和交接；准备包显式补齐 C++ 标准库开发依赖。发布区保持只读，无 commit、push 或标签。
+- 受影响运行：旧 `env-20261108t005237z-5e6fe72f` 保留为失败；构建重试必须使用新 ID。没有正式主结果需要重跑。
+- 正文 SHA-256：`5e7e0a9a90bdfb22538eafacf1321313067e0896d3fca2e43b518e621660c722`。
+- 不可变快照：[`governance/snapshots/project-protocol-index-v0.2.md.snapshot`](governance/snapshots/project-protocol-index-v0.2.md.snapshot)。
+- 恢复：本轮无 commit，以正文 SHA-256 和快照恢复。
+
+## v0.3
+
+- `controlled_object_id`: `project-protocol-index`
+- `exact_version`: `v0.3`
+- 修订日期：2026-11-08（Asia/Shanghai）；取代 v0.2；下一合法版本 v0.4；主版本升级授权 `absent`。
+- 状态：`draft_index / not_frozen`；环境验收通过，正式实验未冻结。
+- 依据：D-010 的准备授权、用户实际执行及已核对运行证据，见 D-012。
+- 差异：将准备环境的计划版本更新为实际 Ubuntu 24.04.5 / LLVM 18.1.3，登记镜像 ID、基础镜像 digest、包版本入口与七项功能验收。
+- 修订时已知结果：`env-20261108t013027z-6c0e488a` 构建成功，七项真实检查通过；两次旧失败保留，没有性能数据或论文主张裁决。
+- 影响：提升小型环境证据到日常区 `runs/`，同步当前状态与交付说明。未更换已测试源文件、验收标准或运行配置。
+- 受影响运行与重跑：不使任何运行失效；不需重跑。后续重建生成新 run ID；apt 源未快照固定，优先重用已验证镜像。
+- 正文 SHA-256：`984c4c29a21b8a347257518d9cf087d426e148d7b0772b8b7bcb91837fb52381`。
+- 不可变快照：[`governance/snapshots/project-protocol-index-v0.3.md.snapshot`](governance/snapshots/project-protocol-index-v0.3.md.snapshot)。
+- 恢复：本轮无 commit，以正文 SHA-256 和快照恢复。

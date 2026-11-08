@@ -1,0 +1,41 @@
+{
+  "kind": "environment-functional-validation",
+  "paper_claims_tested": [],
+  "started_at": "2026-11-08T01:34:50.547595+00:00",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "normal-baseline",
+      "passed": true
+    },
+    {
+      "name": "normal-asan",
+      "passed": true
+    },
+    {
+      "name": "normal-cpp",
+      "passed": true
+    },
+    {
+      "name": "heap",
+      "expected": "heap-buffer-overflow",
+      "passed": true
+    },
+    {
+      "name": "uaf",
+      "expected": "heap-use-after-free",
+      "passed": true
+    },
+    {
+      "name": "stack",
+      "expected": "stack-buffer-overflow",
+      "passed": true
+    },
+    {
+      "name": "global",
+      "expected": "global-buffer-overflow",
+      "passed": true
+    }
+  ],
+  "finished_at": "2026-11-08T01:34:51.583226+00:00"
+}

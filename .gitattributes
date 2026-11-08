@@ -41,3 +41,13 @@
 *.vmdk binary
 *.core binary
 *.dmp binary
+
+# Preserve recorded hashes for validated inputs and raw environment evidence.
+outputs/asan-environment/** -text
+runs/env-*/** -text
+docs/governance/snapshots/*.snapshot -text
+
+# Original Windows records and terminal logs retain their captured formatting.
+outputs/asan-environment/validated-run.json whitespace=cr-at-eol
+runs/env-*/run-manifest.json whitespace=cr-at-eol
+runs/env-*/*.log -whitespace

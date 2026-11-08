@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "clang++-18",
+    "-std=c++17",
+    "-O1",
+    "-g",
+    "-fno-omit-frame-pointer",
+    "-fno-optimize-sibling-calls",
+    "-fsanitize=address",
+    "/opt/asan-check/normal.cpp",
+    "-o",
+    "/tmp/asan-check-gzxouvdt/normal-cpp"
+  ],
+  "returncode": 0,
+  "timed_out": false,
+  "stdout": "",
+  "stderr": ""
+}
