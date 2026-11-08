@@ -10,6 +10,8 @@
 
 2026-11-08 完成 Docker Desktop / WSL2 下的现代 ASan 基础环境构建与验收。
 
+本阶段提交成员：**张瀚洋（1240036026），GitHub 账号 `wbw374`**。贡献范围、历史署名说明及教师检查入口见[贡献记录](docs/CONTRIBUTIONS.md)。
+
 | 已完成内容 | 可检查入口 |
 | --- | --- |
 | Ubuntu 24.04 + Clang/LLVM 18 容器配置 | [Dockerfile](outputs/asan-environment/Dockerfile) |
@@ -50,6 +52,7 @@
 - 当前状态：[`docs/PROJECT_STATE.md`](docs/PROJECT_STATE.md)
 - 当前协议与待定项：[`docs/PROTOCOL.md`](docs/PROTOCOL.md)
 - 决策记录：[`docs/DECISIONS.md`](docs/DECISIONS.md)
+- 成员与贡献记录：[`docs/CONTRIBUTIONS.md`](docs/CONTRIBUTIONS.md)
 - 交接说明：[`docs/HANDOFF.md`](docs/HANDOFF.md)
 - 文件治理：[`docs/governance/FILE_MANAGEMENT.md`](docs/governance/FILE_MANAGEMENT.md)
 - 运行证据约定：[`runs/README.md`](runs/README.md)

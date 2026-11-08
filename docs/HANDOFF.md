@@ -11,7 +11,8 @@
 - 独立日常区已恢复且无 remote；PowerShell 角色核验通过，Bash 因 Win32 error 5 无法启动。本次用户已授权发布环境进度，补齐发布副本本机标记后使用 PowerShell 等价检查；范围见 D-013，完成以 Git 证据为准。
 - 已选论文：方向 8，AddressSanitizer: A Fast Address Sanity Checker（USENIX ATC 2012）；用户于 2026-10-30 确认，2026-11-07 补登记，见 D-007。
 - Ubuntu 24.04 / Linux x86_64 / Clang-LLVM 18 准备路线已采纳，见 D-010；主张、起始代码、workload、正式预算和实验计划仍待定。
-- 已知成员：张瀚洋，学号 `1240036026`；首次治理基线已提交并发布，见 D-008。其余成员及贡献安排待补充。
+- 已知成员：张瀚洋，学号 `1240036026`，用户指定 GitHub 账号为 `wbw374`；本项目后续 Git 作者与提交者沿用本机 `wbw374` 配置，标题仍含学号和全名，见 D-014 与 `CONTRIBUTIONS.md`。首次治理发布见 D-008；其余成员及贡献安排待补充。
+- 原始环境提交 `2c4a89badee35dd8ae50442894c7a296d2e7eacf` 已发布并核对远端哈希；旧提交使用 `SAKANA2336` noreply 邮箱，保留历史，由本次贡献说明更正账号对应关系。GitHub 邮箱绑定状态未核实。
 - 用户运行 `env-20261108t013027z-6c0e488a` 已成功构建容器、通过七项真实功能验收；完整小型证据见 `runs/`。实际版本为 Ubuntu 24.04.5、Clang/LLVM/compiler-rt 18.1.3；镜像 ID 和复用方法见协议及交付包。
 - 主机代理与用户 Docker 下载路径均已验证可通；助手仍无 named-pipe 权限，后续 Docker 命令仍需用户自己的 PowerShell。两次旧失败保留；尚无正式性能实验或论文主张裁决。
 
