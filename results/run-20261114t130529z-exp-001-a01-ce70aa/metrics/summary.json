@@ -1,0 +1,147 @@
+{
+  "kind": "exploratory-workload-transfer",
+  "formal_claim_verdict": "inconclusive",
+  "reason": "Different workloads/toolchain; exploratory pilot, not SPEC CPU2006 reproduction.",
+  "all_benchmarks_valid": true,
+  "geometric_mean_runtime_ratio": 1.8988062382555193,
+  "benchmarks": [
+    {
+      "benchmark": "bisort",
+      "baseline": {
+        "complete": true,
+        "valid_runs": 5,
+        "warmups_valid": true,
+        "invalid_or_missing": 0,
+        "mean_seconds": 0.20676,
+        "sample_stddev_seconds": 0.006368908854741135
+      },
+      "asan": {
+        "complete": true,
+        "valid_runs": 5,
+        "warmups_valid": true,
+        "invalid_or_missing": 0,
+        "mean_seconds": 0.37220000000000003,
+        "sample_stddev_seconds": 0.030988062217570184
+      },
+      "status": "valid_pilot",
+      "runtime_ratio": 1.8001547688140842,
+      "overhead_percent": 80.01547688140842,
+      "short_run_warning": false
+    },
+    {
+      "benchmark": "em3d",
+      "baseline": {
+        "complete": true,
+        "valid_runs": 5,
+        "warmups_valid": true,
+        "invalid_or_missing": 0,
+        "mean_seconds": 0.88626,
+        "sample_stddev_seconds": 0.016874329616313657
+      },
+      "asan": {
+        "complete": true,
+        "valid_runs": 5,
+        "warmups_valid": true,
+        "invalid_or_missing": 0,
+        "mean_seconds": 1.33162,
+        "sample_stddev_seconds": 0.028721890606295403
+      },
+      "status": "valid_pilot",
+      "runtime_ratio": 1.5025161916367658,
+      "overhead_percent": 50.25161916367657,
+      "short_run_warning": false
+    },
+    {
+      "benchmark": "mst",
+      "baseline": {
+        "complete": true,
+        "valid_runs": 5,
+        "warmups_valid": true,
+        "invalid_or_missing": 0,
+        "mean_seconds": 0.028480000000000002,
+        "sample_stddev_seconds": 0.0029422780290108558
+      },
+      "asan": {
+        "complete": true,
+        "valid_runs": 5,
+        "warmups_valid": true,
+        "invalid_or_missing": 0,
+        "mean_seconds": 0.044360000000000004,
+        "sample_stddev_seconds": 0.004414521491622847
+      },
+      "status": "valid_pilot",
+      "runtime_ratio": 1.5575842696629214,
+      "overhead_percent": 55.75842696629214,
+      "short_run_warning": true
+    },
+    {
+      "benchmark": "perimeter",
+      "baseline": {
+        "complete": true,
+        "valid_runs": 5,
+        "warmups_valid": true,
+        "invalid_or_missing": 0,
+        "mean_seconds": 0.08044,
+        "sample_stddev_seconds": 0.006602499526694421
+      },
+      "asan": {
+        "complete": true,
+        "valid_runs": 5,
+        "warmups_valid": true,
+        "invalid_or_missing": 0,
+        "mean_seconds": 0.15948,
+        "sample_stddev_seconds": 0.00900982796728107
+      },
+      "status": "valid_pilot",
+      "runtime_ratio": 1.9825957235206366,
+      "overhead_percent": 98.25957235206366,
+      "short_run_warning": false
+    },
+    {
+      "benchmark": "treeadd",
+      "baseline": {
+        "complete": true,
+        "valid_runs": 5,
+        "warmups_valid": true,
+        "invalid_or_missing": 0,
+        "mean_seconds": 0.0937,
+        "sample_stddev_seconds": 0.00549636243346452
+      },
+      "asan": {
+        "complete": true,
+        "valid_runs": 5,
+        "warmups_valid": true,
+        "invalid_or_missing": 0,
+        "mean_seconds": 0.34568,
+        "sample_stddev_seconds": 0.010013341100751551
+      },
+      "status": "valid_pilot",
+      "runtime_ratio": 3.6892209178228383,
+      "overhead_percent": 268.9220917822838,
+      "short_run_warning": false
+    },
+    {
+      "benchmark": "tsp",
+      "baseline": {
+        "complete": true,
+        "valid_runs": 5,
+        "warmups_valid": true,
+        "invalid_or_missing": 0,
+        "mean_seconds": 0.2317,
+        "sample_stddev_seconds": 0.022923350540442384
+      },
+      "asan": {
+        "complete": true,
+        "valid_runs": 5,
+        "warmups_valid": true,
+        "invalid_or_missing": 0,
+        "mean_seconds": 0.35242,
+        "sample_stddev_seconds": 0.015977390275010495
+      },
+      "status": "valid_pilot",
+      "runtime_ratio": 1.5210185584807943,
+      "overhead_percent": 52.101855848079424,
+      "short_run_warning": false
+    }
+  ]
+}
