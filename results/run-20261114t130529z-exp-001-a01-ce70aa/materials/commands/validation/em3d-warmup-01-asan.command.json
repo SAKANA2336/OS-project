@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "/tmp/llvm-asan-build/baseline/tools/fpcmp",
+    "/evidence/validation/normalized-output/em3d-warmup-01-asan.txt",
+    "/evidence/validation/normalized-reference/em3d.txt"
+  ],
+  "timeout_seconds": 10,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 0.010293995000210998
+}

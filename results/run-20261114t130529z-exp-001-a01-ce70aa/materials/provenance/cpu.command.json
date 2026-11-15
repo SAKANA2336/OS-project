@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "lscpu"
+  ],
+  "timeout_seconds": 20,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 0.010912477000601939
+}

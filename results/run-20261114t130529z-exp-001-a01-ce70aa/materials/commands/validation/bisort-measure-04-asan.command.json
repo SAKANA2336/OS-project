@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "/tmp/llvm-asan-build/baseline/tools/fpcmp",
+    "/evidence/validation/normalized-output/bisort-measure-04-asan.txt",
+    "/evidence/validation/normalized-reference/bisort.txt"
+  ],
+  "timeout_seconds": 10,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 0.08174106900059996
+}

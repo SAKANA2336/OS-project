@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "cmake",
+    "--build",
+    "/tmp/llvm-asan-build/asan",
+    "--parallel",
+    "2"
+  ],
+  "timeout_seconds": 300,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 1.2228023469997424
+}

@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "/tmp/llvm-asan-build/baseline/tools/fpcmp",
+    "/evidence/validation/normalized-output/perimeter-measure-03-asan.txt",
+    "/evidence/validation/normalized-reference/perimeter.txt"
+  ],
+  "timeout_seconds": 10,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 0.08678999099993234
+}

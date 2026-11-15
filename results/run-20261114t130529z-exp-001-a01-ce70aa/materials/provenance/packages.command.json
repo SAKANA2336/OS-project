@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "dpkg-query",
+    "-W"
+  ],
+  "timeout_seconds": 20,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 0.0123427830003493
+}

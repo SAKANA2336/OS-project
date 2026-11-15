@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "/tmp/llvm-asan-build/baseline/tools/fpcmp",
+    "/evidence/validation/normalized-output/treeadd-measure-05-asan.txt",
+    "/evidence/validation/normalized-reference/treeadd.txt"
+  ],
+  "timeout_seconds": 10,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 0.005680485000084445
+}

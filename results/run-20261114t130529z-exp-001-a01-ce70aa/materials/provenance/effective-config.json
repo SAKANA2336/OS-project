@@ -1,0 +1,90 @@
+{
+  "experiment_id": "exp-001",
+  "plan_version": "v0.0",
+  "kind": "exploratory-workload-transfer",
+  "source": {
+    "url": "https://github.com/llvm/llvm-test-suite.git",
+    "tag": "llvmorg-18.1.3",
+    "commit": "72a946a42cbce06afef68b2326ff6c3869d09799",
+    "sparse_directories": [
+      "cmake",
+      "tools",
+      "litsupport",
+      "MultiSource/Benchmarks/Olden"
+    ]
+  },
+  "image": "sha256:d79f3238f8d650516f45e8e4ae1072dfea32d5b9f4f7733fedd7a83ae10c3b77",
+  "cc": "clang-18",
+  "cxx": "clang++-18",
+  "c_flags": "-O2 -g -fno-omit-frame-pointer -std=gnu89",
+  "cxx_flags": "-O2 -g -fno-omit-frame-pointer",
+  "asan_flags": "-fsanitize=address",
+  "asan_options": "detect_leaks=0:redzone=32:max_redzone=32:quarantine_size_mb=0:thread_local_quarantine_size_kb=0:malloc_context_size=0:detect_stack_use_after_return=0:halt_on_error=1:exitcode=86",
+  "reference_line_endings": "normalize-crlf-to-lf-for-comparison-only",
+  "repetitions": 5,
+  "warmups": 1,
+  "command_timeout_seconds": 60,
+  "configure_timeout_seconds": 120,
+  "build_timeout_seconds": 300,
+  "overall_timeout_seconds": 1500,
+  "minimum_interpretable_seconds": 0.05,
+  "limits": {
+    "cpus": 2,
+    "memory": "3g",
+    "pids": 128,
+    "tmpfs": "768m",
+    "build_jobs": 2
+  },
+  "benchmarks": [
+    {
+      "name": "bisort",
+      "directory": "MultiSource/Benchmarks/Olden/bisort",
+      "args": [
+        "700000"
+      ],
+      "task": "bitonic sorting"
+    },
+    {
+      "name": "em3d",
+      "directory": "MultiSource/Benchmarks/Olden/em3d",
+      "args": [
+        "1024",
+        "1000",
+        "125"
+      ],
+      "task": "graph-based electromagnetic computation"
+    },
+    {
+      "name": "mst",
+      "directory": "MultiSource/Benchmarks/Olden/mst",
+      "args": [
+        "1000"
+      ],
+      "task": "minimum spanning tree"
+    },
+    {
+      "name": "perimeter",
+      "directory": "MultiSource/Benchmarks/Olden/perimeter",
+      "args": [
+        "10"
+      ],
+      "task": "quadtree perimeter computation"
+    },
+    {
+      "name": "treeadd",
+      "directory": "MultiSource/Benchmarks/Olden/treeadd",
+      "args": [
+        "22"
+      ],
+      "task": "binary tree traversal"
+    },
+    {
+      "name": "tsp",
+      "directory": "MultiSource/Benchmarks/Olden/tsp",
+      "args": [
+        "1024000"
+      ],
+      "task": "travelling salesperson heuristic"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "uname",
+    "-a"
+  ],
+  "timeout_seconds": 20,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 0.00613238599999022
+}

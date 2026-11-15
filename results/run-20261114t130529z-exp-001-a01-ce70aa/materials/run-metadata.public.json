@@ -1,0 +1,32 @@
+{
+  "run_id": "run-20261114t130529z-exp-001-a01-ce70aa",
+  "experiment_id": "exp-001",
+  "kind": "exploratory-workload-transfer",
+  "status": "passed_pilot",
+  "started_at": "2026-11-14T13:05:32Z",
+  "finished_at": "2026-11-14T13:06:17Z",
+  "project_commit": "efd70b62899dd633da2b117073d6b3c2b1f026c0",
+  "project_dirty_at_run": true,
+  "source_commit": "72a946a42cbce06afef68b2326ff6c3869d09799",
+  "source_files_verified": 222,
+  "image_id": "sha256:d79f3238f8d650516f45e8e4ae1072dfea32d5b9f4f7733fedd7a83ae10c3b77",
+  "platform": "Linux x86_64 under Docker Desktop Linux engine on WSL2",
+  "kernel": "6.18.33.2-microsoft-standard-WSL2",
+  "docker_server": "29.7.2",
+  "python": "3.12.3",
+  "cpu_affinity": [
+    0
+  ],
+  "records_total": 72,
+  "warmup_records": 12,
+  "measurement_records": 60,
+  "valid_records": 72,
+  "geometric_mean_runtime_ratio": 1.8988062382555193,
+  "formal_claim_verdict": "inconclusive",
+  "publication_scope": "curated package; full local run is retained separately",
+  "excluded_local_only": [
+    "container-arguments.local.json",
+    "host mount paths",
+    "original local run evidence manifest"
+  ]
+}

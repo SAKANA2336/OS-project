@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "cmake",
+    "-G",
+    "Ninja",
+    "-S",
+    "/suite",
+    "-B",
+    "/tmp/llvm-asan-build/baseline",
+    "-DCMAKE_C_COMPILER=clang-18",
+    "-DCMAKE_CXX_COMPILER=clang++-18",
+    "-DTEST_SUITE_HOST_CC=clang-18",
+    "-DCMAKE_BUILD_TYPE=Release",
+    "-DCMAKE_C_FLAGS_RELEASE=",
+    "-DCMAKE_CXX_FLAGS_RELEASE=",
+    "-DCMAKE_C_FLAGS=-O2 -g -fno-omit-frame-pointer -std=gnu89",
+    "-DCMAKE_CXX_FLAGS=-O2 -g -fno-omit-frame-pointer",
+    "-DCMAKE_EXE_LINKER_FLAGS=",
+    "-DTEST_SUITE_COLLECT_CODE_SIZE=OFF",
+    "-DTEST_SUITE_COLLECT_COMPILE_TIME=OFF",
+    "-DTEST_SUITE_COPY_DATA=ON",
+    "-DTEST_SUITE_SUBDIRS=MultiSource/Benchmarks/Olden/bisort;MultiSource/Benchmarks/Olden/em3d;MultiSource/Benchmarks/Olden/mst;MultiSource/Benchmarks/Olden/perimeter;MultiSource/Benchmarks/Olden/treeadd;MultiSource/Benchmarks/Olden/tsp"
+  ],
+  "timeout_seconds": 120,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 1.2774903059998906
+}

@@ -1,0 +1,11 @@
+{
+    "timed_out":  false,
+    "arguments":  [
+                      "context",
+                      "inspect",
+                      "desktop-linux",
+                      "--format",
+                      "{{.Endpoints.docker.Host}}"
+                  ],
+    "exit_code":  0
+}

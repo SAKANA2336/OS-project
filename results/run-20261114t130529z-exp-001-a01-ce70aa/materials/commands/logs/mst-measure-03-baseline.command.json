@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "/tmp/llvm-asan-build/baseline/tools/timeit",
+    "--timeout",
+    "60",
+    "--limit-core",
+    "0",
+    "--append-exitstatus",
+    "--redirect-output",
+    "/evidence/raw-outputs/mst-measure-03-baseline.output.txt",
+    "--summary",
+    "/evidence/raw-outputs/mst-measure-03-baseline.time.txt",
+    "--chdir",
+    "/tmp/llvm-asan-build/baseline/MultiSource/Benchmarks/Olden/mst",
+    "/tmp/llvm-asan-build/baseline/MultiSource/Benchmarks/Olden/mst/mst",
+    "1000"
+  ],
+  "timeout_seconds": 65,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 0.06901789099993039
+}

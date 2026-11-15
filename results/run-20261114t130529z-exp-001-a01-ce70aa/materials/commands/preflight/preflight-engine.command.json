@@ -1,0 +1,11 @@
+{
+    "timed_out":  false,
+    "arguments":  [
+                      "--context",
+                      "desktop-linux",
+                      "info",
+                      "--format",
+                      "{{json .}}"
+                  ],
+    "exit_code":  0
+}

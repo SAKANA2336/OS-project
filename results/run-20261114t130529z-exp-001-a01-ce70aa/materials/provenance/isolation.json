@@ -1,0 +1,13 @@
+{
+  "non_root": true,
+  "cpu_limit": true,
+  "memory_limit": true,
+  "no_swap": true,
+  "pid_limit": true,
+  "no_capabilities": true,
+  "no_new_privileges": true,
+  "network_disabled": true,
+  "readonly_root": true,
+  "readonly_project": true,
+  "readonly_source": true
+}

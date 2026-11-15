@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "/tmp/llvm-asan-build/baseline/tools/timeit",
+    "--timeout",
+    "60",
+    "--limit-core",
+    "0",
+    "--append-exitstatus",
+    "--redirect-output",
+    "/evidence/raw-outputs/perimeter-measure-05-baseline.output.txt",
+    "--summary",
+    "/evidence/raw-outputs/perimeter-measure-05-baseline.time.txt",
+    "--chdir",
+    "/tmp/llvm-asan-build/baseline/MultiSource/Benchmarks/Olden/perimeter",
+    "/tmp/llvm-asan-build/baseline/MultiSource/Benchmarks/Olden/perimeter/perimeter",
+    "10"
+  ],
+  "timeout_seconds": 65,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 0.18413690499983204
+}

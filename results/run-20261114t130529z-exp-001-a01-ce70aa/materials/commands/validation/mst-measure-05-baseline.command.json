@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "/tmp/llvm-asan-build/baseline/tools/fpcmp",
+    "/evidence/validation/normalized-output/mst-measure-05-baseline.txt",
+    "/evidence/validation/normalized-reference/mst.txt"
+  ],
+  "timeout_seconds": 10,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 0.006168846000036865
+}

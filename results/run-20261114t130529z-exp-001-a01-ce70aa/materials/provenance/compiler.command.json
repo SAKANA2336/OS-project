@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "clang-18",
+    "--version"
+  ],
+  "timeout_seconds": 20,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 0.16770095500032767
+}
