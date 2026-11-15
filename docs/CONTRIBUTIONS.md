@@ -58,3 +58,19 @@ Git 配置邮箱在 GitHub 的绑定状态未通过本轮 Git CLI 检查核实�
 本阶段只提交方案与主张提案，**没有运行确认性实验，没有产生 run ID，没有报告数字**。方案第 10 节与 exp-002 第 9 节列出的探索性观察环境为 WSL2 + Ubuntu 22.04 + clang 14，与方案规定的已验证镜像环境不同，不构成任何主张裁决的依据。
 
 主张尚未登记到 `docs/PROTOCOL.md`（v0.3 中仍为“待定”），登记需另立决定并升版；本阶段未修改该受控对象。
+
+## 陈卓康的报告起草贡献
+
+陈卓康（1240026110）于 2026-11-15 起草最终报告正文 `report/report.md`（v0.0 draft），按课程要求组织为 Introduction and Claims、Reproduction Setup、Results、Analysis of Discrepancies、Extension、Conclusion 六节，并附 References、contribution statement 与 AI usage statement。
+
+| 可检查内容 | 证据入口 |
+| --- | --- |
+| 报告正文（六节 + 参考文献 + 两处声明） | [report.md](../report/report.md) |
+| 三个主张与论文表／图锚点 | 报告 Table 1；[CLAIMS.md](CLAIMS.md) |
+| 完整偏离表（11 项，含未显式固定的 redzone 与 RSS／VmPeak 指标差异） | 报告 Table 4 |
+| 每个报告数字对应的 run 目录 | 报告 Table 8 |
+| 尚未完成项（起始代码 commit、基准机 CPU、图表生成、两项受控重跑） | 报告第 10 节 |
+
+报告中的全部数值取自已提交的 `runs/bench-20261114t171000z/`、`runs/bench-mem-20261115t033100z/` 与 `runs/env-20261108t013027z-6c0e488a/`，未手工录入终端数字。第 10 节明确列出待补证据，这些尚未完成，报告不声称已取得。
+
+本阶段未修改任何受控对象（`docs/PROTOCOL.md`、`docs/CLAIMS.md`、`docs/PROJECT_STATE.md`），未运行新实验，未新增 run ID。
