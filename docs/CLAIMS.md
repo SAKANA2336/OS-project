@@ -78,7 +78,33 @@
 
 ---
 
+## C-003：AddressSanitizer 的内存错误检测能力
+
+- **主张**：AddressSanitizer 能检测堆、栈、全局对象的越界访问（out-of-bounds）以及堆释放后使用（use-after-free）四类内存错误，且无误报。
+- **论文出处**：
+  - Abstract："finds out-of-bounds accesses to heap, stack, and global objects, as well as use-after-free bugs."
+  - Section 3.6："In short, AddressSanitizer has no false positives."
+- **复现方法**：
+  - 用 `cases.c` 测试程序（含 4 类内存错误用例）与 `normal.cpp`（正常 C++ 程序），分别用 native（`clang-18 -O2`）和 ASan（`-fsanitize=address`）编译运行。
+  - 错误用例只运行 ASan 版，验收要求退出码为 86、报错类别正确、含源码位置。
+- **结果**：7 项检查全部通过（`status: passed`）：
+
+  | 检查项 | 预期 | 结果 |
+  | --- | --- | --- |
+  | normal-baseline（普通 C） | 退出 0，输出 `OK 7` | ✅ |
+  | normal-asan（普通 C + ASan） | 退出 0，输出 `OK 7` | ✅ |
+  | normal-cpp（普通 C++ + ASan） | 退出 0，输出 `OK 7` | ✅ |
+  | heap | heap-buffer-overflow + 源码定位 | ✅ |
+  | uaf | heap-use-after-free + 源码定位 | ✅ |
+  | stack | stack-buffer-overflow + 源码定位 | ✅ |
+  | global | global-buffer-overflow + 源码定位 | ✅ |
+
+- **裁决**：`supported`。四类内存错误均被准确检测（退出码、错误类别、源码位置三者齐备），正常程序无误报，与论文主张一致。
+- **偏离**：工具链为现代 Clang 18 而非论文的 LLVM 3.x；测试程序为本项目自写的 `cases.c` 而非论文的特定案例。功能主张本身不受此影响。
+- **可追溯性**：原始验收见 [`runs/env-20261108t013027z-6c0e488a/`](../runs/env-20261108t013027z-6c0e488a/README.md)（`validation/summary.json`、`validation/` 逐项诊断）；测试源码见 [`outputs/asan-environment/cases.c`](../outputs/asan-environment/cases.c) 与 [`outputs/asan-environment/verify.py`](../outputs/asan-environment/verify.py)。
+
+---
+
 ## 未决事项
 
-- 功能检测主张（4 类内存错误）已有环境验收，但尚未提升为正式主张。
 - 扩展实验（一次只改一个因素）尚未设计。

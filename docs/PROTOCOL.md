@@ -8,7 +8,7 @@
 | `document_role` | `current_protocol_index` |
 | `created_at` | `2026-11-07 (Asia/Shanghai)` |
 | `last_verified_at` | `2026-11-15 (Asia/Shanghai)` |
-| `approval_state` | 性能主张 C-001、内存主张 C-002 已登记并有数据（均 partially_supported）；扩展实验未冻结 |
+| `approval_state` | C-001、C-002、C-003 三个主张已登记并有数据（C-001/C-002 partially_supported，C-003 supported）；扩展实验未冻结 |
 | `freeze_state` | `not_frozen` |
 | `supersedes` | `v0.3` |
 | `next_allowed_version` | `v0.5` |
@@ -24,7 +24,7 @@
 | --- | --- | --- |
 | 所选论文 | 方向 8：AddressSanitizer: A Fast Address Sanity Checker | 用户已于 2026-10-30 确认 |
 | 论文版本／发表时间 | USENIX ATC '12 会议发表版本，2012 年 6 月 | 官方书目信息已核对 |
-| 主张及对应表／图 | C-001（平均 slowdown 73%，Figure 2）、C-002（内存 3.37x，Table 1），详见 [CLAIMS.md](CLAIMS.md) | 已登记并有数据 |
+| 主张及对应表／图 | C-001（slowdown 73%，Figure 2）、C-002（内存 3.37x，Table 1）、C-003（检测 4 类内存错误，Abstract／§3.6），详见 [CLAIMS.md](CLAIMS.md) | 已登记并有数据 |
 | 起始代码仓库／commit | 待定 | 未登记 |
 | 许可证 | 待定 | 未核实 |
 | 复现尺度 | 现代工具链方法复现，先做环境功能检查 | 路线已采纳；主张与定量方案待定 |
@@ -88,6 +88,7 @@ Konstantin Serebryany, Derek Bruening, Alexander Potapenko, and Dmitry Vyukov. *
 
 - **C-001（平均 slowdown 73%）**：已执行并有数据，裁决 `partially_supported`（本项目平均 2.22x，论文 1.73x）。详见 [CLAIMS.md](CLAIMS.md)；原始证据见 [`runs/bench-20261114t171000z/`](../runs/bench-20261114t171000z/README.md)。
 - **C-002（内存开销 3.37x）**：已执行并有数据，裁决 `partially_supported`（本项目平均 2.58x，论文 3.37x）。详见 [CLAIMS.md](CLAIMS.md)；原始证据见 [`runs/bench-mem-20261115t033100z/`](../runs/bench-mem-20261115t033100z/README.md)。
+- **C-003（检测 4 类内存错误）**：已执行并有数据，裁决 `supported`（7 项功能检查全部通过）。详见 [CLAIMS.md](CLAIMS.md)；原始证据见 [`runs/env-20261108t013027z-6c0e488a/`](../runs/env-20261108t013027z-6c0e488a/README.md)。
 
 ## 当前未冻结事项
 

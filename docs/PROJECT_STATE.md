@@ -6,12 +6,12 @@
 
 ## 当前阶段
 
-- 阶段：性能主张 C-001、内存主张 C-002 已执行并有数据；扩展实验待开展。
+- 阶段：三个主张 C-001（性能）、C-002（内存）、C-003（功能）已执行并有数据；扩展实验待开展。
 - 所选论文：方向 8，AddressSanitizer: A Fast Address Sanity Checker（USENIX ATC 2012）；2026-10-30 用户确认，2026-11-07 补登记，见 D-007。
-- 待复现主张：C-001（平均 slowdown 73%）、C-002（内存开销 3.37x）均已登记并有数据，裁决均为 partially_supported，见 `docs/CLAIMS.md`。
+- 待复现主张：C-001（slowdown 73%，partially_supported）、C-002（内存 3.37x，partially_supported）、C-003（检测 4 类内存错误，supported），均见 `docs/CLAIMS.md`。
 - 协议：`project-protocol-index v0.4 / draft_index / not_frozen`。
-- 实验状态：容器构建及七项环境功能检查通过；性能主张 C-001（平均 slowdown 2.22x，论文 1.73x）与内存主张 C-002（平均内存增长 2.58x，论文 3.37x）均已执行。
-- 科学／性能结论：C-001、C-002 均裁决 partially_supported（方向正确、量级接近，数值有偏差）。
+- 实验状态：容器构建及七项环境功能检查通过；C-001（平均 slowdown 2.22x）、C-002（平均内存增长 2.58x）、C-003（7/7 功能检查）均已执行。
+- 科学／性能结论：C-001、C-002 partially_supported（方向正确、量级接近）；C-003 supported（功能完全复现）。
 
 ## 已核实入口与产物
 
