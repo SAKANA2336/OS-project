@@ -33,9 +33,9 @@
 
 成昊扬（1240026250）于 2026-11-08 在本机完成 Docker Desktop 与 WSL2 安装、国内镜像加速配置，排查了主机加速器代理干扰问题，并重新完成环境构建与七项功能验收（run ID `env-20261108t125852z-c0c3afe7`，`PASS: 7/7 functional checks`）。本次为独立本机复验，原始环境材料与验收证据仍以既有发布内容为准。
 
-## 成昊扬的性能实验贡献
+## 成昊扬的性能与内存实验贡献
 
-成昊扬（1240026250）于 2026-11-15 完成性能主张 C-001 的正式实验：用 LLVM test-suite 的 6 个 benchmark（经教师邮件授权替代 SPEC CPU2006）测量 ASan 的运行时间开销，平均 slowdown 2.22x，裁决 `partially_supported`。主张记录见 [CLAIMS.md](CLAIMS.md)，原始证据见 [runs/bench-20261114t171000z/](../runs/bench-20261114t171000z/README.md)。
+成昊扬（1240026250）于 2026-11-15 完成性能主张 C-001 与内存主张 C-002 的正式实验：用 LLVM test-suite 的 6 个 benchmark（经教师邮件授权替代 SPEC CPU2006）测量 ASan 的运行时间开销（平均 slowdown 2.22x）与内存开销（平均内存增长 2.58x），裁决均为 `partially_supported`。主张记录见 [CLAIMS.md](CLAIMS.md)，原始证据见 [runs/bench-20261114t171000z/](../runs/bench-20261114t171000z/README.md) 与 [runs/bench-mem-20261115t033100z/](../runs/bench-mem-20261115t033100z/README.md)。
 
 ## 提交身份更正
 

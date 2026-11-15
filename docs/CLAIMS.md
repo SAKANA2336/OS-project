@@ -42,8 +42,43 @@
 
 ---
 
+## C-002：AddressSanitizer 的内存开销
+
+- **主张**：AddressSanitizer 的平均内存开销约为 **3.4x**（Abstract／Introduction 记 3.4x，Table 1 实测总计 **3.37x**）。
+- **论文出处**：
+  - Abstract／Introduction："**3.4x** increased memory usage"。
+  - Section 4 / Table 1："The average memory usage increase is **3.37x**"（总计 8171 → 24467 MB）。
+- **复现方法**：
+  - benchmark：LLVM test-suite 的 6 个程序（同 C-001，替代 SPEC CPU2006，教师授权）。
+  - 指标：最大驻留内存（max RSS，KB），经 `/usr/bin/time -v` 的 `Maximum resident set size` 字段读取。
+  - 编译与 ASan 设置：复用 C-001 的两套构建与 `quarantine_size_mb=0`、`malloc_context_size=0`。
+  - 测量：每个程序各运行 3 次，报告 `mean ± std`。
+- **结果**：
+
+  | benchmark | native mean±std (KB) | ASan mean±std (KB) | ratio |
+  | --- | --- | --- | --- |
+  | Fhourstones | 6728±39 | 11707±155 | 1.74x |
+  | cfrac | 3415±255 | 10003±23 | 2.93x |
+  | espresso | 3533±122 | 12639±24 | 3.58x |
+  | bh | 6368±136 | 15124±38 | 2.38x |
+  | anagram | 3305±60 | 8236±114 | 2.49x |
+  | nbench | 3504±205 | 8392±160 | 2.40x |
+
+  **平均内存增长：2.58x**，范围 1.74x ~ 3.58x。
+- **与论文对比**：论文 3.37x，本项目 2.58x。绝对差异 -0.79x；相对差异 -23%（以论文 3.37x 为基准，2.58/3.37 ≈ 0.77）。
+- **裁决**：`partially_supported`。
+  - 支持面：ASan 确带来显著内存开销（2.58x），方向正确、量级接近（均为「约 3 倍」）；malloc 密集程序（espresso 3.58x、cfrac 2.93x）开销更大，与论文规律一致。
+  - 未完全支持面：平均 2.58x 低于论文的 3.37x。
+- **偏离**：
+  1. 指标：本项目用 max RSS（物理内存峰值）；论文用 VmPeak（虚拟内存峰值，含 shadow memory 的虚拟地址映射）。这是本项目比值偏低的一个重要原因。
+  2. benchmark：LLVM test-suite 替代 SPEC CPU2006（教师授权）。
+  3. 硬件与编译器：现代 CPU + Clang 18 替代论文的 Xeon E5620 + LLVM 3.x。
+  4. 排除：MallocBench/perl 与 MallocBench/gawk。
+- **可追溯性**：原始结果与测量脚本见 [`runs/bench-mem-20261115t033100z/`](../runs/bench-mem-20261115t033100z/README.md)（`memory_results.csv`、`memory_summary.json`、`memory_bench.py`）。
+
+---
+
 ## 未决事项
 
-- 内存开销主张（论文 Table 1，平均 3.37x）尚未开展测量。
 - 功能检测主张（4 类内存错误）已有环境验收，但尚未提升为正式主张。
 - 扩展实验（一次只改一个因素）尚未设计。

@@ -1,0 +1,73 @@
+{
+  "paper_claim": "average memory usage increase 3.37x (Table 1)",
+  "metric": "maximum resident set size (KB), measured via /usr/bin/time -v",
+  "benchmarks": [
+    "Fhourstones",
+    "cfrac",
+    "espresso",
+    "bh",
+    "anagram",
+    "nbench"
+  ],
+  "native_kb": {
+    "Fhourstones": {
+      "mean": 6728,
+      "std": 39.395431207184416
+    },
+    "cfrac": {
+      "mean": 3414.6666666666665,
+      "std": 255.19665619543946
+    },
+    "espresso": {
+      "mean": 3533.3333333333335,
+      "std": 122.26746637324801
+    },
+    "bh": {
+      "mean": 6368,
+      "std": 136.46977687385584
+    },
+    "anagram": {
+      "mean": 3305.3333333333335,
+      "std": 60.04442799572108
+    },
+    "nbench": {
+      "mean": 3504,
+      "std": 204.86092843683005
+    }
+  },
+  "asan_kb": {
+    "Fhourstones": {
+      "mean": 11706.666666666666,
+      "std": 154.93654615142722
+    },
+    "cfrac": {
+      "mean": 10002.666666666666,
+      "std": 23.09401076758503
+    },
+    "espresso": {
+      "mean": 12638.666666666666,
+      "std": 24.440403706431148
+    },
+    "bh": {
+      "mean": 15124,
+      "std": 38.157568056677825
+    },
+    "anagram": {
+      "mean": 8236,
+      "std": 114.47270417003348
+    },
+    "nbench": {
+      "mean": 8392,
+      "std": 160.1499297533408
+    }
+  },
+  "ratio": {
+    "Fhourstones": 1.7399920729290526,
+    "cfrac": 2.929324482623975,
+    "espresso": 3.5769811320754714,
+    "bh": 2.375,
+    "anagram": 2.491730536506656,
+    "nbench": 2.394977168949772
+  },
+  "average_ratio": 2.584667565514154
+}

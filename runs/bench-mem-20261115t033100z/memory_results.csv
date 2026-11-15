@@ -1,0 +1,7 @@
+benchmark,native_kb_mean,native_kb_std,asan_kb_mean,asan_kb_std,ratio
+Fhourstones,6728,39,11707,155,1.7400
+cfrac,3415,255,10003,23,2.9293
+espresso,3533,122,12639,24,3.5770
+bh,6368,136,15124,38,2.3750
+anagram,3305,60,8236,114,2.4917
+nbench,3504,205,8392,160,2.3950
