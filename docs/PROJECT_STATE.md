@@ -1,22 +1,22 @@
 # OS-project 当前状态
 
-最后核实：2026-11-08（Asia/Shanghai）
+最后核实：2026-11-15（Asia/Shanghai）
 
 本文件只记录由用户明确决定、当前仓库文件和已观察命令支持的持久事实；用户决定登记在 `docs/DECISIONS.md`。工作树是否干净、是否领先远端等瞬时 Git 状态必须在操作时实时核验，不在此缓存。
 
 ## 当前阶段
 
-- 阶段：现代基础环境已建成，功能验收通过；正式实验方案准备。
+- 阶段：性能主张 C-001 已执行并有数据；其余主张与扩展实验待开展。
 - 所选论文：方向 8，AddressSanitizer: A Fast Address Sanity Checker（USENIX ATC 2012）；2026-10-30 用户确认，2026-11-07 补登记，见 D-007。
-- 待复现主张：待定。
-- 协议：`project-protocol-index v0.3 / draft_index / not_frozen`。
-- 实验状态：容器构建及七项环境功能检查通过；正式实验未开始。
-- 科学／性能结论：无。
+- 待复现主张：C-001（平均 slowdown 73%）已登记并有数据，裁决 partially_supported，见 `docs/CLAIMS.md`；内存开销主张（论文 Table 1）待开展。
+- 协议：`project-protocol-index v0.4 / draft_index / not_frozen`。
+- 实验状态：容器构建及七项环境功能检查通过；性能主张 C-001 已执行（平均 slowdown 2.22x，论文 1.73x）。
+- 科学／性能结论：性能主张 C-001 裁决 partially_supported（方向正确、量级接近，数值有偏差）。
 
 ## 已核实入口与产物
 
 - 根目录持续规则 `AGENTS.md` 1.0。
-- 当前协议 `docs/PROTOCOL.md` v0.3 及版本档案；v0.0 至 v0.2 历史快照保留。
+- 当前协议 `docs/PROTOCOL.md` v0.4 及版本档案；v0.0 至 v0.3 历史快照保留。
 - 决策、交接和文件治理入口。
 - 双工作区角色检查脚本 `scripts/check-workspace-zone.sh`；本会话 Bash 无法启动，日常区使用 PowerShell 等价检查通过，见 D-011。
 - 本地环境准备包 `outputs/asan-environment/`；实际 Ubuntu 24.04.5 LTS、Clang/LLVM/compiler-rt 18.1.3、C/C++ 编译与七项真实功能检查通过。此前 14 项 Python 单元测试与 PowerShell 语法检查仍仅作为脚本验证。
@@ -28,7 +28,7 @@
 - 当前提交成员：王博文，学号 `1240026080`，GitHub 账号 `wbw374`；姓名、学号由用户本轮直接确认，贡献与验收入口见 `docs/CONTRIBUTIONS.md`、D-015。历史另有张瀚洋（1240036026）的成员登记，其 GitHub 账号及完整分工待核实；两人不共用身份对应。
 - 环境材料已发布于 `2c4a89badee35dd8ae50442894c7a296d2e7eacf`，此前 push 与远端同哈希已核验；后续 `7ddc1b083991f02a5bd2fd72de5d55c46e0a96fd` 使用 `wbw374` 提交并发布，但错误沿用了历史成员的姓名与学号，现由 D-015 修正当前对应关系，旧提交保留。
 
-环境验收通过不代表论文数值已复现。当前没有正式性能实验、报告数字或主张裁决。
+性能主张 C-001 已有实验数据与裁决（partially_supported），但内存开销主张、扩展实验与最终报告尚未完成。
 
 ## 双工作区状态
 

@@ -3,17 +3,17 @@
 | 字段 | 当前值 |
 | --- | --- |
 | `controlled_object_id` | `project-protocol-index` |
-| `exact_version` | `v0.3` |
+| `exact_version` | `v0.4` |
 | `status` | `draft_index` |
 | `document_role` | `current_protocol_index` |
 | `created_at` | `2026-11-07 (Asia/Shanghai)` |
-| `last_verified_at` | `2026-11-08 (Asia/Shanghai)` |
-| `approval_state` | 现代准备环境已通过功能验收；正式定量实验方案未冻结 |
+| `last_verified_at` | `2026-11-15 (Asia/Shanghai)` |
+| `approval_state` | 性能主张 C-001 已登记并有数据（partially_supported）；内存主张与扩展实验未冻结 |
 | `freeze_state` | `not_frozen` |
-| `supersedes` | `v0.2` |
-| `next_allowed_version` | `v0.4` |
+| `supersedes` | `v0.3` |
+| `next_allowed_version` | `v0.5` |
 | `major_version_authorization` | `absent` |
-| `archive_ref` | [`PROTOCOL_VERSION_ARCHIVE.md#v03`](PROTOCOL_VERSION_ARCHIVE.md#v03) |
+| `archive_ref` | [`PROTOCOL_VERSION_ARCHIVE.md#v04`](PROTOCOL_VERSION_ARCHIVE.md#v04) |
 | `source_of_authority` | 方向 8 选题见 D-007；用户于 2026-11-08 以“按照你的来”接受现代环境准备建议，见 D-010；课程任务书 |
 
 本文件是当前复现协议的唯一项目级入口。它索引已采纳的论文、主张和实验边界；不把课程清单、候选论文或目录模板冒充已选择方案。
@@ -24,7 +24,7 @@
 | --- | --- | --- |
 | 所选论文 | 方向 8：AddressSanitizer: A Fast Address Sanity Checker | 用户已于 2026-10-30 确认 |
 | 论文版本／发表时间 | USENIX ATC '12 会议发表版本，2012 年 6 月 | 官方书目信息已核对 |
-| 主张及对应表／图 | 待定 | 未登记 |
+| 主张及对应表／图 | C-001：平均 slowdown 73%（Abstract；Figure 2），详见 [CLAIMS.md](CLAIMS.md) | 已登记并有数据 |
 | 起始代码仓库／commit | 待定 | 未登记 |
 | 许可证 | 待定 | 未核实 |
 | 复现尺度 | 现代工具链方法复现，先做环境功能检查 | 路线已采纳；主张与定量方案待定 |
@@ -84,8 +84,10 @@ Konstantin Serebryany, Derek Bruening, Alexander Potapenko, and Dmitry Vyukov. *
 9. 配置、代码、运行入口、日志、预期产物和报告生成入口；
 10. OS 高风险操作是否涉及特权、内核、磁盘、fuzzer、崩溃或网络暴露。
 
+## 已登记主张
+
+- **C-001（平均 slowdown 73%）**：已执行并有数据，裁决 `partially_supported`（本项目平均 2.22x，论文 1.73x）。详见 [CLAIMS.md](CLAIMS.md)；原始证据见 [`runs/bench-20261114t171000z/`](../runs/bench-20261114t171000z/README.md)。
+
 ## 当前未冻结事项
 
-论文主题、现代准备路线、实际工具链、包版本、镜像 ID 和七项环境验收已登记。主张、起始代码 commit、workload、输入、定量指标、成功阈值、统计方案、扩展条件、正式资源预算和运行入口仍未冻结。未知项保持“待定”。
-
-本版本登记已授权的依赖准备、容器构建和有界功能检查，不授权正式性能实验、系统代理或 DNS 修改、commit、push 或标签，不产生任何复现结论。
+论文主题、现代准备路线、实际工具链、包版本、镜像 ID 和七项环境验收已登记；性能主张 C-001 已登记并有数据。内存开销主张、起始代码 commit、扩展条件、正式资源预算和运行入口仍未冻结。未知项保持“待定”。

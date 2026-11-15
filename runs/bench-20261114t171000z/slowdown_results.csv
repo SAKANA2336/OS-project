@@ -1,0 +1,7 @@
+benchmark,native_mean_s,native_std_s,asan_mean_s,asan_std_s,slowdown
+MultiSource/Benchmarks/Fhourstones/fhourstones,0.315100,0.004670,0.465033,0.016768,1.475828
+MultiSource/Benchmarks/MallocBench/cfrac/cfrac,0.254533,0.000473,1.065600,0.049050,4.186485
+MultiSource/Benchmarks/MallocBench/espresso/espresso,0.146333,0.003235,0.333833,0.003522,2.281321
+MultiSource/Benchmarks/Olden/bh/bh,0.720667,0.008534,1.530967,0.008907,2.124376
+MultiSource/Benchmarks/Ptrdist/anagram/anagram,0.372600,0.020242,0.655000,0.054465,1.757917
+MultiSource/Benchmarks/nbench/nbench,0.541300,0.007835,0.793200,0.003874,1.465361

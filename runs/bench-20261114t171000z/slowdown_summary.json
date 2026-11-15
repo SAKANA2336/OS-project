@@ -1,0 +1,72 @@
+{
+  "paper_claim": "average slowdown 73% (1.73x) on SPEC CPU2006",
+  "benchmarks_used": [
+    "MultiSource/Benchmarks/Fhourstones/fhourstones",
+    "MultiSource/Benchmarks/MallocBench/cfrac/cfrac",
+    "MultiSource/Benchmarks/MallocBench/espresso/espresso",
+    "MultiSource/Benchmarks/Olden/bh/bh",
+    "MultiSource/Benchmarks/Ptrdist/anagram/anagram",
+    "MultiSource/Benchmarks/nbench/nbench"
+  ],
+  "native": {
+    "MultiSource/Benchmarks/Fhourstones/fhourstones": {
+      "mean": 0.3151,
+      "std": 0.004670117771534262
+    },
+    "MultiSource/Benchmarks/MallocBench/cfrac/cfrac": {
+      "mean": 0.25453333333333333,
+      "std": 0.00047258156262526167
+    },
+    "MultiSource/Benchmarks/MallocBench/espresso/espresso": {
+      "mean": 0.14633333333333334,
+      "std": 0.003234707611722174
+    },
+    "MultiSource/Benchmarks/Olden/bh/bh": {
+      "mean": 0.7206666666666667,
+      "std": 0.008533658847958113
+    },
+    "MultiSource/Benchmarks/Ptrdist/anagram/anagram": {
+      "mean": 0.3726,
+      "std": 0.02024154144327945
+    },
+    "MultiSource/Benchmarks/nbench/nbench": {
+      "mean": 0.5413,
+      "std": 0.007835177087979572
+    }
+  },
+  "asan": {
+    "MultiSource/Benchmarks/Fhourstones/fhourstones": {
+      "mean": 0.4650333333333333,
+      "std": 0.01676792573138769
+    },
+    "MultiSource/Benchmarks/MallocBench/cfrac/cfrac": {
+      "mean": 1.0656,
+      "std": 0.049050076452539844
+    },
+    "MultiSource/Benchmarks/MallocBench/espresso/espresso": {
+      "mean": 0.3338333333333333,
+      "std": 0.0035218366420567138
+    },
+    "MultiSource/Benchmarks/Olden/bh/bh": {
+      "mean": 1.5309666666666666,
+      "std": 0.008907487487127585
+    },
+    "MultiSource/Benchmarks/Ptrdist/anagram/anagram": {
+      "mean": 0.655,
+      "std": 0.05446494285317848
+    },
+    "MultiSource/Benchmarks/nbench/nbench": {
+      "mean": 0.7932,
+      "std": 0.0038742741255620664
+    }
+  },
+  "slowdown": {
+    "MultiSource/Benchmarks/Fhourstones/fhourstones": 1.4758277795408865,
+    "MultiSource/Benchmarks/MallocBench/cfrac/cfrac": 4.186485070717653,
+    "MultiSource/Benchmarks/MallocBench/espresso/espresso": 2.2813211845102503,
+    "MultiSource/Benchmarks/Olden/bh/bh": 2.1243755781683626,
+    "MultiSource/Benchmarks/Ptrdist/anagram/anagram": 1.7579173376274826,
+    "MultiSource/Benchmarks/nbench/nbench": 1.4653611675595788
+  },
+  "average_slowdown": 2.215214686354036
+}
