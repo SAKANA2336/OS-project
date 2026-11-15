@@ -1,0 +1,2 @@
+# Keep captured evidence byte-identical to SHA256SUMS.txt on every platform.
+* -text

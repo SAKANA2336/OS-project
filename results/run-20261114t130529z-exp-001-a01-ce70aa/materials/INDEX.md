@@ -76,3 +76,8 @@ that local file, so this package must not be described as a byte-for-byte
 publication of the entire local run. The package has its own
 `SHA256SUMS.txt` for the files actually delivered here.
 
+The directory-local `.gitattributes` preserves every file's original bytes
+across Git checkouts. A publication repair on 2026-11-15 restored captured
+line endings and disabled automatic line-ending conversion in this directory.
+The original evidence SHA-256 entries and experimental values remain unchanged.
+
