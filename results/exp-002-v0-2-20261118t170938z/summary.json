@@ -1,0 +1,466 @@
+{
+  "experiment_id": "exp-002",
+  "campaign_id": "exp-002-v0-2-20261118t170938z",
+  "attempts": [
+    {
+      "run_id": "run-20261118t171710z-exp-002-a01",
+      "included": true,
+      "outer_seal_sha256": "4cf3f305363c42d16e9bd7be393fbac2286902b55160292588f3601d8c63eebb",
+      "batch_slot": 0,
+      "status": "passed_batch",
+      "records_sha256": "31c48df6250d744dc5028f1748c8f6e26f2df9793ca71ed39c7276c2435b3166",
+      "batch": {
+        "benchmarks": {
+          "bisort": {
+            "arms": {
+              "rz32": {
+                "mean_seconds": 0.62012,
+                "sample_sd_seconds": 0.003986477141537373,
+                "n": 5
+              },
+              "rz64": {
+                "mean_seconds": 0.66884,
+                "sample_sd_seconds": 0.004807078114613896,
+                "n": 5
+              }
+            },
+            "runtime_ratio": 1.0785654389473005,
+            "short_run_warning": false
+          },
+          "em3d": {
+            "arms": {
+              "rz32": {
+                "mean_seconds": 3.023,
+                "sample_sd_seconds": 0.005469460668109747,
+                "n": 5
+              },
+              "rz64": {
+                "mean_seconds": 3.03714,
+                "sample_sd_seconds": 0.008271819630528707,
+                "n": 5
+              }
+            },
+            "runtime_ratio": 1.0046774727092291,
+            "short_run_warning": false
+          },
+          "mst": {
+            "arms": {
+              "rz32": {
+                "mean_seconds": 0.0607,
+                "sample_sd_seconds": 0.0008573214099741121,
+                "n": 5
+              },
+              "rz64": {
+                "mean_seconds": 0.0606,
+                "sample_sd_seconds": 0.0009513148795220235,
+                "n": 5
+              }
+            },
+            "runtime_ratio": 0.9983525535420099,
+            "short_run_warning": false
+          },
+          "perimeter": {
+            "arms": {
+              "rz32": {
+                "mean_seconds": 0.2983,
+                "sample_sd_seconds": 0.0016294170736800232,
+                "n": 5
+              },
+              "rz64": {
+                "mean_seconds": 0.32484,
+                "sample_sd_seconds": 0.002062280291328017,
+                "n": 5
+              }
+            },
+            "runtime_ratio": 1.0889708347301374,
+            "short_run_warning": false
+          },
+          "treeadd": {
+            "arms": {
+              "rz32": {
+                "mean_seconds": 0.6112000000000001,
+                "sample_sd_seconds": 0.005785758377257042,
+                "n": 5
+              },
+              "rz64": {
+                "mean_seconds": 0.64092,
+                "sample_sd_seconds": 0.010019830337884948,
+                "n": 5
+              }
+            },
+            "runtime_ratio": 1.0486256544502617,
+            "short_run_warning": false
+          },
+          "tsp": {
+            "arms": {
+              "rz32": {
+                "mean_seconds": 0.63442,
+                "sample_sd_seconds": 0.003552041666422296,
+                "n": 5
+              },
+              "rz64": {
+                "mean_seconds": 0.78886,
+                "sample_sd_seconds": 0.0028953410852609494,
+                "n": 5
+              }
+            },
+            "runtime_ratio": 1.2434349484568583,
+            "short_run_warning": false
+          }
+        },
+        "arithmetic_mean_runtime_ratio": 1.0771044838059662,
+        "geometric_mean_runtime_ratio": 1.074161252533862,
+        "arithmetic_mean_runtime_ratio_without_mst": 1.0928548698587575
+      },
+      "vm_id": "run-20261118t171710z-exp-002-a01",
+      "counts": {
+        "warmups": 12,
+        "measurements": 60,
+        "measured_pairs": 30
+      }
+    },
+    {
+      "run_id": "run-20261118t171927z-exp-002-a02",
+      "included": true,
+      "outer_seal_sha256": "a74e2c649e0630b578116ccbe1b301e149567a61d0bde10949ae7ec6d30e2363",
+      "batch_slot": 1,
+      "status": "passed_batch",
+      "records_sha256": "5d9c69ba2f7be1aa7c903adc14c6c12eedfe994e805aeb755371fe9410ec03fb",
+      "batch": {
+        "benchmarks": {
+          "bisort": {
+            "arms": {
+              "rz32": {
+                "mean_seconds": 0.62742,
+                "sample_sd_seconds": 0.005540487343185621,
+                "n": 5
+              },
+              "rz64": {
+                "mean_seconds": 0.66386,
+                "sample_sd_seconds": 0.004804477078725663,
+                "n": 5
+              }
+            },
+            "runtime_ratio": 1.0580791176564344,
+            "short_run_warning": false
+          },
+          "em3d": {
+            "arms": {
+              "rz32": {
+                "mean_seconds": 3.0257199999999997,
+                "sample_sd_seconds": 0.0021902054698132584,
+                "n": 5
+              },
+              "rz64": {
+                "mean_seconds": 3.02566,
+                "sample_sd_seconds": 0.0021801376103356873,
+                "n": 5
+              }
+            },
+            "runtime_ratio": 0.9999801700091218,
+            "short_run_warning": false
+          },
+          "mst": {
+            "arms": {
+              "rz32": {
+                "mean_seconds": 0.06066,
+                "sample_sd_seconds": 0.0012033287165193062,
+                "n": 5
+              },
+              "rz64": {
+                "mean_seconds": 0.06136,
+                "sample_sd_seconds": 0.0014570518178843215,
+                "n": 5
+              }
+            },
+            "runtime_ratio": 1.01153972964062,
+            "short_run_warning": false
+          },
+          "perimeter": {
+            "arms": {
+              "rz32": {
+                "mean_seconds": 0.29832,
+                "sample_sd_seconds": 0.0017963852593472407,
+                "n": 5
+              },
+              "rz64": {
+                "mean_seconds": 0.32602,
+                "sample_sd_seconds": 0.0013809417076763241,
+                "n": 5
+              }
+            },
+            "runtime_ratio": 1.0928533118798607,
+            "short_run_warning": false
+          },
+          "treeadd": {
+            "arms": {
+              "rz32": {
+                "mean_seconds": 0.60612,
+                "sample_sd_seconds": 0.002212916627439887,
+                "n": 5
+              },
+              "rz64": {
+                "mean_seconds": 0.6468200000000001,
+                "sample_sd_seconds": 0.008699252841480131,
+                "n": 5
+              }
+            },
+            "runtime_ratio": 1.0671484194548935,
+            "short_run_warning": false
+          },
+          "tsp": {
+            "arms": {
+              "rz32": {
+                "mean_seconds": 0.63508,
+                "sample_sd_seconds": 0.0013553597308463927,
+                "n": 5
+              },
+              "rz64": {
+                "mean_seconds": 0.78994,
+                "sample_sd_seconds": 0.008353921234965027,
+                "n": 5
+              }
+            },
+            "runtime_ratio": 1.2438432953328715,
+            "short_run_warning": false
+          }
+        },
+        "arithmetic_mean_runtime_ratio": 1.0789073406623002,
+        "geometric_mean_runtime_ratio": 1.0760707025045302,
+        "arithmetic_mean_runtime_ratio_without_mst": 1.0923808628666363
+      },
+      "vm_id": "run-20261118t171927z-exp-002-a02",
+      "counts": {
+        "warmups": 12,
+        "measurements": 60,
+        "measured_pairs": 30
+      }
+    },
+    {
+      "run_id": "run-20261118t172144z-exp-002-a03",
+      "included": true,
+      "outer_seal_sha256": "36f7792fa4902d9684d167c6ed50bbf86d9b239ea71ce16ffb522b3f1aa8a4ef",
+      "batch_slot": 2,
+      "status": "passed_batch",
+      "records_sha256": "0a43c8ee036371b1d7df46672b74dfa1d8499a7417038fb63745e1531bb9ca0f",
+      "batch": {
+        "benchmarks": {
+          "bisort": {
+            "arms": {
+              "rz32": {
+                "mean_seconds": 0.62676,
+                "sample_sd_seconds": 0.006803161029991885,
+                "n": 5
+              },
+              "rz64": {
+                "mean_seconds": 0.66584,
+                "sample_sd_seconds": 0.003256224807963932,
+                "n": 5
+              }
+            },
+            "runtime_ratio": 1.062352415597677,
+            "short_run_warning": false
+          },
+          "em3d": {
+            "arms": {
+              "rz32": {
+                "mean_seconds": 3.12398,
+                "sample_sd_seconds": 0.22355654094658015,
+                "n": 5
+              },
+              "rz64": {
+                "mean_seconds": 3.02794,
+                "sample_sd_seconds": 0.013699927007104883,
+                "n": 5
+              }
+            },
+            "runtime_ratio": 0.9692571655388319,
+            "short_run_warning": false
+          },
+          "mst": {
+            "arms": {
+              "rz32": {
+                "mean_seconds": 0.06162,
+                "sample_sd_seconds": 0.0035555590277760825,
+                "n": 5
+              },
+              "rz64": {
+                "mean_seconds": 0.06088,
+                "sample_sd_seconds": 0.0017711578134090684,
+                "n": 5
+              }
+            },
+            "runtime_ratio": 0.9879909120415449,
+            "short_run_warning": false
+          },
+          "perimeter": {
+            "arms": {
+              "rz32": {
+                "mean_seconds": 0.29852,
+                "sample_sd_seconds": 0.002733495930123178,
+                "n": 5
+              },
+              "rz64": {
+                "mean_seconds": 0.33908,
+                "sample_sd_seconds": 0.030952415091556267,
+                "n": 5
+              }
+            },
+            "runtime_ratio": 1.1358702934476752,
+            "short_run_warning": false
+          },
+          "treeadd": {
+            "arms": {
+              "rz32": {
+                "mean_seconds": 0.6079600000000001,
+                "sample_sd_seconds": 0.006050867706370706,
+                "n": 5
+              },
+              "rz64": {
+                "mean_seconds": 0.67458,
+                "sample_sd_seconds": 0.07773732694143785,
+                "n": 5
+              }
+            },
+            "runtime_ratio": 1.1095795776037896,
+            "short_run_warning": false
+          },
+          "tsp": {
+            "arms": {
+              "rz32": {
+                "mean_seconds": 0.6325,
+                "sample_sd_seconds": 0.0045634416836418555,
+                "n": 5
+              },
+              "rz64": {
+                "mean_seconds": 0.78296,
+                "sample_sd_seconds": 0.004219360141064034,
+                "n": 5
+              }
+            },
+            "runtime_ratio": 1.2378814229249013,
+            "short_run_warning": false
+          }
+        },
+        "arithmetic_mean_runtime_ratio": 1.0838219645257365,
+        "geometric_mean_runtime_ratio": 1.080034935295374,
+        "arithmetic_mean_runtime_ratio_without_mst": 1.102988175022575
+      },
+      "vm_id": "run-20261118t172144z-exp-002-a03",
+      "counts": {
+        "warmups": 12,
+        "measurements": 60,
+        "measured_pairs": 30
+      }
+    }
+  ],
+  "included_batch_slots": [
+    0,
+    1,
+    2
+  ],
+  "missing_valid_batch_slots": [],
+  "included_counts": {
+    "warmups": 36,
+    "measurements": 180,
+    "measured_pairs": 90
+  },
+  "unresolved_deviations": [],
+  "verdict": "supported",
+  "aggregate": {
+    "arithmetic_mean_runtime_ratio": {
+      "batch_values": [
+        1.0771044838059662,
+        1.0789073406623002,
+        1.0838219645257365
+      ],
+      "mean": 1.0799445963313343,
+      "sample_sd": 0.0034767889348260674,
+      "n": 3
+    },
+    "geometric_mean_runtime_ratio": {
+      "batch_values": [
+        1.074161252533862,
+        1.0760707025045302,
+        1.080034935295374
+      ],
+      "mean": 1.0767556301112553,
+      "sample_sd": 0.0029961444667374712,
+      "n": 3
+    },
+    "arithmetic_mean_runtime_ratio_without_mst": {
+      "batch_values": [
+        1.0928548698587575,
+        1.0923808628666363,
+        1.102988175022575
+      ],
+      "mean": 1.0960746359159896,
+      "sample_sd": 0.005991989476864852,
+      "n": 3
+    },
+    "benchmarks": {
+      "bisort": {
+        "batch_values": [
+          1.0785654389473005,
+          1.0580791176564344,
+          1.062352415597677
+        ],
+        "mean": 1.0663323240671372,
+        "sample_sd": 0.010807501726907589,
+        "n": 3
+      },
+      "em3d": {
+        "batch_values": [
+          1.0046774727092291,
+          0.9999801700091218,
+          0.9692571655388319
+        ],
+        "mean": 0.9913049360857276,
+        "sample_sd": 0.019237835188256763,
+        "n": 3
+      },
+      "mst": {
+        "batch_values": [
+          0.9983525535420099,
+          1.01153972964062,
+          0.9879909120415449
+        ],
+        "mean": 0.9992943984080582,
+        "sample_sd": 0.011802627097066247,
+        "n": 3
+      },
+      "perimeter": {
+        "batch_values": [
+          1.0889708347301374,
+          1.0928533118798607,
+          1.1358702934476752
+        ],
+        "mean": 1.105898146685891,
+        "sample_sd": 0.02602912970763668,
+        "n": 3
+      },
+      "treeadd": {
+        "batch_values": [
+          1.0486256544502617,
+          1.0671484194548935,
+          1.1095795776037896
+        ],
+        "mean": 1.075117883836315,
+        "sample_sd": 0.031248671313299132,
+        "n": 3
+      },
+      "tsp": {
+        "batch_values": [
+          1.2434349484568583,
+          1.2438432953328715,
+          1.2378814229249013
+        ],
+        "mean": 1.241719888904877,
+        "sample_sd": 0.0033304733300779767,
+        "n": 3
+      }
+    }
+  },
+  "plan_sha256": "a9694a652dcba283f4ce3674b532721eebc96900ace676cb6984766bef13d79d",
+  "config_payload_sha256": "e6ebe074a1b3cda4c267de845e68ba17a1ad973db3ac61d806ceaad768938bab"
+}

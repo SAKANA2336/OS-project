@@ -1,0 +1,16 @@
+{
+  "audit_exit": 0,
+  "campaign_id": "exp-001-v0-2-20261118t170938z",
+  "cumulative_seconds": 786.104508376,
+  "experiment_id": "exp-001",
+  "finished_at": "2026-11-18T17:15:55.221012+00:00",
+  "prior_preflight_seconds": 410.33380104199995,
+  "run_ids": [
+    "run-20261118t170939z-exp-001-a01",
+    "run-20261118t171144z-exp-001-a02",
+    "run-20261118t171349z-exp-001-a03"
+  ],
+  "started_at": "2026-11-18T17:09:39.199490+00:00",
+  "status": "complete",
+  "summary_sha256": "eb28447ba05382968cf948c86ba1b2bd1127a56b548b880de5904c1624c8a353"
+}

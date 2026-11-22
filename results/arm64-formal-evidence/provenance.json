@@ -1,0 +1,67 @@
+{
+  "description": "Byte-exact measurement CSV exports from the six completed ARM64 Olden batches.",
+  "campaigns": [
+    {
+      "id": "exp-001-v0-2-20261118t170938z",
+      "experiment_id": "exp-001",
+      "summary_sha256": "eb28447ba05382968cf948c86ba1b2bd1127a56b548b880de5904c1624c8a353",
+      "runs": [
+        {
+          "run_id": "run-20261118t170939z-exp-001-a01",
+          "batch_slot": 0,
+          "csv": "run-20261118t170939z-exp-001-a01.csv",
+          "sha256": "4e8e0780c2d2353b9732244241f822f3b4c7125493e8a28ebd17934491c945ed",
+          "original_path": "runs/run-20261118t170939z-exp-001-a01/guest-evidence/data/run-20261118t170939z-exp-001-a01/metrics/samples.csv",
+          "original_run_seal_sha256": "0272bdcb790d1408b34a15e750536b822666e67c4276ef7d21db02159b4babf3"
+        },
+        {
+          "run_id": "run-20261118t171144z-exp-001-a02",
+          "batch_slot": 1,
+          "csv": "run-20261118t171144z-exp-001-a02.csv",
+          "sha256": "3d8b3669a779f6470904e15edb9d82a08d6da9faca199eb8b5cce6ce5f4190f5",
+          "original_path": "runs/run-20261118t171144z-exp-001-a02/guest-evidence/data/run-20261118t171144z-exp-001-a02/metrics/samples.csv",
+          "original_run_seal_sha256": "49611133168ec0005a20b07604fe9429e426afb6a7df1e3fb77be615aff1409f"
+        },
+        {
+          "run_id": "run-20261118t171349z-exp-001-a03",
+          "batch_slot": 2,
+          "csv": "run-20261118t171349z-exp-001-a03.csv",
+          "sha256": "fae05e4120eccf5b5156fe75fcc2be7269da46d2b71d10fedf781645ad7adaa7",
+          "original_path": "runs/run-20261118t171349z-exp-001-a03/guest-evidence/data/run-20261118t171349z-exp-001-a03/metrics/samples.csv",
+          "original_run_seal_sha256": "adfb05529e03ead8d807c024be917259be73672858dbc1f96b1e01e02b595112"
+        }
+      ]
+    },
+    {
+      "id": "exp-002-v0-2-20261118t170938z",
+      "experiment_id": "exp-002",
+      "summary_sha256": "ac0267acbcf2fef3294e4f6badd902037277a20c32eefa9e4562c47c0fb1373e",
+      "runs": [
+        {
+          "run_id": "run-20261118t171710z-exp-002-a01",
+          "batch_slot": 0,
+          "csv": "run-20261118t171710z-exp-002-a01.csv",
+          "sha256": "3baf4076e30825f68a2f3170ab0dba2451e3841776908368ec8beda21d1c9cff",
+          "original_path": "runs/run-20261118t171710z-exp-002-a01/guest-evidence/data/run-20261118t171710z-exp-002-a01/metrics/samples.csv",
+          "original_run_seal_sha256": "4cf3f305363c42d16e9bd7be393fbac2286902b55160292588f3601d8c63eebb"
+        },
+        {
+          "run_id": "run-20261118t171927z-exp-002-a02",
+          "batch_slot": 1,
+          "csv": "run-20261118t171927z-exp-002-a02.csv",
+          "sha256": "142ce1cff63f9c118e079119d6e2a34dfad772eb0507ed4f68d61f9bf4aae894",
+          "original_path": "runs/run-20261118t171927z-exp-002-a02/guest-evidence/data/run-20261118t171927z-exp-002-a02/metrics/samples.csv",
+          "original_run_seal_sha256": "a74e2c649e0630b578116ccbe1b301e149567a61d0bde10949ae7ec6d30e2363"
+        },
+        {
+          "run_id": "run-20261118t172144z-exp-002-a03",
+          "batch_slot": 2,
+          "csv": "run-20261118t172144z-exp-002-a03.csv",
+          "sha256": "6d6702681ac609465194f94e218e1823f6f16c2ad832c60a26a07f95f8ea9fe8",
+          "original_path": "runs/run-20261118t172144z-exp-002-a03/guest-evidence/data/run-20261118t172144z-exp-002-a03/metrics/samples.csv",
+          "original_run_seal_sha256": "36f7792fa4902d9684d167c6ed50bbf86d9b239ea71ce16ffb522b3f1aa8a4ef"
+        }
+      ]
+    }
+  ]
+}
