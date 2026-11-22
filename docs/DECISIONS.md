@@ -1,180 +1,117 @@
-# OS-project 决策记录
+# Project decisions
 
-最后核实：2026-11-08（Asia/Shanghai）
+This record summarizes effective decisions and their historical context. Dates use Asia/Shanghai. The original published wording of D-001 through D-015 is recoverable from `84606a8bf3d891bda612f31133e7c683fa664a16:docs/DECISIONS.md`. The original local records for D-016 through D-027 remain with the sealed ARM64 evidence.
 
-本文件按时间追加决定及其证据范围。当前效力以较新决定中的取代关系为准；候选论文、参数或聊天讨论不因出现过而自动成为已采纳决定。
+## D-001 Establish the project and governance baseline
 
-## 当前效力索引
+2026-10-30. Establish the CS340 repository rules and a source-grounded project record. The initial text left the paper selection pending. D-007 records the selection already made on that date.
 
-| 决定 | 当前效力 |
-| --- | --- |
-| D-001 | 选题待定描述被 D-007 取代；其余实验边界仍有效 |
-| D-002 至 D-006 | 当前有效；首次治理提交与发布的完成事实见 D-008 |
-| D-007、D-008 | 当前有效；本次状态修正的发布授权由 D-009 补充 |
-| D-009 | 仅适用于本次状态修正发布 |
-| D-010 | 现代环境准备路线与有界检查授权有效；不含正式 benchmark |
-| D-011 | 本会话日常区恢复与 PowerShell 角色核验 |
-| D-012 | 记录环境功能验收通过；不产生论文主张裁决 |
-| D-013 | 授权本次环境搭建材料、验收证据与状态记录提交并推送 |
-| D-014 | `wbw374` 提交身份继续有效；姓名和学号关联由 D-015 更正 |
-| D-015 | 当前提交成员为王博文（1240026080），对应 `wbw374`，授权发布身份更正 |
+## D-002 Separate development and release
 
-## D-001 当前阶段与目标边界
+2026-10-30. Use two independent repositories. The daily repository has no remote. The release repository tracks the canonical GitHub `main` branch and is used for authorized publication. Bootstrap provisioning was a one-time exception for the independent clone and role markers. Verify both repositories with the role script. Use Git CLI for GitHub operations and preserve contribution boundaries.
 
-- 状态：采纳。
-- 生效日期：2026-10-30。
-- 事项：当前阶段为治理 bootstrap 与复现范围准备；项目目标是完成一篇课程清单中操作系统论文的受控复现和单因素扩展。
-- 边界：所选论文、主张、代码、环境和实验均为待定。目录、模板和规则不代表实现或结果。
-- 影响：在协议下一版本确认前，不启动正式复现实验。
+## D-003 Use the course brief as the source for requirements
 
-## D-002 双工作区隔离
+2026-10-30. Follow *Research Paper Replication – CS340* for the report, Git review and registration requirements. Original brief SHA-256 is `d129642a953ab1ecd7c27bf67dc667887867ec4045b72917bedaf6b76cc2666c`. Obtain the separate Presentation Instruction before treating any presentation format as confirmed.
 
-- 状态：采纳。
-- 生效日期：2026-10-30。
-- 日常开发区：`<workspace-parent>/OS-project-local`，独立 Git 仓库且无 remote。
-- GitHub 发布区：`<workspace-parent>/OS-project`，预期 `origin` 为 `https://github.com/SAKANA2336/OS-project.git`，默认只读。
-- 事项：所有日常工作和本地 commit 只在日常区；仅在用户明确授权 push 后，才按 allowlist 将获准内容同步到发布区、验证、commit 并推送。
-- 现状：本次开始时的历史目录已经配置 `origin`，因此按发布区处理。本轮规则编写是制度生效前的 bootstrap；不静默删除 remote 或重命名根目录。随后按一次性 provisioning 建立 `OS-project-local`，移除新 clone 的临时 remote，写入角色标记并通过独立 `.git`／无 remote 检查；发布区 `main` 也已设置跟踪 `origin/main` 并通过角色检查。
-- 影响：两个区域不得用分支或 `git worktree` 代替；完成 bootstrap 后发布区不再用于日常实现或实验。
-- 角色证据：两区使用不跟踪的 `.local/workspace-role`，并验证独立 `.git`、规范目录名、remote、发布分支和 upstream。
-- 一次性 provisioning：本次用户要求“实现双区”授权从发布区创建独立 clone、仅在新 clone 移除临时 remote、按治理文件 allowlist 导入未提交 bootstrap 内容并写入 `work` 标记；不授权 commit、push、tag 或后续整树复制。
-- provisioning 结果：治理文件、脚本、运行约定和课程任务书按明确 allowlist 复制；没有复制 `.DS_Store`、缓存、临时产物或 Git 元数据，两个仓库保持独立。
+## D-004 Preserve authorship and authorize each release
 
-## D-003 课程任务书作为当前需求来源
+2026-10-30. Each member contributes under their true account and uses the course-required student ID and full name in the commit message. An authorized release preserves original authorship, history and commit boundaries. Weekly checks do not grant standing authorization to publish.
 
-- 状态：采纳。
-- 生效日期：2026-10-30。
-- 来源：`Research Paper Replication – CS340`，SHA-256 `d129642a953ab1ecd7c27bf67dc667887867ec4045b72917bedaf6b76cc2666c`。
-- 事项：采纳任务书明确的四人组、组信息／仓库表单、交付、至少三次运行、同指标对照、差异证据、单因素扩展、README 可复现、每周 Git 检查、提交署名、50 MB 上限和最终 `v1.0` 要求。
-- 边界：任务书中的论文清单不等于本组已经选题；未在本项目确认的技术参数保持待定。
-- 展示缺口：详细展示要求由单独 `Presentation Instruction` 给出；当前未取得，不得推断其内容。
+## D-005 Adopt file governance and version records
 
-## D-004 GitHub、署名与发布方式
+2026-10-30. Maintain one active entry point per controlled object and a separate append-only version archive. Preserve immutable original inputs and run records. Promote only verified results. [File management](governance/FILE_MANAGEMENT.md)
 
-- 状态：采纳。
-- 生效日期：2026-10-30。
-- 事项：GitHub 访问与操作使用本机 Git CLI；每个 commit message 必须包含实际贡献成员的学号和全名，不得伪造身份或代替其他组员制造贡献记录。
-- 发布边界：本地 commit、发布 commit、push 和 tag 分开授权；课程周检不自动授予 push。用户明确授权后仍须执行双区 allowlist、敏感内容和验证检查。
-- 贡献保真：普通发布优先用经审阅的 Git patch／提交迁移保留真实 author；不得 squash、改写 author 或由单一成员重新提交来掩盖个人贡献。各成员应使用自己的 GitHub 账户完成其发布操作。
-- 最终标签：只有最终交付核对完成并获用户明确授权后创建／推送 `v1.0`。
+## D-006 Bound operating-system experiments
 
-## D-005 文件治理与内部版本
+2026-10-30. Run tests with crash, resource, or privilege risk in disposable isolated environments with recorded ceilings, timeouts, and recovery. Preserve failures and stop when the agreed isolation or budget fails.
 
-- 状态：采纳为 `FILE_MANAGEMENT v0.0 / draft / not_frozen`。
-- 生效日期：2026-10-30。
-- 事项：采用单一事实来源、受控正文与独立版本档案、追加式运行、原始输入只读、发布结果从已验证运行提升的治理方式。
-- 版本规则：内部受控对象在同一主版本内连续使用 `vN.0`、`vN.1`；没有用户明确许可不得升到下一主版本。状态和版本分开。
-- 影响：建立 `.gitignore`、`.gitattributes` 和路径职责；不授权获取代码或运行实验。
+## D-007 Record the paper selection
 
-## D-006 操作系统实验安全基线
+2026-11-07. Record the user's 2026-10-30 selection of topic 8, *AddressSanitizer: A Fast Address Sanity Checker*. Supersede the initial pending selection and retain its history. Protocol v0.1 recorded the decision. It carried no experiment approval.
 
-- 状态：采纳。
-- 生效日期：2026-10-30。
-- 事项：可能崩溃内核、损坏文件系统、需要特权、运行 fuzzer／crash injector、耗尽资源或暴露网络的实验，默认只在可丢弃 VM、容器或专用测试机中进行。
-- 要求：执行前记录隔离、资源上限、超时、停止和恢复；不得作用于未授权目标或用户真实数据。
-- 影响：安全与资源边界未明确前只允许文档、静态核查和成本界定。
+## D-008 Record the first governance release
 
-## D-007 方向 8 选题确认（补登记）
+2026-11-07, recording the 2026-10-30 release. 张瀚洋, student ID `1240036026`, was the confirmed member for the first governance publication. Commit `74bf5eb7cade99437630753166c38f76735fad1e` used the verified repository-owner noreply address. Push and matching `ls-remote` were recorded.
 
-- 状态：采纳。
-- 用户确认日期：2026-10-30；补登记日期：2026-11-07（Asia/Shanghai）。
-- 依据：用户明确表示“我现在确认选择方向8”，并于 2026-11-07 指出线上状态错误、要求更新正确状态。
-- 事项：复现主题确定为方向 8，AddressSanitizer: A Fast Address Sanity Checker，USENIX ATC 2012；完整引用及来源见 `docs/PROTOCOL.md` v0.1。
-- 修正原因：此前仅发布了初始治理文件，漏记选题确认，把实验细节暂不确认错误地延伸为论文选择待定。
-- 取代关系：取代 D-001 中“所选论文待定”的当前效力，以及 README、状态、交接、协议 v0.0 中相应的当前描述。`AGENTS.md` 第 15 节的 1.0 初始制定条目和 v0.0 快照保留为历史，不作为当前选题状态。
-- 边界：主张、历史／现代工具链路线、benchmark、环境、预算和扩展方案仍待用户确认；候选建议未被采纳。选题登记不代表实验方案冻结、实验已运行或课程表单已提交。
-- 影响：协议连续修订为 v0.1，未提升主版本；同步当前入口并追加版本档案，保留 v0.0。受影响运行：`none`；重跑：`not_applicable — no runs exist`。
-- 本次授权范围：本地状态文档更新；不扩展为代码获取、实验、commit、push 或标签授权。
+## D-009 Publish the paper-selection correction
 
-## D-008 已确认身份与首次治理发布（补记）
+2026-11-07. Publish the README, status, protocol v0.1, decisions, handoff, protocol archive and its snapshot under the confirmed 张瀚洋 identity. Git commits `fdedccb0e5df61109aa0e302f1567489dcc43997` and `97829cba8257e0a30bcdbb3ea3a890b38b94da05` retain the original change and its recovery supplement.
 
-- 事件日期：2026-10-30；补记日期：2026-11-07（Asia/Shanghai）。
-- 用户提供身份：张瀚洋，学号 `1240036026`；其余成员及完整贡献安排待补充。
-- 发布事实：用户已授权首次治理基线提交与 push；commit 为 `74bf5eb7cade99437630753166c38f76735fad1e`，提交标题为 `1240036026 张瀚洋: establish project governance and dual-workspace rules`。
-- 证据：该提交存在于两区本地历史；此前发布时 `git push origin main` 成功，并以 `git ls-remote origin refs/heads/main` 核验了同一哈希。本条记录历史完成事实，不缓存当前线上分支状态。
-- 提交元数据：author 为张瀚洋，邮箱为 `317833349+SAKANA2336@users.noreply.github.com`；该记录不替代其余组员的身份、账户或贡献确认。
-- 状态勘误：双工作区创建及首次治理发布已经完成，移出当前未决事项。历史发布授权仅适用于该次发布，后续发布按具体授权执行。
+## D-010 Adopt a modern environment
 
-## D-009 状态修正发布授权
+2026-11-08. Use Ubuntu 24.04 and the LLVM 18 x86_64 toolchain for a bounded functional validation before formal quantitative work. Record the initial image pull timeout in `env-20261108t005237z-5e6fe72f`. Explicitly include the C++ standard-library development dependency. This route studies the method with a modern toolchain.
 
-- 日期：2026-11-07（Asia/Shanghai）。
-- 依据：用户在本地状态修正完成后明确要求“帮我push”。
-- 范围：README、PROJECT_STATE、PROTOCOL v0.1、DECISIONS、HANDOFF、协议版本档案及 v0.1 快照，共七个文件；包括必要的版本恢复信息补录。
-- 署名：使用用户已提供的 `1240036026 张瀚洋`，沿用已核实的提交邮箱。
-- 执行：核对远端后，在日常区形成获准的提交；发布区通过经审阅的 Git 提交迁移保留 author、提交边界和哈希，以普通 fast-forward push 发布到 `origin/main`。日常区保持无 remote。
-- 取代关系：补充 D-007 的原本地更新授权；不改变 v0.1 的实验待定状态，不授权代码获取、实验或标签。
-- 证据边界：本条记录发布授权；实际完成须以提交历史、push 结果与远端哈希核验为准。
+## D-011 Restore the daily repository on Windows
 
-## D-010 现代环境准备路线
+2026-11-08. A Windows signal-pipe permission error blocked Bash and ordinary clone. Recover the independent repository through a Git bundle from `97829cb` and verify isolation with the PowerShell equivalent of the role check. Place the environment preparation bundle under `outputs/asan-environment/`.
 
-- 日期：2026-11-08（Asia/Shanghai）。
-- 依据：用户此前要求核对并搭建复现环境，本轮以“按照你的来”接受推荐路线。
-- 决定：采用 Ubuntu 24.04 / Linux x86_64 / Clang-LLVM 18 的现代工具链方法复现路线；先搭建有界功能验证环境，再制定正式性能方案。
-- 当前授权：准备脚本、依赖与容器构建、七项最小功能检查、独立日常区恢复以及对应本地记录；限额见 PROTOCOL v0.2。未授权正式 benchmark、系统代理或 DNS 修改、commit、push、标签或主版本升级。
-- 已知结果：此前用户运行通过 Docker 引擎检查，但拉取 `ubuntu:24.04` 超时；run ID 为 `env-20261108t005237z-5e6fe72f`。镜像未构建，七项检查未运行；不得声称已搭建或已复现论文。
-- 本轮静态修正：显式加入 C++ 标准库开发包 `libstdc++-13-dev`，避免依赖推荐包安装；实际包安装和 C++ 编译仍待容器验证。
-- 路线边界：不复刻 2012 年工具链，不据现代功能检查推导论文性能数值；正式主张、workload、许可和指标另行登记。
-- 协议连续修订：v0.1 -> v0.2，未冻结；旧快照保留。旧失败运行不覆盖，后续构建创建新 ID；没有正式实验需要重跑。
+## D-012 Accept the x86_64 environment
 
-## D-011 本会话日常区恢复与 Windows 角色核验
+2026-11-08. User execution of `env-20261108t013027z-6c0e488a` built the image and passed seven functional checks on Ubuntu 24.04.5 and LLVM 18.1.3. Preserve the earlier pull and named-pipe failures. Reuse the verified image where practical. APT sources were not snapshot-pinned. The run is environment acceptance. [Run and package record](../runs/env-20261108t013027z-6c0e488a/README.md)
 
-- 日期：2026-11-08（Asia/Shanghai）。
-- 原因：本会话缺少日常区，普通本地 clone 与 Bash 均因 `couldn't create signal pipe, Win32 error 5` 失败。
-- 恢复方式：从只读发布区 commit `97829cba8257e0a30bcdbb3ea3a890b38b94da05` 通过本地 Git bundle 建立独立 `OS-project-local`，移除新副本临时 remote 后检出该 commit；没有改动发布区，也未创建 commit。
-- 核验：独立 `.git` 与 common-dir、规范目录名、bootstrap 祖先、无 remote、`work` 标记均由 `scripts/check-workspace-zone.ps1 work` 检查通过。
-- 本轮例外：原 Bash 检查无法启动时，使用新增 PowerShell 检查执行相同的日常区身份约束。原脚本未通过的事实保留；不伪称执行成功，也不扩大为自动发布权限。Bash 恢复后仍应运行原检查。
-- 本地准备包从外层交付目录按明确文件集接入日常区 `outputs/asan-environment/`；这是暂存环境准备产物的路径例外，不改变正式代码、实验和运行记录的规范位置。
-- 验证边界：14 项 Python 单元测试和两份 PowerShell 脚本语法检查通过；容器内七项真实检查未运行。
+## D-013 Publish environment preparation progress
 
-## D-012 现代环境功能验收
+2026-11-08. Publish the environment package, three attempts' allowed evidence, governance entries and PowerShell role check. Verify CRLF and raw log hashes without normalizing the sealed files. Commit `2c4a89badee35dd8ae50442894c7a296d2e7eacf` carried the previously used 张瀚洋 metadata. D-014 and D-015 record the later attribution correction.
 
-- 日期：2026-11-08（Asia/Shanghai）；验收完成时间 09:34:51。
-- 依据：用户执行准备包；助手核对共享原始日志、运行 manifest、编译结果、资源配置和 ASan 错误报告。
-- 运行：`env-20261108t013027z-6c0e488a`，构建和七项真实功能检查通过。Ubuntu 24.04.5 LTS、Clang/LLVM/compiler-rt 18.1.3、x86_64、WSL2 kernel `6.18.33.2-microsoft-standard-WSL2`。
-- 验证范围：正常 C baseline、正常 ASan C、正常 ASan C++，以及 heap/stack/global 越界和 heap use-after-free；错误用例退出 86，类别和源码位置符合预期。
-- 隔离：容器内确认 `memory.max=2147483648`、`cpu.max=200000 100000`、`pids.max=128`；启动参数使用非 root、无网络、只读根目录等既定约束。
-- 产物：镜像 ID 与基础镜像 digest 见 PROTOCOL v0.3；实际包版本和逐项日志提升到 `runs/env-20261108t013027z-6c0e488a/`。旧失败原样保留。
-- 结论边界：仅环境功能验收通过；未运行正式 benchmark、SPEC 或扩展实验，没有时间/内存开销与论文主张裁决。优先复用已验证镜像，apt 未快照固定的限制不变。
-- 授权：沿用 D-010；不新增 commit、push、标签、主版本升级或正式实验授权。
+## D-014 Record the reported environment attribution
 
-## D-013 环境搭建进度发布
+2026-11-08. Record the use of the authenticated GitHub account `wbw374` for the environment publication. The follow-up used the account's Git author metadata and incorrectly retained 张瀚洋's name and student ID in the summary. Preserve the evidence and original commit `7ddc1b083991f02a5bd2fd72de5d55c46e0a96fd`. Its identity mapping was corrected under D-015.
 
-- 日期：2026-11-08（Asia/Shanghai）。
-- 依据：用户明确要求将复现环境搭建上传 GitHub，供教师检查进度；这是本次 commit 与 push 授权，不需重复确认。
-- 发布范围：根 README；环境包 `outputs/asan-environment/`；三次环境准备尝试的小型 `runs/env-*/` 证据；PROJECT_STATE、PROTOCOL v0.3、DECISIONS、HANDOFF、协议档案与 v0.2/v0.3 快照；PowerShell 工作区检查；用于保留校验值和排除本地临时目录的 `.gitattributes`、`.gitignore`。
-- 排除：容器镜像、二进制构建产物、课程原始 PDF、个人绝对路径、代理凭据、本机角色标记、临时测试输出与工作目录。原始主机命令文件继续留在本地。
-- 身份：沿用用户已确认的张瀚洋、学号 `1240036026` 及历史已核实的 GitHub noreply 邮箱，不更改其他成员贡献。
-- 方法：日常区形成单一目的提交，通过本地 Git bundle 向发布区迁移同一 commit，保留 author、内容和哈希；仅在发布区使用 Git CLI 普通 fast-forward push。
-- Windows 例外：Bash 检查本轮仍因 Win32 error 5 无法启动，沿用 D-011 的 PowerShell 等价核验并扩展到发布区；核实身份后补齐发布副本缺失的本机 `release` 标记。标记保持不跟踪。
-- 字节完整性：已验证源文件、原始 JSON/日志和不可变协议快照禁用 Git 换行转换，避免上传或重新检出改变已登记 SHA-256。原始 Windows manifest 按 CRLF 检查；终端原始日志豁免空白格式检查，保留捕获到的空格和控制符，其他源码及文档照常检查。
-- 验证：提交前复核 14 项单元测试、PowerShell 语法、七项已有真实检查、运行/源码哈希、文件白名单、敏感信息、大小与远端状态。成功事实以 push 输出及 `ls-remote` 为准。
-- 边界：仅发布环境准备进度，不提升为论文性能结论，不授权新 benchmark、系统更改或 `v1.0` 标签。
+## D-015 Correct the separate member identity
 
-## D-014 本机提交身份与贡献归属更正
+2026-11-08. The user confirmed that `wbw374` belongs to 王博文, student ID `1240026080`. Keep 王博文 and 张瀚洋, student ID `1240036026`, as distinct members. The correction used ordinary commits and retained the original records. [Contribution register](CONTRIBUTIONS.md)
 
-- 日期：2026-11-08（Asia/Shanghai）。
-- 依据：用户明确要求以其本机账户 `wbw374` 为提交者，供教师核查提交进度。
-- 身份：沿用已登记姓名张瀚洋、学号 `1240036026`；Git 作者与提交者改用本机已有 `user.name=wbw374` 和对应 `user.email`，不编造 noreply 地址或账户 ID。已登录的 `wbw374` 具有本仓库写入权限，上一轮 push 已成功。
-- 更正：环境材料提交 `2c4a89badee35dd8ae50442894c7a296d2e7eacf` 已发布，但误沿用了 `SAKANA2336` 的 noreply 邮箱。D-008、D-013 中相关身份记录保留为当时事实；后续本项目提交按用户本轮指定身份执行。
-- 范围：新增 `docs/CONTRIBUTIONS.md`，更新根 README、PROJECT_STATE、HANDOFF 与本决策；使用 `wbw374` 创建并推送一条有实际归属说明和验收入口的提交。仅在本项目两个仓库配置本地提交身份，不修改全局 Git 配置。
-- 迁移：日常区提交后通过 Git bundle 将同一 commit 迁入发布区，使用现有 `wbw374` 凭据普通 push；保留历史、作者边界与原始验收文件，不执行 force push。
-- 验证：核对本机配置、提交作者与提交者、文件白名单、文档链接、既有验收与源码哈希，以及远端提交哈希。Git CLI 未核实邮箱在 GitHub 的绑定状态，不保证网页头像或贡献图归属已经更新。
-- 边界：这是贡献归属与检查入口的更正，不增加功能验收次数，不生成论文实验结果，不授权正式 benchmark、标签或历史重写。
+## D-016 Authorize independent ARM64 environment acceptance
 
-## D-015 王博文姓名、学号与提交成员更正
+2026-11-15. Authorize a bounded native ARM64 VM and seven functional checks. The budget for this acceptance was 90 minutes of cumulative activity and 6 GiB of downloads. Guest resources were capped at two vCPUs, 3 GiB RAM and a 30 GiB sparse disk. Validation used a separate constrained, private service.
 
-- 日期：2026-11-08（Asia/Shanghai）。
-- 依据：用户直接说明“我的名字为王博文，学号为1240026080”，要求加入本人并将提交成员改为王博文、1240026080；沿用本次 GitHub 进度发布授权。
-- 当前身份：王博文，学号 `1240026080`，GitHub 账号 `wbw374`。本项目 Git 作者与提交者继续使用 `wbw374` 及本机已有邮箱；新提交标题必须使用 `1240026080 王博文`。
-- 更正原因：助手在 D-014 及提交 `7ddc1b083991f02a5bd2fd72de5d55c46e0a96fd` 中，将历史成员张瀚洋（1240036026）错误关联到 `wbw374`。该对应关系失效，当前以用户本轮直接提供的信息为准；不将两人合并，也不推断张瀚洋的账号或新增贡献。
-- 取代范围：取代 D-014 的姓名、学号对应及当前入口中相应描述；D-008 等历史登记、已发布提交和原始证据保留，不回写历史提交标题。
-- 文件白名单：根 README、CONTRIBUTIONS、PROJECT_STATE、HANDOFF 与本决策，共五个文档；新增正确成员登记、修正首页提交成员，并记录更正原因。
-- 发布方式：使用 `wbw374` 创建本次身份修正提交，通过 Git bundle 迁移同一 commit，在发布区普通 push，并核对远端哈希；不修改实验代码、协议或验收结论。
+## D-017 Repair the ARM64 host launcher
 
-## 当前未决事项
+2026-11-15. After the Swift/SDK attempt stopped before VM start, adopt the existing Apple Virtualization backend with the system Clang and Objective-C launcher, explicit SDK, and local ad-hoc signing. Record the failure and use a new attempt. Preserve the environment scope and remaining budget.
 
-- 其余组员学号、姓名、GitHub 账户与完整贡献安排。
-- 课程组信息／仓库表单提交回执、独立 `Presentation Instruction`。
-- 目标主张、起始代码、资产获取记录和许可证。
-- 正式实验的 workload、指标、预算、依赖固定方式和扩展方案；基础环境镜像、包版本及功能验收已取得。
-- 后续变更的提交／发布与课程周检安排。
+## D-018 Correct the guest clock and retry
+
+2026-11-15. The second attempt failed before checks because APT Release metadata was newer than the guest clock. Seed the new guest clock from the host while retaining APT and TLS verification. Use a new attempt and count earlier attempts against the same budget.
+
+## D-019 Record ARM64 environment acceptance
+
+2026-11-15. Run `run-20261114t185606z-env-arm64-001-a03` passed the three normal-program checks and four diagnostic checks and powered off normally. Register the result without changing the plan or protocol used during execution.
+
+## D-020 Verify the sealed ARM64 environment evidence
+
+2026-11-15. Independently check 111 host files, 67 guest evidence entries, and 86 archive-to-file comparisons. The source was recorded with hash verification. The detached signature and APT snapshot limitations remain. Subsequent checks covered the host, receiver, and initialization scripts without changing the completed run.
+
+## D-021 Reconcile upstream history and the daily protocol
+
+2026-11-18. The user approved the merged documents and allowlisted import of six original commits up to `84606a8bf3d891bda612f31133e7c683fa664a16`. Preserve the authors and both v0.4 protocol lineages. Recompute the published Olden pilot and the earlier C-001/C-002 aggregate ratios. Record evidence gaps and keep the two sets of six programs distinct. No experiment authorization followed from the import.
+
+## D-022 Prepare the ARM64 Olden pilot
+
+2026-11-18. Restore agreed workload and runner entries from the archived upstream materials through an explicit allowlist. Prepare an independent ARM64 proposal and keep the execution gate closed pending authorization. Preserve the old handoff and its exact hash chain.
+
+## D-023 Complete one ARM64 Olden pilot
+
+2026-11-18. The user confirmed instructor acceptance of LLVM in place of SPEC CPU2006 and authorized one bounded exploratory run. The first source checkout failed its locked line-endings check. The next attempt verified 222 source files, matched outputs and recorded 60 valid timings and 12 warmups. Pilot `run-20261118t151453z-pilot-arm64-001-a02` returned a 2.086758× geometric mean and powered off normally. Its 2,400-second cumulative and 1,800-second VM caps applied to that pilot.
+
+## D-024 Submit the formal experiment plans for review
+
+2026-11-19. Propose a Figure 2 method study on ARM64 Olden and a same-binary 32 B/64 B redzone extension. Preserve the older access-width proposal as historical. The plan submission was a review step. Existing pilot results were known.
+
+## D-025 Adopt the formal plans and prepare validation
+
+2026-11-19. The user approved proceeding with both proposed experiments. Each campaign had 3,600 seconds of cumulative machine activity and at most four batch attempts. Start the extension after three complete main batches are checked. Preserve the failed dependency-install attempt and use a separately verified dependency base. This approval concerned collection and local verification.
+
+## D-026 Freeze formal collection
+
+2026-11-19, before formal measurement. Freeze exp-001 and exp-002 at v0.2 with exact inputs, fixed environments, timing, workload selection, two arms, sample sizes, verdict rules, and budget. Record the dependency base and its offline preflight. Preserve the execution-time plans and hashes. See the [formal evidence index](arm64-formal-results.md).
+
+## D-027 Seal and audit formal collection
+
+2026-11-19. Both experiments completed three batches, with 180 valid measurements each. The main ratio is 2.270457× and the extension ratio is 1.079945×. The frozen conditions support both directional verdicts. The six original run seals and the report statistics were checked. Retain earlier results and failed attempts as prior evidence.
+
+## D-028 English publication of formal results and project documents
+
+2026-11-22. The user authorized two sequential publications to GitHub main under 张瀚洋, student ID `1240036026`. First publish the English formal results, public per-batch evidence, offline verification and updated draft report. Then update the user's previously published project and governance prose to English. Use English prose in future publications and preserve members' official names as recorded. Retire the standalone Chinese governance and protocol snapshots from the current public tree using exact historical Git recovery references and registered hashes.
+
+The initial review knew of the six completed batches and their local sealed evidence. This decision changes publication and documentation. Frozen methods, original run bytes, recorded verdicts and past attribution are preserved. Public copies carry their own provenance and expose the evidence scope. No new workload run or final release tag is part of this decision.

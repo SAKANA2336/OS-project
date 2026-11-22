@@ -1,95 +1,50 @@
-# OS-project 当前协议与复现索引
+# Replication protocol index
 
-| 字段 | 当前值 |
+| Field | Value |
 | --- | --- |
-| `controlled_object_id` | `project-protocol-index` |
-| `exact_version` | `v0.4` |
-| `status` | `draft_index` |
-| `document_role` | `current_protocol_index` |
-| `created_at` | `2026-11-07 (Asia/Shanghai)` |
-| `last_verified_at` | `2026-11-15 (Asia/Shanghai)` |
-| `approval_state` | C-001、C-002、C-003 三个主张已登记并有数据（C-001/C-002 partially_supported，C-003 supported）；扩展实验未冻结 |
-| `freeze_state` | `not_frozen` |
-| `supersedes` | `v0.3` |
-| `next_allowed_version` | `v0.5` |
-| `major_version_authorization` | `absent` |
-| `archive_ref` | [`PROTOCOL_VERSION_ARCHIVE.md#v04`](PROTOCOL_VERSION_ARCHIVE.md#v04) |
-| `source_of_authority` | 方向 8 选题见 D-007；用户于 2026-11-08 以“按照你的来”接受现代环境准备建议，见 D-010；课程任务书 |
+| Controlled object | `project-protocol-index` |
+| Version | `v0.12` |
+| Status | `active_index` |
+| Updated | 2026-11-22 (Asia/Shanghai) |
+| Supersedes | Daily protocol `v0.11` |
+| Next allowed version | `v0.13` |
+| Freeze scope | `exp-001 v0.2` and `exp-002 v0.2`, frozen before collection under D-026 |
+| Authority | D-007 for the paper, D-025 and D-026 for formal collection, D-028 for this publication |
+| Version history | [Protocol version archive](PROTOCOL_VERSION_ARCHIVE.md) |
 
-本文件是当前复现协议的唯一项目级入口。它索引已采纳的论文、主张和实验边界；不把课程清单、候选论文或目录模板冒充已选择方案。
+## Paper and reproduction scope
 
-## 当前复现对象
+Konstantin Serebryany, Derek Bruening, Alexander Potapenko, and Dmitry Vyukov. *AddressSanitizer: A Fast Address Sanity Checker*. USENIX Annual Technical Conference, June 2012. [Publication record](https://www.usenix.org/conference/atc12/addresssanitizer-fast-address-sanity-checker) and [paper PDF](https://www.usenix.org/system/files/conference/atc12/atc12-final39.pdf).
 
-| 项目 | 当前值 | 状态 |
+The paper was selected on 2026-10-30 (course topic 8). The work reproduces the measurement method and checks the direction of the runtime overhead using modern LLVM and six Olden workloads on ARM64. The paper used SPEC CPU2006, different hardware, and a different toolchain. D-023 records the user's confirmation that the instructor approved the LLVM benchmark substitution.
+
+## Frozen formal experiments
+
+| ID | Question and comparison | Endpoint |
 | --- | --- | --- |
-| 所选论文 | 方向 8：AddressSanitizer: A Fast Address Sanity Checker | 用户已于 2026-10-30 确认 |
-| 论文版本／发表时间 | USENIX ATC '12 会议发表版本，2012 年 6 月 | 官方书目信息已核对 |
-| 主张及对应表／图 | C-001（slowdown 73%，Figure 2）、C-002（内存 3.37x，Table 1）、C-003（检测 4 类内存错误，Abstract／§3.6），详见 [CLAIMS.md](CLAIMS.md) | 已登记并有数据 |
-| 起始代码仓库／commit | 待定 | 未登记 |
-| 许可证 | 待定 | 未核实 |
-| 复现尺度 | 现代工具链方法复现，先做环境功能检查 | 路线已采纳；主张与定量方案待定 |
-| 扩展实验问题 | 待定 | 未决定 |
+| `exp-001 v0.2`, `claim-004` | Does ASan increase wall-clock time on the six Olden workloads in the frozen ARM64 environment? Compare ASan and baseline. | Per-program ratio of arm means, equal-weight arithmetic mean across programs, then mean and sample standard deviation across three independent batches. |
+| `exp-002 v0.2` | How does increasing the heap redzone from 32 B to 64 B affect wall-clock time? Change only the redzone setting with the same ASan binary and fixed workloads and environment. | 64 B/32 B ratio using the same aggregation and three-batch design. |
 
-## 已确认论文与来源
+Each batch used one warmup and five measured executions per program and arm. Output validation, completion checks, timeout, and isolation requirements were frozen before sampling. The [formal results index](arm64-formal-results.md) records the environment, results, evidence coverage, and exact source plan hashes. The original frozen v0.2 plan bytes remain in sealed local provenance. The English public index describes their executed scope.
 
-Konstantin Serebryany, Derek Bruening, Alexander Potapenko, and Dmitry Vyukov. *AddressSanitizer: A Fast Address Sanity Checker*. USENIX Annual Technical Conference (ATC '12), 2012.
+The published data support a local directional comparison and a controlled local redzone timing result. The Figure 2 comparison reports the absolute and relative difference as a descriptive comparison. The work did not measure VmPeak in the formal ARM64 campaign.
 
-- 官方入口：[USENIX 论文页面](https://www.usenix.org/conference/atc12/addresssanitizer-fast-address-sanity-checker)。
-- 正文入口：[USENIX 会议论文 PDF](https://www.usenix.org/system/files/conference/atc12/atc12-final39.pdf)。
-- 选题确认日期：2026-10-30；补登记日期：2026-11-07，见 [D-007](DECISIONS.md#d-007-方向-8-选题确认补登记)。
-- 来源状态：已核对官方书目信息；本次只登记引用与公开入口，未将论文 PDF 作为仓库资产入库。资产获取记录、字节数、SHA-256 和使用／再分发许可在获取与入库前另行核实登记。
+## Environment checks and pilot evidence
 
-方向 8 是已采纳的复现主题。现代环境准备路线已采纳；具体主张、benchmark、定量测量方案和扩展实验仍未冻结。
+- x86_64 used Ubuntu 24.04.5 and Clang/LLVM/compiler-rt 18.1.3 in Docker Desktop/WSL2. See the [environment package](../outputs/asan-environment/README.md) and [run](../runs/env-20261108t013027z-6c0e488a/README.md).
+- ARM64 used an Apple Virtualization guest with Ubuntu 24.04.5, Linux 6.8.0-147-generic, and Clang 18.1.3. The environment run passed the same seven checks, with a separate bounded VM and private validation service. Its evidence and failed predecessors are indexed in [the project status](PROJECT_STATE.md).
+- The [earlier x86_64 Olden pilot](../results/run-20261114t130529z-exp-001-a01-ce70aa/README.md) and the ARM64 pilot are exploratory. The frozen campaign uses independent measurements.
 
-## 已采纳的环境准备路线
+## Earlier published claims
 
-- 平台：现有 Windows 主机、Docker Desktop Linux 引擎、Linux x86_64；容器用户空间采用 Ubuntu 24.04。
-- 工具链：已验证 Ubuntu 24.04.5 LTS、Clang/LLVM/compiler-rt 18.1.3、对应 symbolizer、C/C++ 标准库开发文件、Make/CMake/Ninja、Git、Python 和 GNU time。完整包版本保存在验收运行的 `validation/packages.json`。
-- 范围：验证正常 C/C++ 程序，以及堆、栈、全局越界和释放后使用的诊断，共七项检查；这是环境验收，不产生论文主张裁决。
-- 验收：七项真实检查全部通过；错误用例必须有预期退出码、ASan 错误类别及源码位置。仅语法检查、Python 单元测试或镜像构建不满足验收。
-- 运行隔离：功能检查容器非 root、只读根目录、无网络、无 capabilities、2 CPU quota、2 GiB 内存、无 swap、128 PID、256 MiB tmpfs、关闭 core dump；单程序 10 秒，编译 60 秒，验证阶段 300 秒。
-- 准备界限：pull 300 秒、build 900 秒、apt 600 秒；构建资源使用 Docker Desktop 的现有配置，不能把功能检查配额写成构建配额。预计至少需要 4 GiB 可用磁盘；不购买资源，不执行长时间 benchmark。
-- 当前入口：本地准备包 `outputs/asan-environment/README.md` 与 `setup.ps1`。这是从此前独立交付包接入日常区的准备产物，暂不作为正式实验代码布局；正式实验入口和运行证据仍须按文件治理登记。
-- 证据位置：准备包默认在相邻 `work/asan-environment/` 创建唯一运行目录；旧失败证据保留在外层工作区。正式实验将使用 `runs/<run-id>/`，不得将准备检查提升为正式主结果。
-- 偏离：WSL2/Docker 内核、现代 CPU、Ubuntu 和 LLVM 版本均不同于论文环境；不将本路线写成 2012 年工具链复刻或 SPEC CPU2006 数值复现。
-- 可重复性限制：基础镜像 digest 和包版本可记录，但 apt 尚未采用快照源；正式定量实验前需固定镜像与完整依赖来源，并确定 benchmark、许可、指标和主张。
+| Claim | As recorded upstream | Current evidence limitation |
+| --- | --- | --- |
+| C-001, Figure 2 | 2.22×, `partially_supported` | The six-row timing summary can be recomputed. The underlying repetitions and complete setup are pending. |
+| C-002, Table 1 | 2.58×, `partially_supported` | The six-row ratio can be recomputed. Max RSS and VmPeak measure different quantities, and underlying repetitions are pending. |
+| C-003, Abstract and Section 3.6 | `supported` for four error classes | Seven observed checks passed. The measured build used `-O1`, while the original method description says `-O2`. The tests provide evidence for their covered cases. |
 
-环境功能验收已于 2026-11-08 09:34:51（Asia/Shanghai）通过。用户运行 `env-20261108t013027z-6c0e488a` 成功构建镜像，七项真实功能检查全部通过；完整小型证据见 `runs/env-20261108t013027z-6c0e488a/`。基础镜像 digest 为 `ubuntu@sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852`，已验证镜像 ID 为 `sha256:d79f3238f8d650516f45e8e4ae1072dfea32d5b9f4f7733fedd7a83ae10c3b77`。这些是环境验收结果，不是论文性能复现结果。
+See the [historical claim register](CLAIMS.md). These IDs retain their own source, evidence, and scope.
 
-## 课程级固定边界
+## Course and evidence requirements
 
-- 选择课程清单中的一篇论文，测试一至三个与具体表格、图或数值关联的主张。
-- 每组四名学生，并通过课程表单提交组员信息和复现仓库链接；提交事实必须由实际回执支持。
-- 使用相同指标和尽可能相同的设置比较论文结果与本项目结果；所有偏离逐项记录。
-- 主结果至少三次有效运行，报告 `mean ± standard deviation`，且每个报告数字可追溯到仓库日志。
-- 每个主张使用 `supported`、`partially_supported`、`not_supported` 或 `inconclusive` 裁决。
-- 量化绝对和相对差异；解释必须由受控检查或重跑支持。
-- 扩展实验一次只改变一个因素，并尽量固定硬件和 workload。
-- 最终报告为英文 PDF，包含贡献声明和 AI 使用声明。
-- 最终展示还受独立 `Presentation Instruction` 约束；取得并核实前，其细节保持待定。
-- 最终版本标签为 `v1.0`，创建与推送仍需用户明确授权。
-
-## 进入实现前必须建立
-
-进入正式主张实现和确认性实验前，应在后续连续版本中补齐；有界环境准备依上节执行：
-
-1. 已登记论文的资产获取信息与许可；
-2. 一至三个主张及论文表／图／数值定位；
-3. 起始代码、精确 commit、许可证和修改文件清单；
-4. 硬件、OS、内核、编译器、依赖、构建设置和隔离方式；
-5. workload／输入／trace 的来源、版本、获取方式、校验值和许可；
-6. 原论文设置、本项目设置、偏离表和复现尺度；
-7. 主指标、辅助指标、至少三次运行的统计方法和裁决标准；
-8. 资源预算、超时、停止条件、运行无效条件和恢复方案；
-9. 配置、代码、运行入口、日志、预期产物和报告生成入口；
-10. OS 高风险操作是否涉及特权、内核、磁盘、fuzzer、崩溃或网络暴露。
-
-## 已登记主张
-
-- **C-001（平均 slowdown 73%）**：已执行并有数据，裁决 `partially_supported`（本项目平均 2.22x，论文 1.73x）。详见 [CLAIMS.md](CLAIMS.md)；原始证据见 [`runs/bench-20261114t171000z/`](../runs/bench-20261114t171000z/README.md)。
-- **C-002（内存开销 3.37x）**：已执行并有数据，裁决 `partially_supported`（本项目平均 2.58x，论文 3.37x）。详见 [CLAIMS.md](CLAIMS.md)；原始证据见 [`runs/bench-mem-20261115t033100z/`](../runs/bench-mem-20261115t033100z/README.md)。
-- **C-003（检测 4 类内存错误）**：已执行并有数据，裁决 `supported`（7 项功能检查全部通过）。详见 [CLAIMS.md](CLAIMS.md)；原始证据见 [`runs/env-20261108t013027z-6c0e488a/`](../runs/env-20261108t013027z-6c0e488a/README.md)。
-
-## 当前未冻结事项
-
-论文主题、现代准备路线、实际工具链、包版本、镜像 ID 和七项环境验收已登记；性能主张 C-001 已登记并有数据。内存开销主张、起始代码 commit、扩展条件、正式资源预算和运行入口仍未冻结。未知项保持“待定”。
+The project uses one to three paper-grounded claims, at least three independent runs for each main result, and a single-factor extension. Report mean and standard deviation, absolute and relative deviations, setup differences, and analysis supported by evidence. Each report number must trace to a run record. The final deliverables include an English PDF report, a contribution statement, an AI-use statement, and a presentation governed by the separate course instructions. Course registration needs an actual receipt. The final `v1.0` tag is subject to explicit final-release authorization.

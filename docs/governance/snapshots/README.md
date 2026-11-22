@@ -1,8 +1,7 @@
-# Snapshot semantics
+# Controlled document snapshots
 
-本目录只保存受控正文在其原始路径语义下的逐字节恢复副本。快照不是当前规则、当前协议或当前文件治理入口。
+A snapshot preserves the exact bytes of a controlled document in its original path context. The active protocol is [`docs/PROTOCOL.md`](../../PROTOCOL.md). The active file management policy is [`docs/governance/FILE_MANAGEMENT.md`](../FILE_MANAGEMENT.md).
 
-- 当前协议只读取 `docs/PROTOCOL.md`。
-- 当前文件治理只读取 `docs/governance/FILE_MANAGEMENT.md`。
-- 快照内部保留原文的 `current_*` 角色字段和相对链接，以便校验哈希与逐字恢复；这些字段和链接不得按 `snapshots/` 目录重新解释。
-- 需要恢复时，先核对对应版本档案中的 SHA-256，再将快照复制回其声明的原始正文路径；不得直接编辑快照。
+Use the [protocol version archive](../../PROTOCOL_VERSION_ARCHIVE.md) or [file management version archive](../FILE_MANAGEMENT_VERSION_ARCHIVE.md) to locate a version's snapshot file or historical Git commit and path. The archives record the expected SHA-256 of each documented recovery copy. A historical Git reference can preserve the original without a duplicate snapshot file in the current tree.
+
+Preserve embedded `current_*` roles and relative links as recorded. Interpret them from the original document path. To recover a version, verify its bytes against the recorded SHA-256 before restoring it to the declared original path. Snapshots must remain byte-for-byte intact.

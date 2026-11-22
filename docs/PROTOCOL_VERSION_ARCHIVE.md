@@ -1,81 +1,86 @@
-# project-protocol-index 版本档案
+# Protocol version archive
 
-本文件追加保存 `docs/PROTOCOL.md` 的版本依据、差异、已知结果、影响和恢复信息。正文保存当前有效协议；历史条目不得覆盖或删除。
-
-当前版本：[`project-protocol-index v0.3`](PROTOCOL.md)，`draft_index / not_frozen`。
+Controlled object `project-protocol-index`. The [current protocol](PROTOCOL.md) holds the active index. This archive records decisions, changes, results known at the time, and recovery information for the original versions.
 
 ## v0.0
 
-- `controlled_object_id`: `project-protocol-index`
-- `exact_version`: `v0.0`
-- 日期：2026-10-30（Asia/Shanghai）
-- 状态：`draft_index / not_frozen`
-- 制定依据：用户要求参照 `rare-driver-panel-benchmark` 建立相同的项目规则；课程任务书规定的复现与 Git 评估要求。
-- 内容：建立论文、主张、起始代码、环境、workload、评价、统计、安全和交付的待定索引；只固定课程任务书明确要求。
-- 修改时已知结果：只有课程任务书与空的远端初始 README；未选择论文、未取得代码、未构建或运行实验。
-- 影响：建立治理入口；不改变任何实验结果，不授权运行、commit、push 或标签。
-- 受影响运行：`none`；重跑：`not_applicable — no runs exist`。
-- 正文 SHA-256：`1b607217eb475910275320e08d9c2445e9dddf1c03c5d9164a92b0a4bf7114f3`
-- 不可变快照：[`governance/snapshots/project-protocol-index-v0.0.md.snapshot`](governance/snapshots/project-protocol-index-v0.0.md.snapshot)
-- Git 恢复：首次获准 commit 后补充 commit；在此之前以正文哈希和不可变快照恢复。
-
-### v0.0 恢复信息补录（2026-11-07）
-
-- 初始治理版本后来已提交于 `74bf5eb7cade99437630753166c38f76735fad1e`；该 commit 的 `docs/PROTOCOL.md` 与上述 v0.0 快照逐字节相同，可作为 Git 恢复来源。
-- v0.0 中“未选择论文”仅保留为原始登记内容；用户于 2026-10-30 确认方向 8 的事实当时漏记，由 D-007 和 v0.1 纠正。旧快照与旧哈希保持不变。
+2026-10-30. Initial unfrozen governance index. Established the project requirements and left experiment details pending. The chosen paper was omitted from the initial record and entered during v0.1. The known material at this point was the course brief and repository baseline. No run was affected.
 
 ## v0.1
 
-- `controlled_object_id`: `project-protocol-index`
-- `exact_version`: `v0.1`
-- 修订日期：2026-11-07（Asia/Shanghai）；用户选题确认日期：2026-10-30。
-- 状态：`draft_index / not_frozen`；取代：`v0.0`；下一合法版本：`v0.2`。
-- 制定依据：用户已明确确认方向 8，并要求修正仓库中错误的待定状态；见 `docs/DECISIONS.md` D-007。
-- 差异：登记 AddressSanitizer: A Fast Address Sanity Checker（USENIX ATC 2012）、作者、官方论文入口和确认时间；区分主题已选定与实验方案未冻结。
-- 修正原因：首次治理发布遗漏选题决定；实验细节暂不确认不撤销已确认选题。本次是补登记，未将修订日期回填为选题日期。
-- 备选与废弃内容：当前协议中的“所选论文待定／未选择”描述失效，保留在 v0.0 历史中；历史／现代工具链及其他候选实验建议未被采纳。
-- 修改时已知结果：只有治理文件、工作区检查和此前发布记录；尚无论文实验运行或复现结论。
-- 影响与迁移：同步 README、PROJECT_STATE、DECISIONS、HANDOFF 和当前协议入口；后续计划引用 v0.1 或其后续版本。主张、代码、环境、workload、指标、预算和扩展方案仍待定。
-- 兼容性：不改变课程固定边界、双工作区制度或实验安全要求；仅修正登记与历史状态。
-- 授权边界：本地状态更新；无新增代码获取、实验、commit、push 或标签授权；主版本升级授权仍为 `absent`。
-- 受影响运行：`none`；重跑：`not_applicable — no runs exist`。
-- 正文 SHA-256：`0fbc16f09648f724b8a4ac551e3afb3d9bddd877b9c29105cae736c6dae17a9f`
-- 不可变快照：[`governance/snapshots/project-protocol-index-v0.1.md.snapshot`](governance/snapshots/project-protocol-index-v0.1.md.snapshot)
-- Git 恢复：本次尚未创建 commit；以正文哈希和不可变快照恢复，后续获准提交后追加 commit 记录。
-
-### v0.1 Git 恢复与发布授权补录（2026-11-07）
-
-- Git 恢复：`fdedccb0e5df61109aa0e302f1567489dcc43997` 中的 `docs/PROTOCOL.md` 与 v0.1 快照一致，使用上述 SHA-256 核验。
-- 后续授权：用户在本地修正完成后明确要求 push，见 `docs/DECISIONS.md` D-009；此前条目中的“本地状态更新”是修订当时的授权范围，本次发布已另获授权。
-- 本补录只增加恢复依据与发布授权说明，不改变 v0.1 正文、快照、实验待定项或冻结状态。
+2026-11-07. Recorded the user's 2026-10-30 AddressSanitizer selection, the publication and official source. The experiment design, claims, inputs, toolchain and budget remained pending. This corrected the written record and affected no run. D-009 later authorized publication and recovery notation.
 
 ## v0.2
 
-- `controlled_object_id`: `project-protocol-index`
-- `exact_version`: `v0.2`
-- 修订日期：2026-11-08（Asia/Shanghai）；取代 v0.1；下一合法版本 v0.3；主版本升级授权 `absent`。
-- 状态：`draft_index / not_frozen`。
-- 依据：用户要求搭建复现环境，并以“按照你的来”接受现代路线；见 D-010。
-- 差异：登记 Ubuntu 24.04 / Clang-LLVM 18 准备环境、功能验收、限额、超时、证据位置、历史环境偏离与依赖固定限制；保留正式 benchmark 和主张待定。
-- 备选：2012 年工具链复刻本轮不采用；不承诺现代环境复现论文数值。
-- 修改时已知结果：已有用户 Docker 引擎检查与 pull 失败证据，镜像未构建、七项容器检查未运行；本地 14 项 Python 测试与 PowerShell 语法检查通过。
-- 影响：同步本地 README、状态、决策和交接；准备包显式补齐 C++ 标准库开发依赖。发布区保持只读，无 commit、push 或标签。
-- 受影响运行：旧 `env-20261108t005237z-5e6fe72f` 保留为失败；构建重试必须使用新 ID。没有正式主结果需要重跑。
-- 正文 SHA-256：`5e7e0a9a90bdfb22538eafacf1321313067e0896d3fca2e43b518e621660c722`。
-- 不可变快照：[`governance/snapshots/project-protocol-index-v0.2.md.snapshot`](governance/snapshots/project-protocol-index-v0.2.md.snapshot)。
-- 恢复：本轮无 commit，以正文 SHA-256 和快照恢复。
+2026-11-08. Adopted the Ubuntu 24.04 and Clang/LLVM 18 preparation route under D-010. Specified functional checks, isolation, preparation limits, and source constraints. An initial pull timed out. Static checks passed and container acceptance was still pending. Future attempts needed new IDs. Formal quantitative plans remained unfrozen.
 
 ## v0.3
 
-- `controlled_object_id`: `project-protocol-index`
-- `exact_version`: `v0.3`
-- 修订日期：2026-11-08（Asia/Shanghai）；取代 v0.2；下一合法版本 v0.4；主版本升级授权 `absent`。
-- 状态：`draft_index / not_frozen`；环境验收通过，正式实验未冻结。
-- 依据：D-010 的准备授权、用户实际执行及已核对运行证据，见 D-012。
-- 差异：将准备环境的计划版本更新为实际 Ubuntu 24.04.5 / LLVM 18.1.3，登记镜像 ID、基础镜像 digest、包版本入口与七项功能验收。
-- 修订时已知结果：`env-20261108t013027z-6c0e488a` 构建成功，七项真实检查通过；两次旧失败保留，没有性能数据或论文主张裁决。
-- 影响：提升小型环境证据到日常区 `runs/`，同步当前状态与交付说明。未更换已测试源文件、验收标准或运行配置。
-- 受影响运行与重跑：不使任何运行失效；不需重跑。后续重建生成新 run ID；apt 源未快照固定，优先重用已验证镜像。
-- 正文 SHA-256：`984c4c29a21b8a347257518d9cf087d426e148d7b0772b8b7bcb91837fb52381`。
-- 不可变快照：[`governance/snapshots/project-protocol-index-v0.3.md.snapshot`](governance/snapshots/project-protocol-index-v0.3.md.snapshot)。
-- 恢复：本轮无 commit，以正文 SHA-256 和快照恢复。
+2026-11-08. Recorded actual x86_64 Ubuntu 24.04.5 and LLVM 18.1.3 acceptance under D-012. Seven checks passed in `env-20261108t013027z-6c0e488a`; two earlier failed attempts were retained. No quantitative result was added and no previous run required repetition.
+
+### Recovery of published v0.0 through v0.3
+
+Use `git show <commit>:docs/governance/snapshots/project-protocol-index-<version>.md.snapshot` and compare the original SHA-256.
+
+| Version | Commit containing the snapshot | SHA-256 |
+| --- | --- | --- |
+| v0.0 | `74bf5eb7cade99437630753166c38f76735fad1e` | `1b607217eb475910275320e08d9c2445e9dddf1c03c5d9164a92b0a4bf7114f3` |
+| v0.1 | `fdedccb0e5df61109aa0e302f1567489dcc43997` | `0fbc16f09648f724b8a4ac551e3afb3d9bddd877b9c29105cae736c6dae17a9f` |
+| v0.2 | `2c4a89badee35dd8ae50442894c7a296d2e7eacf` | `5e7e0a9a90bdfb22538eafacf1321313067e0896d3fca2e43b518e621660c722` |
+| v0.3 | `2c4a89badee35dd8ae50442894c7a296d2e7eacf` | `984c4c29a21b8a347257518d9cf087d426e148d7b0772b8b7bcb91837fb52381` |
+
+The original published archive is at `84606a8bf3d891bda612f31133e7c683fa664a16:docs/PROTOCOL_VERSION_ARCHIVE.md`. The authority and dates above reflect the decisions at the time. Git recovery records publication of the old bytes independently from those earlier drafting states.
+
+## v0.4
+
+The project briefly had two separate v0.4 texts. The 2026-11-15 daily edition indexed the proposed native ARM64 environment, isolation and budgets under D-016. The separate published edition registered C-001, C-002 and C-003 with their recorded decisions and measurements. D-021 preserved their independent histories. The published text is at `84606a8bf3d891bda612f31133e7c683fa664a16:docs/PROTOCOL.md`, Git blob `7c9b2f486c910f3f1545e2a2c94bfeb12a3302e4`, SHA-256 `c48004aa83f2195a6a86b1d996100f3fa2228257b5770aeb8a61eac1c5d1e9ff`. The published archive stopped at v0.3.
+
+## v0.5
+
+2026-11-15. Updated the ARM64 host launcher after a stopped Swift/SDK attempt. Adopted system Clang and Objective-C with explicit SDK and ad-hoc signature. The same guest checks, isolation and bounds applied. The stopped attempt was retained and the next attempt got a new ID.
+
+## v0.6
+
+2026-11-15. Recorded ARM64 environment acceptance. Kept the earlier setup failures and the successful guest clock correction under D-017 and D-018. Verified seven checks and shutdown in the new run. Retained its execution-time v0.5 references and recorded the results separately.
+
+## v0.7
+
+2026-11-18. Recorded the user-approved reconciliation under D-021. Preserved both v0.4 lineages and imported the original six upstream commits with their authors. Indexed the upstream claim register and pilot. The older aggregate ratios could be recomputed with limits on the raw evidence, and the independent ARM64 environment acceptance remained valid.
+
+## v0.8
+
+2026-11-18. Added the ARM64 Olden pilot proposal and runner adaptation under D-022. The old x86_64 pilot's 357 evidence entries and 72 records had been checked, and the ARM64 environment had passed. The pilot proposal still required separate execution authority.
+
+## v0.9
+
+2026-11-19. Recorded the approved ARM64 pilot attempt under D-023. A first checkout failed the source line-ending check. The retry verified 222 files and accepted 72 sample records, including warmups, with a slowdown geometric mean of 2.086758×. No formal run was changed.
+
+## v0.10
+
+2026-11-19. Corrected a v0.9 sentence that still said no new run had been added. The pilot evidence, its scope and authority remained as recorded in D-023. The correction required no run changes.
+
+## v0.11
+
+2026-11-19. Indexed formal adoption under D-025 and freezing under D-026, before collection. Retained known pilot results and recorded the exact v0.2 experiments, checked dependency base, and the scope of claim-004. Older evidence and verdicts kept their original scopes.
+
+### Recovery of daily v0.4 through v0.11
+
+The daily repository retains the original snapshots at `docs/governance/snapshots/project-protocol-index-<version>.md.snapshot`. The November 22 release includes this English index and the published measurements. The daily snapshots and full local execution record are available from the project custodians.
+
+| Daily version | Original SHA-256 |
+| --- | --- |
+| v0.4 | `ed569d85ae3f672af77501fc019765cc78bf1f91f2accb6c07d892094316e9a3` |
+| v0.5 | `7c98caca9523a7c18f2a530ebbfa069101d3d4e583a2ee977712d0d77984b0eb` |
+| v0.6 | `546fa0d72101bfd2b65c6f72f6b5434d5bbc8d8e2d55e7715a883874a95d2dd7` |
+| v0.7 | `eb1822014efedc25d984af5214a190cb1bce65911bd86713c41f9fc78e8a63fd` |
+| v0.8 | `cef4c7d163957a778129781d5dd41449d79d24479d46e39d0b1bfbfb0c6ab6c8` |
+| v0.9 | `c612cb899551a2104ff17be8b10594d274df767a0239d46e50991818c4de9b36` |
+| v0.10 | `f1deac626b18f40b47b414695ea85a268cbf571f6a0de57cda5d856f57a00a30` |
+| v0.11 | `b6e7f586f83725be77a3e7eabc1b37427e767a1325320f916c6754ba4f3721cf` |
+
+## v0.12
+
+2026-11-22. English active index authorized under D-028. Records the completed formal campaigns under D-027 and links their public offline-reproducible results. Distinguishes the earlier published benchmark series and pilots. Retires current-tree Chinese protocol snapshots in favor of the exact historical recovery records above. This documentation update keeps the original inputs, frozen v0.2 experiment plans and criteria, existing verdicts and run seals. No run is affected or needs repetition.
+
+- Recovery. `docs/PROTOCOL.md` in the Git revision containing this entry.
+- Body SHA-256. `2412bce62e1e0a40eba64b764aad818bdc72262583359ff518d509f60c4fbcb9`.

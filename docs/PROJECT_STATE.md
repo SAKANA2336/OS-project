@@ -1,66 +1,21 @@
-# OS-project 当前状态
+# Project status
 
-最后核实：2026-11-15（Asia/Shanghai）
+Last verified on 2026-11-22 (Asia/Shanghai).
 
-本文件只记录由用户明确决定、当前仓库文件和已观察命令支持的持久事实；用户决定登记在 `docs/DECISIONS.md`。工作树是否干净、是否领先远端等瞬时 Git 状态必须在操作时实时核验，不在此缓存。
+The project replicates the method of *AddressSanitizer: A Fast Address Sanity Checker* (USENIX ATC 2012) with a modern LLVM toolchain. Both formal ARM64 experiments completed under the frozen v0.2 plans. [The protocol](PROTOCOL.md) distinguishes the formal experiments from earlier results and pilot runs.
 
-## 当前阶段
+| Work | Verified outcome |
+| --- | --- |
+| x86_64 environment | Ubuntu 24.04.5 and Clang/LLVM 18.1.3 under Docker Desktop/WSL2 passed seven functional checks. The successful run and two earlier failed attempts remain under `runs/`. |
+| ARM64 environment | Ubuntu 24.04.5, Linux 6.8.0-147-generic, and Clang/LLVM 18.1.3 passed seven checks and shut down normally. Local seal `run-20261114t185606z-env-arm64-001-a03` verified 111 host files. Two earlier attempts stopped or failed before the checks. |
+| Olden pilot | Earlier x86_64 pilot had a slowdown geometric mean of 1.898806×. Independent ARM64 pilot `run-20261118t151453z-pilot-arm64-001-a02` had 60 valid measurements, 12 warmups, and a slowdown geometric mean of 2.086758×. Its 829-file host seal verified. Workload, platform, and collection scope limit comparisons across pilot and formal runs. |
+| Formal main experiment, `exp-001` | Three batches and 180 valid measurements. ASan/baseline wall-clock ratio **2.270457× ± 0.015098×**. `supported` for the direction of overhead on ARM64 Olden. The comparison with Figure 2 is descriptive. |
+| Formal extension, `exp-002` | Three batches and 180 valid measurements. 64 B/32 B heap redzone wall-clock ratio **1.079945× ± 0.003477×**. The predeclared directional criterion was met under the frozen settings. |
 
-- 阶段：三个主张 C-001（性能）、C-002（内存）、C-003（功能）已执行并有数据；扩展实验待开展。
-- 所选论文：方向 8，AddressSanitizer: A Fast Address Sanity Checker（USENIX ATC 2012）；2026-10-30 用户确认，2026-11-07 补登记，见 D-007。
-- 待复现主张：C-001（slowdown 73%，partially_supported）、C-002（内存 3.37x，partially_supported）、C-003（检测 4 类内存错误，supported），均见 `docs/CLAIMS.md`。
-- 协议：`project-protocol-index v0.4 / draft_index / not_frozen`。
-- 实验状态：容器构建及七项环境功能检查通过；C-001（平均 slowdown 2.22x）、C-002（平均内存增长 2.58x）、C-003（7/7 功能检查）均已执行。
-- 科学／性能结论：C-001、C-002 partially_supported（方向正确、量级接近）；C-003 supported（功能完全复现）。
+The six formal batches were independently rehashed and recomputed. See the [public results and per-batch evidence](arm64-formal-results.md). The original sealed run directories, failed attempts, and execution records remain in controlled local storage.
 
-## 已核实入口与产物
+The historical x86_64 benchmark series registered C-001 (2.22× time), C-002 (2.58× peak RSS), and C-003 (seven functional checks). The first two ratios can be recovered from the published six-row summaries. Missing per-trial records prevent recomputing the original variability. The memory result uses a different metric from the paper's peak virtual memory. For C-003, the recorded compilation used `-O1` while the register says `-O2`. The checks establish the observed behavior for their specific test cases. [Earlier claims](CLAIMS.md)
 
-- 根目录持续规则 `AGENTS.md` 1.0。
-- 当前协议 `docs/PROTOCOL.md` v0.4 及版本档案；v0.0 至 v0.3 历史快照保留。
-- 决策、交接和文件治理入口。
-- 双工作区角色检查脚本 `scripts/check-workspace-zone.sh`；本会话 Bash 无法启动，日常区使用 PowerShell 等价检查通过，见 D-011。
-- 本地环境准备包 `outputs/asan-environment/`；实际 Ubuntu 24.04.5 LTS、Clang/LLVM/compiler-rt 18.1.3、C/C++ 编译与七项真实功能检查通过。此前 14 项 Python 单元测试与 PowerShell 语法检查仍仅作为脚本验证。
-- 验收证据：`runs/env-20261108t013027z-6c0e488a/`，见 D-012；三项正常程序检查与四类错误检测全部通过，未发生超时。
-- 已验证镜像 ID：`sha256:d79f3238f8d650516f45e8e4ae1072dfea32d5b9f4f7733fedd7a83ae10c3b77`。基础镜像 digest、完整包版本及复用方法见协议与交付包。
-- 课程任务书本地证据，SHA-256 为 `d129642a953ab1ecd7c27bf67dc667887867ec4045b72917bedaf6b76cc2666c`。
-- GitHub 仓库预期身份：`SAKANA2336/OS-project`；发布操作时须用本机 Git 实时核验。
-- 治理基线已于 2026-10-30 提交并发布，commit 为 `74bf5eb7cade99437630753166c38f76735fad1e`；该提交未包含选题决定，本次予以纠正，见 D-007、D-008。
-- 当前提交成员：王博文，学号 `1240026080`，GitHub 账号 `wbw374`；姓名、学号由用户本轮直接确认，贡献与验收入口见 `docs/CONTRIBUTIONS.md`、D-015。历史另有张瀚洋（1240036026）的成员登记，其 GitHub 账号及完整分工待核实；两人不共用身份对应。
-- 环境材料已发布于 `2c4a89badee35dd8ae50442894c7a296d2e7eacf`，此前 push 与远端同哈希已核验；后续 `7ddc1b083991f02a5bd2fd72de5d55c46e0a96fd` 使用 `wbw374` 提交并发布，但错误沿用了历史成员的姓名与学号，现由 D-015 修正当前对应关系，旧提交保留。
+Four members are documented in [the contribution record](CONTRIBUTIONS.md). The formal results are integrated into the [English report draft](../report/report.md). The final PDF and presentation, final contribution and AI-use statements, course registration receipt, and the separate Presentation Instruction are pending review. No final tag has been approved.
 
-性能主张 C-001 已有实验数据与裁决（partially_supported），但内存开销主张、扩展实验与最终报告尚未完成。
-
-## 双工作区状态
-
-- 制度已在 `AGENTS.md`、`docs/DECISIONS.md` 和文件治理中建立。
-- 已配置 `origin` 的历史目录按发布区处理；2026-10-30 的初始规则编写属于制度生效前的 bootstrap。
-- 独立日常开发区 `<workspace-parent>/OS-project-local` 已于 2026-10-30 通过一次性 provisioning 建立：拥有独立 `.git`，`git remote -v` 为空，角色标记为 `work`，`scripts/check-workspace-zone.sh work` 通过。
-- 发布区角色标记为 `release`，`main` 跟踪 `origin/main`，规范 fetch／push URL 和发布角色检查通过；现有目录名是规则生效前的 legacy bootstrap 例外，脚本会明确警告。
-- 日常文档、实现、实验和获准的本地 commit 均在日常区进行；带 `origin` 的发布区仅用于获准发布。
-- 不静默移除现有 remote，不用分支或 `git worktree` 冒充双区。
-- 本会话于 2026-11-08 通过 Git bundle 恢复独立日常区并以 PowerShell 等价检查通过；本次用户授权发布环境进度后，核实发布身份并补齐本机角色标记，以 PowerShell 等价检查核验，依据见 D-013。Bash 无法启动的限制保留。
-
-## 当前缺口与阻塞
-
-- 已登记王博文（1240026080，`wbw374`）及历史成员张瀚洋（1240036026）；其余组员身份、张瀚洋账号及完整贡献安排待补充，见贡献记录、D-008 与 D-015。
-- 课程要求四名组员；组信息与仓库表单的提交回执未登记。
-- 独立 `Presentation Instruction` 尚未取得或核实。
-- 目标表／图／主张尚未决定；论文主题与会议发表版本已登记。
-- 起始代码、精确 commit、许可证、修改范围尚未登记。
-- 准备环境的实际镜像、包版本及七项功能验收已取得；正式 workload 与输入未确定，apt 仍未快照固定。
-- 早先用户运行 `env-20261108t005237z-5e6fe72f` 在 pull 超时；小型失败证据保留在 `runs/`，含个人路径的原始主机命令仅保留在外层工作区 `work/asan-environment/`。
-- 2026-11-08 早先直连 registry 超时；随后用户开启现有代理，主机 HTTPS 检查可通，并在用户窗口完成真实 Docker pull 和构建。未将早先问题断言为 DNS 污染。
-- 用户开启代理后助手重试 `env-20261108t012755z-7026d8b6` 在 engine 阶段因 named-pipe 权限失败；随后用户运行 `env-20261108t013027z-6c0e488a` 成功下载、构建及验收。两次失败仍保留。
-- 助手访问 Docker named pipe 与 WSL 服务被拒绝；用户自己的 PowerShell 可访问 Docker。没有修改引擎权限、系统代理、DNS 或 TLS 校验。
-- 比较指标、运行次数之外的统计细节、成功判据、资源预算、安全隔离和停止条件尚未冻结。
-- 用户已于 2026-11-07 授权提交并推送本次状态修正，范围见 D-009；实验和 `v1.0` 标签不在该次发布授权内。
-- 用户已于 2026-11-08 授权提交并推送环境搭建进度，范围及校验方式见 D-013；本次实际完成以 Git 提交、push 和远端哈希为证。
-
-## 下一步
-
-1. 补齐其余组员身份和贡献安排；无需再次确认方向 8 选题。
-2. 后续任务切换到已核验的日常区，并在每轮开始重新运行角色检查。
-3. 取得并核实独立 `Presentation Instruction` 和组信息表单回执。
-4. 正常使用优先复用已验证镜像；若重建，使用新 run ID 并重新验收，保留全部旧证据。
-5. 补齐来源、许可、主张、workload、依赖固定方式和定量方案，冻结后才运行正式实验。
-6. 临近每周日 23:59 检查时，明确提醒用户决定是否授权本周有意义变更的发布；不得自动 push。
+The independent daily and release repositories were verified. Publication decisions, evidence scope, and authorship are recorded in [DECISIONS.md](DECISIONS.md). The [handoff](HANDOFF.md) lists the remaining report and evidence work.

@@ -1,135 +1,144 @@
-# OS-project 文件管理规范
+# OS-project file management policy
 
-| 字段 | 当前值 |
+| Field | Current value |
 | --- | --- |
 | `controlled_object_id` | `FILE_MANAGEMENT` |
-| `exact_version` | `v0.0` |
+| `exact_version` | `v0.1` |
 | `status` | `draft` |
 | `document_role` | `current_policy` |
 | `created_at` | `2026-10-30 (Asia/Shanghai)` |
-| `last_verified_at` | `2026-10-30 (Asia/Shanghai)` |
-| `applies_to` | 日常开发区内的项目文件、目录、生成物与运行记录，以及发布区同步边界 |
-| `approval_state` | 已授权建立初始规则；尚未冻结为 v1.0 |
+| `last_verified_at` | `2026-11-22 (Asia/Shanghai)` |
+| `applies_to` | Project files, directories, generated artifacts, and run records in the work repository, plus the boundary for transfer to the release repository |
+| `approval_state` | Initial rules authorized. English revision authorized. Major version freeze pending. |
 | `freeze_state` | `not_frozen` |
-| `supersedes` | `none` |
-| `next_allowed_version` | `v0.1` |
+| `supersedes` | `v0.0` |
+| `next_allowed_version` | `v0.2` |
 | `major_version_authorization` | `absent` |
 | `governing_rule` | `AGENTS.md` 1.0 |
-| `archive_ref` | [`FILE_MANAGEMENT_VERSION_ARCHIVE.md#v00`](FILE_MANAGEMENT_VERSION_ARCHIVE.md#v00) |
-| `source_of_authority` | 用户于 2026-10-30 要求参照既有仓库规则建立本项目制度；`docs/DECISIONS.md` D-005 |
+| `archive_ref` | [`FILE_MANAGEMENT_VERSION_ARCHIVE.md#v01`](FILE_MANAGEMENT_VERSION_ARCHIVE.md#v01) |
+| `source_of_authority` | The user's initial governance request on 2026-10-30 and `docs/DECISIONS.md` D-005. The user authorized English revisions on 2026-11-22. |
 
-“正式规范”是文档职责，不表示本版已经冻结或验证为最终版本。本规范不授权下载、构建、实验、commit、push 或标签。
+This document defines the file management policy. Its current status is draft. Downloads, builds, experiments, commits, pushes, and tags each require applicable authorization.
 
-## 1 目的、范围与优先级
+## 1 Purpose, scope, and precedence
 
-本规范确定文件的唯一职责、规范位置、命名、生命周期、版本、Git 跟踪、运行证据和双工作区发布边界。
+This policy defines the responsibilities, standard locations, naming, lifecycle, versioning, and tracking of files and run evidence. It also defines the transfer boundary between the work and release repositories.
 
-优先级依次为：用户最新明确指令、`AGENTS.md`、有效协议与决策、本规范、具体实验计划、一般目录惯例。实质冲突时停止相关写入，记录冲突并请求决定。本规范不替代课程要求、实验协议、资源预算、许可证或安全边界。
+Apply these sources in order of precedence.
 
-## 2 单一事实来源
+1. The most recent explicit user instruction
+2. `AGENTS.md`
+3. Active protocols and decisions
+4. This policy
+5. The applicable experiment plan
+6. General directory conventions
 
-| 信息 | 唯一当前事实来源 | 其他文件的处理方式 |
+For a substantive conflict, stop the affected writes, document the conflict, and request a decision. Course requirements, experiment protocols, resource budgets, licenses, and safety boundaries continue to apply.
+
+## 2 Sources of record
+
+| Information | Current source of record | Treatment elsewhere |
 | --- | --- | --- |
-| 持续执行规则 | `AGENTS.md` | 只引用，不复制完整规则 |
-| 当前阶段、产物、阻塞、下一步 | `docs/PROJECT_STATE.md` | README 只给摘要和链接 |
-| 当前论文、主张和协议入口 | `docs/PROTOCOL.md` | 实验计划引用精确版本 |
-| 有效决定与修订依据 | `docs/DECISIONS.md` | 新决定取代旧决定但不删除历史 |
-| 文件治理 | 本文件 | `AGENTS.md` 只保留强制入口 |
-| 跨会话承接 | `docs/HANDOFF.md` | 不把聊天记忆当事实来源 |
-| 具体实验计划 | `experiments/<experiment-id>/PLAN.md` | 配置和 run 引用精确版本 |
-| 实际运行证据 | `runs/<run-id>/` | 报告和汇总必须反向引用 run ID |
+| Standing operating rules | `AGENTS.md` | Reference the rules without copying them in full |
+| Current stage, artifacts, blockers, and next steps | `docs/PROJECT_STATE.md` | Summarize the state and link to it in the README |
+| Active paper, claims, and protocol entry point | `docs/PROTOCOL.md` | Cite the exact protocol version in experiment plans |
+| Active decisions and reasons for revisions | `docs/DECISIONS.md` | Preserve decisions superseded by later entries |
+| File management policy | This document | Keep the required entry point in `AGENTS.md` |
+| Handoff between sessions | `docs/HANDOFF.md` | Verify remembered chat context against recorded evidence |
+| Specific experiment plan | `experiments/<experiment-id>/PLAN.md` | Cite the exact plan version in configurations and runs |
+| Evidence from actual runs | `runs/<run-id>/` | Cite run IDs in reports and summaries |
 
-不得创建 `status-final.md`、`latest-protocol.md`、第二份运行事实表或其他影子来源。
+Avoid parallel sources such as `status-final.md`, `latest-protocol.md`, or a duplicate table of canonical run facts.
 
-## 3 顶层结构与职责
+## 3 Top-level structure and responsibilities
 
 ```text
-docs/                         全局状态、协议、决策、交接与治理
-experiments/<experiment-id>/  单项实验的方案、版本档案与说明
-config/                       无凭据、可执行、版本化配置
-src/                          本项目正式实现
-scripts/                      构建、获取、运行、验证与报告入口
-tests/                        单元、集成、边界与小型公开 fixture
-workloads/                    workload 清单、获取脚本与小型公开输入
-third_party/                  获许可且确需入库的第三方 notices 或 patch
-runs/<run-id>/                追加式运行证据；只跟踪允许公开的小型内容
-results/                      从已验证 run 提升的机器可读汇总
-report/                       最终报告源文件、图表入口和允许发布的 PDF
-presentation/                 展示源文件与允许发布的导出文件
-archive/<retirement-id>/      已退役路线的只读历史包
-scratch/                      本地临时内容；不得作为唯一证据
+docs/                         Project state, protocol, decisions, handoff, and governance
+experiments/<experiment-id>/  Plans, version archives, and notes for an experiment
+config/                       Credential-free, executable, versioned configuration
+src/                          Main project implementation
+scripts/                      Build, retrieval, execution, validation, and report entry points
+tests/                        Unit, integration, and boundary tests, plus small public fixtures
+workloads/                    Workload manifests, retrieval scripts, and small public inputs
+third_party/                  Required, licensed third-party notices or patches
+runs/<run-id>/                Append-only run evidence, with small publishable items tracked
+results/                      Machine-readable summaries promoted from verified runs
+report/                       Report source, figure-generation entry points, and publishable PDFs
+presentation/                 Presentation source and publishable exports
+archive/<retirement-id>/      Read-only history for retired lines of work
+scratch/                      Local temporary files, never the sole copy of evidence
 ```
 
-目录按真实需要创建，不批量制造空目录，不用 `.gitkeep` 假装实现存在。当前仓库只有治理阶段所需入口；结构示例不证明代码、实验或结果已经存在。
+Create directories as needed. Avoid empty scaffolding and `.gitkeep` placeholders. This layout describes where to put actual artifacts. Verify each implementation, experiment, and result against its corresponding evidence.
 
-## 4 文件落位
+## 4 File locations
 
-| 文件类型 | 规范位置 | 约束 |
+| File type | Standard location | Constraints |
 | --- | --- | --- |
-| 治理与状态 | `docs/`、`docs/governance/` | 固定职责，不建同义副本 |
-| 正式实验计划 | `experiments/<experiment-id>/` | `PLAN.md` 与 `VERSION_ARCHIVE.md` 物理分离 |
-| 配置 | `config/` | 不含凭据、私密 URL 或个人绝对路径 |
-| 正式代码 | `src/` | 清晰模块化，不把 notebook 当正式入口 |
-| 自动化入口 | `scripts/` | 参数化、可重复、无硬编码个人路径 |
-| 测试 | `tests/` | 使用合成或明确可公开的小型 fixture |
-| workload 元数据 | `workloads/` | 来源、版本、许可、获取脚本与哈希 |
-| 大型／受限输入 | 日常区本地受控位置 | 默认忽略，只在清单中记录逻辑路径和哈希 |
-| 运行证据 | `runs/<run-id>/` | 追加式；小型日志和指标可跟踪，大型二进制忽略 |
-| 机器结果 | `results/` | 只从已验证 run 提升，保留 run ID |
-| 报告／展示 | `report/`、`presentation/` | 保存源文件和生成入口，导出物按交付需要跟踪 |
-| 历史 | `archive/<retirement-id>/` | 清单完整后只读，不作为当前入口 |
-| 临时文件 | `scratch/`、`tmp/` | 可清理，不得成为唯一证据 |
+| Governance and state | `docs/`, `docs/governance/` | One location per responsibility |
+| Formal experiment plans | `experiments/<experiment-id>/` | Separate `PLAN.md` from `VERSION_ARCHIVE.md` |
+| Configuration | `config/` | Exclude credentials, private URLs, and personal absolute paths |
+| Main code | `src/` | Keep modules clear and use a reproducible entry point outside any notebook |
+| Automation entry points | `scripts/` | Parameterized, repeatable, and free of hardcoded personal paths |
+| Tests | `tests/` | Use small synthetic fixtures or fixtures explicitly cleared for publication |
+| Workload metadata | `workloads/` | Record sources, versions, licenses, retrieval scripts, and hashes |
+| Large or restricted inputs | Controlled local storage in the work repository | Ignore by default and record logical paths and hashes in manifests |
+| Run evidence | `runs/<run-id>/` | Append-only. Track small logs and metrics. Ignore large binaries. |
+| Machine-readable results | `results/` | Promote from verified runs and retain their run IDs |
+| Report and presentation | `report/`, `presentation/` | Preserve source and generation instructions. Track exports needed for delivery. |
+| History | `archive/<retirement-id>/` | Read-only once the manifest is complete. Use the corresponding current document as the active entry point. |
+| Temporary files | `scratch/`, `tmp/` | Disposable. Preserve any evidence elsewhere before cleanup. |
 
-当前课程任务书的历史文件名含空格和 `(1)`。它是规则生效前的输入例外；不得静默重命名、移动、删除或自动发布。是否登记为公开资产应另行核对许可与用途。新文件必须遵守本规范命名。
+The existing course brief filename includes spaces and `(1)`. Keep this pre-policy input in place unless a change is expressly authorized. Verify license and intended use before registering it as a public asset. New files must follow this policy.
 
-## 5 命名与标识
+## 5 Names and identifiers
 
-- 新路径使用 ASCII，不使用空格、中文路径、尾随句点或仅大小写不同的名称。
-- 人类可读目录和 ID 使用小写 kebab-case；代码标识按所选语言惯例。
-- 固定治理文档使用既有大写文件名；第三方原始文件保留官方名称与版本。
-- 主张 ID：`claim-<三位序号>`；实验 ID：`exp-<三位序号>`。
-- 运行 ID：`run-<UTC时间>-<experiment-id>-a<两位尝试号>`。
-- 退役包 ID：`YYYY-MM-DD-<kebab-case-scope>`。
-- Git commit、外部版本、随机种子、run ID 和数据哈希保持自身标识，不用 `vN.x` 替代。
-- 内部受控对象版本连续使用 `vN.0`、`vN.1`；`vN.9` 后是 `vN.10`。
-- 禁止新文件名使用 `latest`、`final`、`new`、`old`、`copy`、`final2`、`最新版` 或系统自动后缀 `(1)`。
+- Use ASCII for new paths. Exclude spaces, Chinese characters, and trailing periods. Paths that differ only in letter case are prohibited.
+- Use lowercase kebab-case for human-readable directories and IDs. Follow the language's conventions for code identifiers.
+- Keep established uppercase filenames for fixed governance documents. Preserve official names and versions for original third-party files.
+- Use `claim-<three-digit-sequence>` for claims and `exp-<three-digit-sequence>` for experiments.
+- Use `run-<UTC-timestamp>-<experiment-id>-a<two-digit-attempt>` for runs.
+- Use `YYYY-MM-DD-<kebab-case-scope>` for retirement packages.
+- Preserve the original identifiers for Git commits, external versions, random seeds, run IDs, and data hashes. Use `vN.x` for internal controlled-object versions only.
+- Increment internal versions in sequence from `vN.0` to `vN.1` and onward. Follow `vN.9` with `vN.10`.
+- Exclude `latest`, `final`, `new`, `old`, `copy`, `final2`, non-English forms of “latest version,” and automatic suffixes like `(1)` from new filenames.
 
-## 6 生命周期与冲突
+## 6 Lifecycle and conflicts
 
-| 类别 | 例子 | 写入规则 |
+| Category | Examples | Write rule |
 | --- | --- | --- |
-| 不可变 | 原始来源、终态 run、冻结配置、历史快照 | 目标存在即失败；变化用新 ID／版本 |
-| 受控更新 | 当前协议、正式计划、治理规范、正式代码 | 更新须有决定或版本依据并保留恢复路径 |
-| 追加式 | 决策、版本档案、运行索引 | 不删除旧条目；错误用勘误修正 |
-| 可再生 | 构建产物、派生指标、生成图表 | 由版本化代码和配置重建；不作为唯一来源 |
-| 历史归档 | `archive/<retirement-id>/` | 清单后只读；恢复通过新决定和新提交 |
-| 临时 | `scratch/`、`tmp/`、缓存、`.partial` | 可清理；不进入完成证据 |
+| Immutable | Original sources, terminal runs, frozen configurations, historical snapshots | Stop if the target exists. Use a new ID or version for changes. |
+| Controlled update | Current protocol, formal plans, governance policy, main code | Document the decision or version basis and preserve a recovery path. |
+| Append-only | Decisions, version archives, run indexes | Preserve earlier entries. Correct errors with an erratum. |
+| Regenerable | Build products, derived metrics, generated figures | Rebuild from versioned code and configuration. Retain the source separately. |
+| Historical archive | `archive/<retirement-id>/` | Make read-only once the manifest is complete. Restore through a new decision and commit. |
+| Temporary | `scratch/`, `tmp/`, caches, `.partial` files | May be deleted. Keep any completion evidence elsewhere. |
 
-创建前按大小写不敏感语义检查完整路径。目标存在时：哈希相同则复用；合法修订使用下一连续版本；不同来源使用新的来源版本；无法解释的碰撞立即停止，不自动加后缀。大文件先写 `.partial` 或临时路径，校验后再原子改名。
+Check the full path on case-insensitive semantics before creating a file. If the same bytes already exist, reuse the file. Use the next sequential version for an authorized revision or a new source version for different source material. Stop on unexplained collisions. Automatic suffixes are prohibited. Write large files to a `.partial` or temporary path, verify them, and rename them atomically.
 
-删除不可变或受控文件须有明确授权、精确目标和恢复方式。优先归档，不用 `git clean`、破坏性 reset 或清理命令掩盖失败和不利结果。归档内如保存旧规则，必须改名为 `AGENTS-<version>.md.snapshot`，不得留下会被误加载的活动 `AGENTS.md`。
+Deleting an immutable or controlled file requires explicit authorization, an exact target, and a recovery method. Prefer archiving. Do not use `git clean`, destructive resets, or cleanup commands to conceal failures or unfavorable results. Use `AGENTS-<version>.md.snapshot` when archiving former operating rules to prevent automatic loading.
 
-## 7 受控对象与版本档案
+## 7 Controlled objects and version archives
 
-- 正文与版本档案是两个文件，使用相同 `controlled_object_id` 和 `exact_version` 并双向链接。
-- 正文只保存当前执行、验证和裁决所需内容；讨论、替代方案、历史差异和结果暴露进入档案。
-- 档案按版本追加，记录依据、已知结果、影响、迁移、受影响运行、重跑和主版本授权。
-- 档案条目保存正文 SHA-256，以及 Git commit、不可变快照或运行快照中的至少一种恢复路径。首次未提交版本可用正文哈希和不可变快照，获准提交后补充 commit。
-- `.md.snapshot` 是正文在原路径语义下的逐字节恢复副本，其中的 `current_*` 角色名与相对链接仅用于还原原文，不是快照目录中的活动入口；读取快照前须遵守 `snapshots/README.md`。
-- 一个对象升版不自动推动其他对象；没有用户明确许可，不得进入下一主版本。
-- 状态与版本分离。`draft`、`frozen`、`complete` 或 `retired` 不由版本号推断。
+- Keep the current document and archive in separate files. Cross-link both with the same `controlled_object_id` and `exact_version`.
+- The current document contains operative execution, verification, and adjudication requirements. The archive records discussions, alternatives, historical differences, and results known before each revision.
+- Append one entry per version. Record the rationale, known results, scope, migration, affected runs, rerun decision, and authorization for any major version change.
+- Archive entries record the current document's SHA-256 and at least one recovery reference. Use a Git commit, an immutable snapshot, or a run snapshot. Before the first commit, record the document hash and an immutable snapshot. Add the commit after an authorized commit exists.
+- A `.md.snapshot` file is a byte-for-byte recovery copy of a document in its original path context. Its `current_*` role and relative links apply only when restoring the original. Follow the [snapshot instructions](snapshots/README.md).
+- A version increase in one object does not carry over to others. An increase in a major version requires explicit user approval.
+- Record status separately as `draft`, `frozen`, `complete`, or `retired`. Verify status independently of version numbering.
 
-## 8 来源、许可与大文件
+## 8 Sources, licenses, and large files
 
-- 每项第三方论文、代码、工具、数据、workload 或 trace 记录来源、官方版本／commit、获取日期、逻辑路径、字节数、SHA-256、许可、访问状态和用途。
-- 原始输入只读，派生物由版本化代码和配置生成。网页入口不等于已经下载或可以再分发。
-- 第三方代码须保留许可证与归属；修改以清晰 patch、fork commit 或修改文件清单追踪。
-- 凭据、令牌、私钥、认证缓存、个人绝对路径和未获许可材料不得跟踪。
-- 单个文件不得超过 50 MB。磁盘镜像、VM 镜像、core dump、大型 trace、构建产物和大型 benchmark 输入默认只保存在本地，通过哈希、来源和生成命令引用。
+- For each third-party paper, source repository, tool, dataset, workload, or trace, record its source, official version or commit, retrieval date, logical path, byte count, SHA-256, license, access status, and intended use.
+- Preserve original inputs as read-only. Generate derived material from versioned code and configuration. Verify acquisition and redistribution rights separately from a website's availability.
+- Preserve licenses and attribution for third-party code. Track changes with a patch, fork commit, or explicit changed-file list.
+- Exclude credentials, tokens, private keys, authentication caches, personal absolute paths, and unlicensed materials from tracked files.
+- The per-file limit is 50 MB. Keep disk images, VM images, core dumps, large traces, build products, and large benchmark inputs local by default. Record their hashes, sources, and generation commands in the repository.
 
-## 9 运行记录与报告数字
+## 9 Run records and report figures
 
-每个实质运行使用唯一 `runs/<run-id>/`，最低结构按需要采用：
+Give every substantive run a unique `runs/<run-id>/`. Use the following minimum structure as applicable.
 
 ```text
 runs/<run-id>/
@@ -143,43 +152,43 @@ runs/<run-id>/
   decision/
 ```
 
-运行终态后锁定；续跑创建新 ID 并记录 `resumed_from`。小型文本日志、manifest、逐次指标、原始输出和统计入口应跟踪，使报告每个数字可追溯。只有明确放入 `large-artifacts/` 或 `large-traces/` 的大型内容被忽略，并须跟踪其哈希和说明。报告和图表必须引用 run ID，不得手工修改原始 run 来迎合结论。
+Lock each run after it reaches a terminal status. For a resumed run, create a new ID and record `resumed_from`. Track small text logs, manifests, per-iteration metrics, raw outputs, and statistical entry points so every reported number is traceable. Store large run content explicitly in ignored `large-artifacts/` or `large-traces/` directories and track its hashes and descriptions. Reports and charts must cite run IDs. Raw run evidence must remain as recorded.
 
-## 10 Git 跟踪边界
+## 10 Git tracking boundaries
 
-默认跟踪规则、状态、协议、决策、计划、代码、测试、无密配置、构建／运行脚本、锁文件、小型公开 fixture、来源清单、小型日志、逐次指标、统计脚本和允许公开的报告。
+Track rules, state, protocols, decisions, plans, code, tests, credential-free configuration, build and run scripts, lockfiles, small public fixtures, source manifests, small logs, per-iteration metrics, statistical scripts, and publishable reports by default.
 
-默认忽略缓存、虚拟环境、构建产物、临时文件、本机配置、凭据、磁盘／VM 镜像、core dump、大型 trace、下载内容和大型运行二进制。`.gitignore` 只是防护之一；发布前还须用 `git ls-files` 检查已跟踪内容。
+Ignore caches, virtual environments, build products, temporary files, machine-local configuration, credentials, disk and VM images, core dumps, large traces, downloads, and large run binaries by default. Before release, use `git ls-files` to check for prohibited tracked content even when `.gitignore` covers the path.
 
-commit message 必须包含实际成员学号和全名。未知身份时不创建 commit。构建产物、纯空白／拼写提交和伪造时间的提交不用于满足周检。
+Commit messages must include the actual member's student ID and full name. Confirm identity before committing. Do not use build outputs, whitespace-only or spelling-only changes, or backdated commits to satisfy weekly checks.
 
-## 11 双工作区与公开边界
+## 11 Work and release repositories
 
-- 日常工作只在 `<workspace-parent>/OS-project-local`，该仓库不得配置 remote。
-- `<workspace-parent>/OS-project` 是独立发布克隆，预期 `origin` 指向 `SAKANA2336/OS-project`，默认只读。
-- 两区必须各自拥有独立 `.git` 目录和不跟踪的 `.local/workspace-role`；不得用 linked worktree。发布区 `main` 跟踪 `origin/main`，fetch／push URL 均使用规范 HTTPS `.git` 地址。
-- 首次 provisioning 按 D-002 的一次性授权，从已核实发布区创建独立 clone，仅在新 clone 移除临时 remote，再按明确治理文件 allowlist 导入 bootstrap 内容并验证；该例外不延伸到后续同步。
-- 用户明确授权 push 后，先建立本次发布 allowlist；只同步 allowlist，不镜像整树，不从发布区反向覆盖日常区。
-- 普通已提交贡献优先使用经审阅的 `format-patch`／`git am` 或等价 Git 提交迁移保留真实 author；禁止由 AI 或单一成员改写、集中 squash 或重新提交来掩盖个人贡献。
-- 发布前实时核对两区根目录、仓库身份、分支、状态、远端前进、diff、绝对路径、凭据、许可、50 MB 上限、禁止产物和适用测试。
-- 远端更新需要导入日常区时，先只读审阅发布区的 commit／diff，再按明确 patch 或 allowlist 导入；不得用 pull 或整树复制让日常区重新获得 remote。
-- 冲突、无关改动、远端前进或验证失败时停止。禁止 force push、历史重写和自动覆盖。
+- Use `<workspace-parent>/OS-project-local` for routine work. This repository must have no remotes.
+- Use the independent release clone `<workspace-parent>/OS-project` with `origin` set to `SAKANA2336/OS-project`. The clone is read-only by default.
+- Each repository must have its own independent `.git` directory and an untracked `.local/workspace-role` marker. Linked worktrees are prohibited. The release repository's `main` tracks `origin/main`. Both remote URLs use the canonical HTTPS `.git` address.
+- Follow the one-time authorization in D-002 for initial provisioning. Clone the verified release repository, remove the temporary remote in the new clone only, then import bootstrap content from an explicit governance-file allowlist and verify it. Later transfers follow the normal release procedure.
+- Establish a release allowlist after the user authorizes a push. Transfer only the listed content. Whole-tree mirroring and overwriting the work repository from the release repository are prohibited.
+- Prefer reviewed `format-patch` and `git am` or an equivalent Git commit transfer for committed contributions. Preserve the actual author. AI or a single member may not rewrite, squash, or recommit other members' work to obscure attribution.
+- Before release, verify both repositories' roots, identities, branches, and status. Check for remote advancement, inspect diffs for absolute paths, credentials, and prohibited artifacts, confirm licensing and the 50 MB limit, and run applicable tests.
+- For importing remote changes into the work repository, first inspect the release commits and diffs in read-only mode. Import through an explicit patch or allowlist. Keep the work repository remote-free and avoid whole-tree copying.
+- Stop on conflicts, unrelated changes, remote advancement, or failed checks. Force pushes, history rewrites, and automatic overwrites are prohibited.
 
-## 12 验证、例外与迁移
+## 12 Checks, exceptions, and migration
 
-文件治理或发布最低检查：
+Run at least these checks for file management or release work.
 
-1. `git rev-parse --show-toplevel` 与工作区角色正确；
-2. `git status --short --branch` 和 `git diff` 仅包含获准范围；
-3. `git diff --check` 无空白错误；
-4. `git check-ignore -v --no-index` 对禁止路径命中、对规则和代码不命中；
-5. `git ls-files` 中没有凭据、构建产物、镜像、大型 trace 或其他禁止内容；
-6. `.gitattributes`、换行与二进制策略正确；
-7. 不存在大小写不敏感重复路径或不合规新文件名；
-8. 单文件不超过 50 MB；
-9. 正文与版本档案的对象 ID、版本、链接和 SHA-256 一致；
-10. 报告数字可从 run ID 追溯到逐次日志、指标和统计入口；
-11. 发布区只含本次 allowlist，远端身份正确且没有强制推送；
-12. `scripts/check-workspace-zone.sh` 对当前角色通过。
+1. `git rev-parse --show-toplevel` and the workspace role match the intended repository.
+2. `git status --short --branch` and `git diff` show only authorized changes.
+3. `git diff --check` reports no whitespace errors.
+4. `git check-ignore -v --no-index` matches prohibited paths and excludes rules and code.
+5. `git ls-files` lists no credentials, build products, images, large traces, or other prohibited content.
+6. `.gitattributes`, line endings, and binary handling follow repository policy.
+7. Paths are unique on a case-insensitive comparison, and new filenames follow the policy.
+8. Each file is at most 50 MB.
+9. The current document and archive agree on object ID, version, links, and the SHA-256.
+10. Report figures trace back through run IDs to individual logs, metrics, and statistical entry points.
+11. The release repository contains only allowed changes, the remote identity matches, and the push is a normal fast-forward.
+12. `scripts/check-workspace-zone.sh` passes for the current role.
 
-例外须在执行前记录原因、范围、期限、风险、恢复方式和授权来源。迁移优先新增与显式移动，路径移动和内容改写分开核查。当前草案下一合法版本为 `v0.1`。
+Record the reason, scope, duration, risk, recovery process, and authority before using an exception. Prefer adding files or explicitly moving them during migrations. Review path moves separately from content changes. The next allowable version for this draft is `v0.2`.
