@@ -1,6 +1,6 @@
 # Project handoff
 
-Last verified on 2026-11-22 (Asia/Shanghai).
+Last verified on 2026-11-25 (Asia/Shanghai).
 
 Start with the [project status](PROJECT_STATE.md), [current protocol](PROTOCOL.md), and [workspace rules](../AGENTS.md). Use the independent daily repository with no remote for development. The release repository is reserved for authorized publication.
 
@@ -17,3 +17,8 @@ Start with the [project status](PROJECT_STATE.md), [current protocol](PROTOCOL.m
 2. Obtain the original trial records and source/input provenance for C-001 and C-002. Keep the RSS and VmPeak comparisons distinct. Document the limitations if the original records cannot be recovered.
 3. Confirm the course registration receipt and separate Presentation Instruction, then complete the presentation. The final `v1.0` tag requires its own authorization.
 4. Use a new run ID, an approved protocol, and a fresh evidence record if an experiment must be repeated. Publication of the existing results uses the evidence and scope in [D-028](DECISIONS.md#d-028-english-publication-of-formal-results-and-project-documents).
+
+
+## Reproduce on another member's machine
+
+Use the [standalone package and verified extraction instructions](reproduction-package.md). Its extracted README is the complete source-entry guide and records the one-host clean-main acceptance. The next member should use new IDs and their own bounded execution allowance, retain all failed attempts and share the new run evidence. Existing measured ratios are reference observations, not software acceptance thresholds. No final tag or additional experiment is authorized by this package publication.

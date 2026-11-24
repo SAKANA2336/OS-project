@@ -18,6 +18,12 @@ From the repository root, verify and recompute the formal results with Python 3:
 python3 scripts/verify-arm64-formal-results.py
 ```
 
+## Replay the main experiment from a clean environment
+
+The [standalone reproduction package v0.1](docs/reproduction-package.md) contains the full source workflow, fixed-input metadata, licenses, tests and a fresh-machine guide for Apple Silicon/ARM64 Linux VMs. [Download the archive](packages/asan-reproduction-source-v0.1.tar.gz) and verify its [SHA-256](packages/asan-reproduction-source-v0.1.sha256) before extracting into a new work directory.
+
+The clean-main acceptance completed three new VM batches with 180 timed observations and 36 warmups; its independent validation result was 2.273131x ± 0.006420x (batch sample SD, n=3). This is a separate workflow validation; the formal results above are unchanged. Follow the package guide for setup, resource allowances, collection and verification.
+
 ## Rebuild the x86_64 functional-check environment
 
 On Windows, start Docker Desktop with Linux containers enabled, then run this in PowerShell from the repository root:
