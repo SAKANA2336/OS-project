@@ -1,0 +1,56 @@
+{
+  "artifact_id": "module-04-main-batch-summary",
+  "exact_version": "v0.1",
+  "created_date": "2026-11-26",
+  "timezone": "Asia/Shanghai",
+  "authorization": "User explicitly requested combining only the selected compact Paper vs. Ours row with the accepted first image and archiving only the new combined image.",
+  "asset_archive_allowlist": [
+    "module-04-main-batch-summary-v0.1.png"
+  ],
+  "excluded_from_asset_archive": "Only the new PNG is an archived figure format. Auxiliary PDF remains temporary. Generator and provenance are supporting records; unapproved program plot and detailed comparison previews are not archived.",
+  "source_campaign": "exp-001-v0-2-20261118t170938z",
+  "batch_values": [
+    2.27929042864134,
+    2.2790558774609084,
+    2.2530238566454566
+  ],
+  "ours_mean": 2.2704567209159014,
+  "ours_sample_sd": 0.015097758809435247,
+  "statistical_n": 3,
+  "paper_runtime_ratio": 1.73,
+  "absolute_ratio_gap": 0.5404567209159015,
+  "relative_gap_percent": 31.240272885312226,
+  "source_hashes": {
+    "results/exp-001-v0-2-20261118t170938z/summary.json": "eb28447ba05382968cf948c86ba1b2bd1127a56b548b880de5904c1624c8a353",
+    "experiments/exp-001/PLAN.md": "b8849f4fde807a86ad8933ef5dcf3bcda0ce7b1e5598681a3215cdebb26a7a0b",
+    "presentation/modules/module-04/versions/module-v0.0.json": "0f03123833426165fc61f071e2a03dfc6070545f8abacb7660dffabf085ab25e",
+    "presentation/modules/module-04/assets/module-04-main-batch-summary-v0.0.png": "f90e17edd0076659ed08e217d0ded9bebe58070f25e81d70190a7440ce8705de",
+    ".local/sources/papers/addresssanitizer-atc12-2012.pdf": "adf8b68d3dfeb8fac172e16e4e985a806226a9f904708c12a101d2b765b758e7"
+  },
+  "generator_sha256": "28eba5e59f6d874477be1a873fbee62c98f45e5e5b517015c23fd670cca18aac",
+  "statistics": "ASan/baseline ratio of five-run means per program; equal-weight arithmetic mean of six program ratios within batch; mean and sample SD across three independent VM batches.",
+  "comparison_scope": "Descriptive comparison across different workloads/platforms; numerical equivalence and causal attribution are not established. Setup differences are referenced to Module 3.",
+  "notes": [
+    "Ours: suite ratios are equal-weight arithmetic means of six program ratios (ASan mean / baseline mean).",
+    "Five timings per arm and program; 60 timings per batch; warmups excluded.",
+    "Ours: mean ± sample SD across n = 3 VM batches; all six programs retained, including short-running mst.",
+    "Descriptive comparison only; platform/workload differences are in Module 3. Paper SD is not reported.",
+    "Sources: formal exp-001 v0.2; Serebryany et al., USENIX ATC 2012, §4 / Figure 2."
+  ],
+  "page_points": [
+    620,
+    410
+  ],
+  "png_dpi": 400,
+  "known_results": "All original formal main, extension and clean-entry acceptance results were known before this presentation change. No new observation or experimental change.",
+  "outputs": {
+    "module-04-main-batch-summary-v0.1.pdf": {
+      "bytes": 2781,
+      "sha256": "38356f2d1964f6a7fad096d7ef01415ad6ad5ad4d6a1931b213d716abd935f3f"
+    },
+    "module-04-main-batch-summary-v0.1.png": {
+      "bytes": 262281,
+      "sha256": "b6c4a1218960577c41b81ff9a83a55f166e5694e5f966dd87296f0343169b23e"
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "artifact_id": "module-03-speaker-notes-en",
+  "exact_version": "v0.0",
+  "status": "complete_local_archive",
+  "created_date": "2026-11-26",
+  "timezone": "Asia/Shanghai",
+  "language": "en",
+  "authorization": "User confirmed the revised Chinese narration and requested one-to-one English PDF pairing and module-3 archiving.",
+  "pdf": {
+    "path": "output/pdf/module-03-speaker-notes-en-v0.0.pdf",
+    "sha256": "354437a6d2619cc034971a722acca8f5479ee8daafc874f2b812feeba039dddb",
+    "bytes": 6131897,
+    "pages": 5,
+    "page_format": "A3 landscape; figure left, English narration right"
+  },
+  "source": {
+    "path": "speaker-notes/source-v0.0.json",
+    "sha256": "0df495906a2b1f5c58179ba170893dfacae2194b75c4072e23fee24f86eb630b",
+    "contents": "Confirmed Chinese paragraph text, English translation and four equation specifications"
+  },
+  "builder": {
+    "path": "speaker-notes/build-speaker-notes.py",
+    "sha256": "23f85de28131ae008c96eb30da73cdcc08078c6ff66b11e1ec65ce3588ea2751",
+    "dependencies": [
+      "Python 3",
+      "reportlab",
+      "Pillow"
+    ],
+    "rebuild_command": "python3 presentation/modules/module-03/speaker-notes/build-speaker-notes.py --output /tmp/module-03-speaker-notes-en-rebuilt.pdf",
+    "overwrite_policy": "Refuses existing output paths."
+  },
+  "figure_mapping": [
+    {
+      "figure_number": 1,
+      "page": 1,
+      "figure_id": "experimental-workflow",
+      "image": "assets/module-03-experimental-workflow-v0.0.png",
+      "image_sha256": "a085d93147a2cfac6196e032090d3905075292e453d5ffeeae74f6ab67852cee"
+    },
+    {
+      "figure_number": 2,
+      "page": 2,
+      "figure_id": "settings-comparison",
+      "image": "assets/module-03-settings-comparison-v0.0.png",
+      "image_sha256": "aa9ac121a87801ee8ecc078a398fce3b9aad7bcf7b07dc0cdf98cf5f688b6fd2"
+    },
+    {
+      "figure_number": 3,
+      "page": 3,
+      "figure_id": "sampling-structure",
+      "image": "assets/module-03-sampling-structure-v0.0.png",
+      "image_sha256": "78466d4051da963f59a67bf6665c33b8ef58e874f846586eeb931657bc553c0f"
+    },
+    {
+      "figure_number": 4,
+      "page": 4,
+      "figure_id": "statistical-aggregation",
+      "image": "assets/module-03-statistical-aggregation-v0.0.png",
+      "image_sha256": "bbfb5eea30a0933fdfce16908a5f39caadc0737f71f1e6bd43437814d1a74f67"
+    },
+    {
+      "figure_number": 5,
+      "page": 5,
+      "figure_id": "olden-workloads",
+      "image": "assets/module-03-olden-workloads-v0.0.png",
+      "image_sha256": "293cd227c33c1f2219c4165e0ed442bdddec45ec3bae36789e8f3ec4bd6337f9"
+    }
+  ],
+  "build_environment": {
+    "pages": [
+      {
+        "page": 1,
+        "figure_id": "experimental-workflow",
+        "asset": "assets/module-03-experimental-workflow-v0.0.png",
+        "narration_bottom_pt": 143.89
+      },
+      {
+        "page": 2,
+        "figure_id": "settings-comparison",
+        "asset": "assets/module-03-settings-comparison-v0.0.png",
+        "narration_bottom_pt": 94.89
+      },
+      {
+        "page": 3,
+        "figure_id": "sampling-structure",
+        "asset": "assets/module-03-sampling-structure-v0.0.png",
+        "narration_bottom_pt": 323.89
+      },
+      {
+        "page": 4,
+        "figure_id": "statistical-aggregation",
+        "asset": "assets/module-03-statistical-aggregation-v0.0.png",
+        "narration_bottom_pt": 58.89
+      },
+      {
+        "page": 5,
+        "figure_id": "olden-workloads",
+        "asset": "assets/module-03-olden-workloads-v0.0.png",
+        "narration_bottom_pt": 499.89
+      }
+    ],
+    "fonts": [
+      {
+        "alias": "Body",
+        "filename": "Times New Roman.ttf",
+        "sha256": "f3b4ffff71c2a0c7227d37497683b2498fb2d0a4e8beae26f022e3ccfcaabfa3"
+      },
+      {
+        "alias": "BodyBold",
+        "filename": "Times New Roman Bold.ttf",
+        "sha256": "50f5b1f27b7d34621090e437e8b1dd4510a22d2823fc876b3286bed327b64bbb"
+      },
+      {
+        "alias": "BodyItalic",
+        "filename": "Times New Roman Italic.ttf",
+        "sha256": "7bb99c3a67697fbce15ab66d806d9a2151432ce1dab2eaba4156e1251da486c0"
+      }
+    ],
+    "page_size_pt": [
+      1190.5511811023623,
+      841.8897637795277
+    ],
+    "reportlab_version": "4.4.9"
+  },
+  "validation": {
+    "translation": "Independent source/translation review passed. The optional execution-order phrase was clarified as a design purpose.",
+    "complete_text": "All English narration paragraphs found in PDF extraction.",
+    "images": "One original figure per page in the confirmed order; all embedded image pixels match original PNGs.",
+    "structure": "Five pages and five section bookmarks.",
+    "visual": "All five latest pages reviewed; source figure and English narration readable, no clipping or overlap. Final math revision reviewed independently.",
+    "math": "ASan/baseline ratio, six-program equal weighting, three-batch mean and sample SD denominator 3-1 verified. Summation glyphs and complete radical scope visually checked.",
+    "previews": [
+      {
+        "page": 1,
+        "local_render": ".local/presentation-build/module-03-speaker-notes-v0.0/qa/page-1.png",
+        "sha256": "b1a92af3710a138b1b9360be9d40013d48f0a101a1f551451ab8df8c3399863b"
+      },
+      {
+        "page": 2,
+        "local_render": ".local/presentation-build/module-03-speaker-notes-v0.0/qa/page-2.png",
+        "sha256": "5493ddbffc2dd813bb538e0aef1ae84adb792435221ed1b57e063244921b8c84"
+      },
+      {
+        "page": 3,
+        "local_render": ".local/presentation-build/module-03-speaker-notes-v0.0/qa/page-3.png",
+        "sha256": "778d4f5cc8f8d9aab5cd8d5206addbc3796350541433c527a2e3276aa95ba99b"
+      },
+      {
+        "page": 4,
+        "local_render": ".local/presentation-build/module-03-speaker-notes-v0.0/qa/page-4.png",
+        "sha256": "2bd21f30e36193b8bdca46d9a9ca784e605e31e10555eaa1966b2450f7d9f72b"
+      },
+      {
+        "page": 5,
+        "local_render": ".local/presentation-build/module-03-speaker-notes-v0.0/qa/page-5.png",
+        "sha256": "7b3243ffbbb696df25a78d284062a0259521c2415116989ffdba2b4743e99674"
+      }
+    ]
+  },
+  "ai_assistance": "AI-assisted English translation, layout and generation; source and independent review retained.",
+  "scope": "Module-3 speaker notes only. Original five PNGs, scientific protocols, runs and claim verdicts remain unchanged.",
+  "release": "Local work archive only; no commit, push or tag."
+}

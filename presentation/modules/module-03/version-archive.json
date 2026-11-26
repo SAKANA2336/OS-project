@@ -1,0 +1,56 @@
+{
+  "controlled_object_id": "presentation-module-03",
+  "exact_version": "v0.2",
+  "document_role": "append_only_version_archive",
+  "current_ref": "module.json",
+  "entries": [
+    {
+      "exact_version": "v0.0",
+      "date": "2026-11-26",
+      "status": "draft",
+      "reason": "User requested checking completeness and archiving the four reviewed images into module 3 before speaker-note discussion.",
+      "scope": "Four image snapshots, source/hash index and proposed narration structure.",
+      "known_results_at_creation": "Original formal main and extension results and clean-entry acceptance were already known. This object organizes presentation assets and makes no protocol or claim-verdict change.",
+      "alternatives": "Retain only shared-asset links versus module-owned snapshot. Module-owned byte-identical copies selected for a concrete reusable module while preserving prior links.",
+      "migration": "Original presentation/assets PNGs remain unchanged. Use the module-owned assets for subsequent module composition.",
+      "affected_runs": [],
+      "rerun_decision": "No rerun required; no experimental change.",
+      "current_document_sha256": "310ca350ad039be4e9f1e1c1c6ea9b293de4e7580b96064bfdbc8f10ef4a46cf",
+      "restoration_snapshot": "versions/module-v0.0.json",
+      "next_allowed_version": "v0.1",
+      "major_version_authorization": "absent"
+    },
+    {
+      "exact_version": "v0.1",
+      "date": "2026-11-26",
+      "status": "draft",
+      "reason": "User requested a new flowchart with equations for the selected calculation steps. The preceding Chinese speaker-note drafts remain unconfirmed and are not archived here.",
+      "scope": "Add one reviewed formula diagram as a fifth module asset; reflect the user instruction to disregard timing during current drafting.",
+      "known_results_at_creation": "All original formal main, extension and clean-entry acceptance results were already known. No numerical observations are introduced into this diagram.",
+      "alternatives": "Separate formula illustration chosen to explain aggregation without replacing the existing sampling-count table.",
+      "migration": "The four earlier PNGs and v0.0 index snapshot retain their bytes; new v0.0 asset is added under the v0.1 module index.",
+      "affected_runs": [],
+      "rerun_decision": "No rerun required; no scientific protocol or analysis change.",
+      "current_document_sha256": "3b34aba21c8ac163454dc5922535e5c5ef876fec938c8cc3bdb2ee0d43d49ca2",
+      "restoration_snapshot": "versions/module-v0.1.json",
+      "next_allowed_version": "v0.2",
+      "major_version_authorization": "absent"
+    },
+    {
+      "exact_version": "v0.2",
+      "date": "2026-11-26",
+      "status": "draft",
+      "reason": "User approved the revised Chinese narration and explicitly requested its English PDF, paired with all five archived figures and stored in module 3.",
+      "scope": "Five-page English speaker-note PDF, bilingual source, reproducible builder, generation/QA record and explicit figure order.",
+      "known_results_at_creation": "Original formal main, extension and clean-entry results already known; no new scientific observations or analysis.",
+      "alternatives": "A single image-and-narration page per figure selected for direct matching and rehearsal.",
+      "migration": "Five PNG assets and prior v0.0/v0.1 module snapshots remain unchanged; current module adds the notes artifact and supersedes the older draft narration instructions.",
+      "affected_runs": [],
+      "rerun_decision": "No experimental rerun required; only documentation changed.",
+      "current_document_sha256": "c521afce7cc221fd877578b1943d2ea4786b2516674852013115adbe1f98fe8f",
+      "restoration_snapshot": "versions/module-v0.2.json",
+      "next_allowed_version": "v0.3",
+      "major_version_authorization": "absent"
+    }
+  ]
+}

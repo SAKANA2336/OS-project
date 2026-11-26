@@ -1,0 +1,27 @@
+{
+  "artifact_id": "module-04-main-batch-summary",
+  "exact_version": "v0.1",
+  "reviewed_date": "2026-11-26",
+  "timezone": "Asia/Shanghai",
+  "authorization": "User explicitly requested this combined image and archival of only the new generated image.",
+  "numerical_check": "Passed: three batch values, cross-batch mean/sample SD, Figure 2 reference, absolute gap and relative gap agree with the existing sealed summary; display rounding is four decimals.",
+  "visual_check": "Passed: combined top summary and compact one-row comparison; no clipping, overlap or missing glyphs; black-and-white serif layout.",
+  "review_method": "Assistant visual inspection of the final PNG plus PDF text extraction, arithmetic recomputation and source SHA-256 verification. No sub-agents were used in this side conversation.",
+  "png_dimensions_px": [
+    3445,
+    2278
+  ],
+  "archived_figure_formats": [
+    "png"
+  ],
+  "supporting_records": [
+    "source/build-main-batch-summary-v0.1.py",
+    "provenance/generation-v0.1.json"
+  ],
+  "not_archived": [
+    "Temporary PDF export",
+    "Unapproved six-program plot preview",
+    "Unapproved detailed Paper vs. Ours preview"
+  ],
+  "scientific_impact": "None: experimental protocol, inputs, raw evidence, formal results and verdicts unchanged."
+}

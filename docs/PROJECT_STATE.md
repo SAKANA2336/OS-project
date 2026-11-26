@@ -1,6 +1,6 @@
 # Project status
 
-Last verified on 2026-11-25 (Asia/Shanghai).
+Last verified on 2026-11-26 (Asia/Shanghai).
 
 The project replicates the method of *AddressSanitizer: A Fast Address Sanity Checker* (USENIX ATC 2012) with a modern LLVM toolchain. Both formal ARM64 experiments completed under the frozen v0.2 plans. [The protocol](PROTOCOL.md) distinguishes the formal experiments from earlier results and pilot runs.
 
@@ -24,3 +24,8 @@ The independent daily and release repositories were verified. Publication decisi
 ## Standalone reproduction handoff
 
 The [source integration package v0.1](reproduction-package.md) provides a complete fresh-machine acquisition, preparation, collection and verification entry. The published archive has 47 members and a checked SHA-256/file manifest. It passed 37 packaged offline tests and clean-main acceptance on one M1 host: three new VMs, 180 timed observations, 36 warmups, 2.273131x ± 0.006420x. Complete original raw evidence remains local; small recomputable CSVs and provenance are inside the package. Another member's cross-machine verification remains pending. This handoff does not change the earlier formal results or create a final tag.
+
+
+## Archived presentation modules
+
+The [presentation archive](../presentation/README.md) contains module 3 (five current figures and five-page English notes, index v0.2) and module 4 (two current figures and two-page English notes, index v0.3), with retained earlier exports, bilingual sources, generators and review/version records. All 46 existing module files are byte-identical to the authorized local archives and listed by size/SHA-256 in the publication manifest. Historical local provenance and figure-generator dependencies are explained at the entry. The integrated deck and final presentation approval remain pending. Scientific results and protocols are unchanged. See D-034.

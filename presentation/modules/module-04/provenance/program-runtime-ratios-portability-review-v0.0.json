@@ -1,0 +1,9 @@
+{
+  "changed_scope": "Only output-directory portability guard; statistics, fonts, geometry and labels unchanged.",
+  "approved_png_sha256": "ac4a49f2351c146572566d706e7749b589c1ffcc07415ec404ddde22c3ef464c",
+  "regenerated_png_sha256": "ac4a49f2351c146572566d706e7749b589c1ffcc07415ec404ddde22c3ef464c",
+  "pixel_identical": true,
+  "byte_identical": true,
+  "regeneration_checks": "All 216 records/timeit outputs, 18 batch/program ratios, six means and sample SDs rechecked.",
+  "outcome": "passed"
+}

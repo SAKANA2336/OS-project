@@ -51,3 +51,9 @@ docs/governance/snapshots/*.snapshot -text
 outputs/asan-environment/validated-run.json whitespace=cr-at-eol
 runs/env-*/run-manifest.json whitespace=cr-at-eol
 runs/env-*/*.log -whitespace
+
+# Preserve byte-identical presentation archives and their registered hashes.
+presentation/modules/** -text
+
+# Retain the recorded CSV line endings without treating CR as trailing space.
+presentation/modules/module-04/data/*.csv whitespace=cr-at-eol

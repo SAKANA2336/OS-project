@@ -1,0 +1,146 @@
+{
+  "artifact_id": "module-03-speaker-notes-en",
+  "exact_version": "v0.0",
+  "language": "en",
+  "created_date": "2026-11-26",
+  "timezone": "Asia/Shanghai",
+  "basis": "User-confirmed revised Chinese narration, translated into English and paired one-to-one with the five archived figures.",
+  "ai_assistance": "English translation, layout and PDF generation assisted by AI; technical checks recorded separately.",
+  "sections": [
+    {
+      "number": 1,
+      "id": "experimental-workflow",
+      "title": "Experimental workflow",
+      "image": "assets/module-03-experimental-workflow-v0.0.png",
+      "zh": [
+        "这张图展示了我们主实验的整体流程。我们希望回答的问题是：在固定的运行环境和工作负载下，启用 AddressSanitizer 会带来多大的程序运行时间开销。",
+        "首先，我们锁定工作负载的源码版本、输入参数和参考输出，确保后续每次运行使用相同的程序与输入，并且能够检查程序是否得到了预期结果。",
+        "然后，我们从同一份源码构建两个版本。一个是没有启用 ASan 的 baseline，也就是基线版本；另一个是启用了 ASan 的版本。两个版本使用相同的工具链和共同编译选项，ASan 版本额外加入地址检查的编译和链接选项。因此，这组对照测量的是启用 ASan 后产生的整体运行开销，其中包括插桩检查、影子内存访问和运行时支持等影响。",
+        "接下来，我们在同一台宿主机上完成三个批次的实验。每个批次都从同一个经过验证的依赖基底创建新的虚拟机实例，使各批次具有一致的起点。",
+        "在每个批次中，每个程序的两个版本都先预热一次，再进行五轮正式计时。每轮中，同一个程序的 baseline 和 ASan 版本相邻、串行运行。我们按照预先规定的顺序轮换程序，并交替安排两个版本的先后次序，以减小固定运行顺序带来的偏差。",
+        "这里需要明确计时范围。我们测量的是墙钟时间，包含进程启动、程序初始化和程序输出。编译过程以及运行后与参考输出的比较，都在计时区间之外。每次运行还需要检查退出状态、输出是否匹配，以及是否出现 ASan 异常诊断，确保比较的是有效完成的计算。",
+        "最后，我们按照预先确定的规则逐层汇总：先得到每个程序的耗时倍率，再得到每个批次的六程序平均倍率，最后计算三个批次的均值和样本标准差。整个流程保留逐次计时、原始输出和配置记录，使最终结果能够追溯和复算。"
+      ],
+      "en": [
+        "This figure shows the overall workflow of our main experiment. We ask how much additional execution time AddressSanitizer introduces under a fixed environment and workload.",
+        "First, we pin the workload source version, input arguments and reference outputs. This ensures that every run uses the same programs and inputs, and lets us check whether each program produces the expected result.",
+        "We then build two versions from the same source: a baseline without ASan and a version with ASan enabled. Both use the same toolchain and common compiler options. The ASan version adds the compiler and linker options for address checking. This comparison therefore measures the overall cost of enabling ASan, including instrumentation checks, shadow-memory accesses and runtime support.",
+        "Next, we carry out three batches on the same host machine. Each batch starts in a fresh virtual machine created from the same validated dependency base, giving the batches a consistent starting point.",
+        "Within each batch, both versions of each program receive one warmup run, followed by five timed rounds. In each round, the baseline and ASan versions of a program run consecutively and sequentially. We rotate the program order and alternate which version runs first according to a predefined schedule, to reduce potential bias from a fixed execution order.",
+        "Our timing boundary is also important. We measure wall-clock time, including process startup, program initialization and program output. Compilation and comparison against the reference output take place outside the timed interval. We also check the exit status, output match and any ASan diagnostics to ensure that the comparison uses valid, completed executions.",
+        "Finally, we aggregate the observations in predefined stages: a time ratio for each program, the mean ratio across the six programs within each batch, and then the mean and sample standard deviation across the three batches. We retain individual timings, raw outputs and configuration records so that the final results can be traced and recalculated."
+      ]
+    },
+    {
+      "number": 2,
+      "id": "settings-comparison",
+      "title": "Paper and reproduction settings",
+      "image": "assets/module-03-settings-comparison-v0.0.png",
+      "zh": [
+        "这张表说明原论文与我们实验之间，哪些设置保持了相同思路，哪些条件发生了变化。",
+        "先看平台和工作负载。原论文使用的是一台配备两颗 Xeon E5620 处理器、24 GB 内存的 HP Z600 工作站，运行 64 位 Linux，主要性能测试采用 SPEC CPU2006 中的 C 和 C++ 程序。",
+        "我们的实验运行在 Apple Silicon 主机上的 ARM64 Linux 虚拟机中。虚拟机分配两个虚拟 CPU 和 3 GiB 内存，使用 Ubuntu 24.04.5 和 Clang、compiler-rt 18.1.3。测量进程另外受到 2 GiB 内存上限约束，并固定在同一个逻辑虚拟 CPU 上串行执行。工作负载采用 LLVM Test Suite 中的六项 Olden 程序。",
+        "这些变化意味着，我们是在现代工具链和指定负载上复现论文的对照思路，并检验 ASan 时间开销的方向与幅度。论文与我们的数值差异，需要结合这些条件变化来解释。",
+        "再看编译设置。原论文采用 Clang 的 -O2 优化。我们也保留 -O2，并让 baseline 和 ASan 两个版本共享其他共同编译选项。ASan 版本对读操作和写操作都启用检查，对应论文中完整读写插桩的比较方式。",
+        "运行时设置方面，我们参照论文的性能实验条件，将堆 redzone 的最小值和最大值都设为 32 字节，并将全局和线程本地 quarantine 都设为零，让这些重要参数尽可能与论文中的性能测试设置对齐。",
+        "在实际运行中，我们发现当前运行库无法完全关闭内存分配和释放时的栈回溯，实际保留一层。我们采用这一最小记录深度，以尽量降低它对整体运行时间的额外影响。",
+        "我们使用的是 LLVM 已有的 ASan 实现。本项目围绕它建立了固定配置、对照运行、输出验证和统计汇总流程。通过这张表，观众可以了解实验设置，以及我们与原论文进行比较的基础。"
+      ],
+      "en": [
+        "This table shows which aspects of the original setup we retain and which conditions differ in our experiment.",
+        "First, consider the platform and workloads. The original paper used an HP Z600 workstation with two Xeon E5620 processors and 24 GB of memory, running 64-bit Linux. Its main performance evaluation used C and C++ programs from SPEC CPU2006.",
+        "Our experiment runs in an ARM64 Linux virtual machine on an Apple Silicon host. The VM has two virtual CPUs and 3 GiB of memory, with Ubuntu 24.04.5 and Clang and compiler-rt 18.1.3. The measurement processes have a separate 2 GiB memory limit and run sequentially on the same pinned logical virtual CPU. We use six Olden programs from the LLVM Test Suite.",
+        "These changes mean that we reproduce the paper's comparison approach with a modern toolchain and the selected workloads, examining the direction and magnitude of ASan's time overhead. Numerical differences from the paper need to be interpreted alongside these changes in conditions.",
+        "For compilation, the original paper used Clang with -O2 optimization. We also retain -O2 and use the same other common compiler options for the baseline and ASan builds. The ASan version checks both reads and writes, corresponding to the paper's full read-and-write instrumentation comparison.",
+        "For runtime settings, we follow the paper's performance experiment by setting both the minimum and maximum heap redzone sizes to 32 bytes, and both global and thread-local quarantine sizes to zero. This aligns these important parameters as closely as possible with the paper's performance setup.",
+        "In actual runs, we found that the current runtime cannot completely disable stack-trace recording for memory allocation and deallocation: it retains one frame. We use this minimum recording depth to minimize its additional effect on overall execution time.",
+        "We use LLVM's existing ASan implementation. Our project builds a workflow around it for fixed configurations, controlled runs, output validation and statistical aggregation. This table establishes the experimental setup and the basis for comparison with the original paper."
+      ]
+    },
+    {
+      "number": 3,
+      "id": "sampling-structure",
+      "title": "Sampling structure",
+      "image": "assets/module-03-sampling-structure-v0.0.png",
+      "zh": [
+        "这张表解释我们进行了多少次运行，以及这些运行在实验中如何组织。",
+        "先看单个批次。每个批次包含六个程序，每个程序都有 baseline 和 ASan 两个版本，因此一共有十二个“程序与版本”的组合。",
+        "每个组合预热一次，所以单个批次有十二次预热。预热不进入正式耗时统计。",
+        "随后，每个组合正式计时五次，因此一个批次共有六十条计时记录。同一个程序、同一轮中的 baseline 和 ASan 运行组成一对，所以一个批次也可以表示为三十对计时。",
+        "我们在三个新的虚拟机实例中重复这套过程，最终得到三十六次预热、一百八十条正式计时记录，以及九十对计时。",
+        "这些运行数量还需要和统计单位区分开。批内的多轮测量用于计算各程序的平均耗时；最终报告的批间标准差，则来自三个批次的汇总结果，因此独立统计样本量为 n＝3。",
+        "明确采样结构之后，下一张计算流程图将进一步说明：我们如何从这些逐次计时记录，依次得到程序倍率、批次均值，以及最终报告中的均值和标准差。"
+      ],
+      "en": [
+        "This table explains how many runs we perform and how those runs are organized.",
+        "Consider one batch first. Each batch contains six programs, and each program has a baseline version and an ASan version. This gives twelve program-and-version combinations.",
+        "Each combination receives one warmup run, giving twelve warmups per batch. Warmups do not enter the formal timing statistics.",
+        "Each combination then receives five timed runs, giving sixty timing records per batch. The baseline and ASan runs for the same program in the same round form a pair, so each batch also contains thirty timing pairs.",
+        "We repeat this process in three fresh VM instances, producing thirty-six warmups, one hundred and eighty timed executions, and ninety timing pairs in total.",
+        "We distinguish these run counts from the statistical unit. Repeated measurements within a batch estimate each program's mean execution time. The reported between-batch standard deviation comes from the three batch summaries, so the independent statistical sample size is n = 3.",
+        "With this sampling structure established, the next calculation flowchart explains how we turn individual timings into program ratios, batch means, and the mean and standard deviation in the final report."
+      ]
+    },
+    {
+      "number": 4,
+      "id": "statistical-aggregation",
+      "title": "Statistical calculation workflow",
+      "image": "assets/module-03-statistical-aggregation-v0.0.png",
+      "zh": [
+        "这张图展示了从原始计时记录到最终统计结果的计算过程。",
+        "图中的 b 表示批次，w 表示程序，r 表示计时轮次；上标 A 表示 ASan 版本，上标 B 表示 baseline 版本。整个计算可以理解为三个层次。",
+        "第一层是计算每个程序的耗时倍率。对于同一批次中的某个程序，我们先分别计算 ASan 版本五次耗时的算术均值，以及 baseline 版本五次耗时的算术均值，再用前者除以后者。",
+        "例如，倍率为 1.5，就表示 ASan 版本的平均耗时是 baseline 的 1.5 倍，对应增加百分之五十的耗时。",
+        "第二层是计算每个批次的汇总值。一个批次包含六个程序，因此我们对六个程序的耗时倍率取等权算术平均。",
+        "这样，每个程序对批次汇总结果具有相同权重。",
+        "第三层是跨批次汇总。三个批次分别得到 A_1、A_2 和 A_3，我们再计算它们的均值，同时计算三个批次汇总值的样本标准差。",
+        "最终，我们用 A-bar ± s_A 报告结果。其中，均值描述三个批次的平均耗时倍率，样本标准差描述三个批次之间的波动。由于统计单位是三个批次，这里的样本量为 n＝3，标准差公式的分母为 3-1。",
+        "图中的所有计算都只使用正式计时，预热记录不参与汇总。"
+      ],
+      "en": [
+        "This figure shows how we turn raw timing records into the final statistics.",
+        "Here, b denotes the batch, w the program and r the timed round. Superscript A denotes the ASan version, and superscript B denotes the baseline. The calculation has three levels.",
+        "At the first level, we calculate each program's time ratio. For a program in one batch, we first take the arithmetic mean of its five ASan timings and, separately, the arithmetic mean of its five baseline timings. We then divide the ASan mean by the baseline mean.",
+        "For example, a ratio of 1.5 means that the ASan version takes 1.5 times as long on average, corresponding to a fifty-percent increase in execution time.",
+        "At the second level, we calculate the batch summary. Each batch contains six programs, so we take the equal-weight arithmetic mean of their six time ratios. Each program therefore contributes the same weight to the batch result.",
+        "At the third level, we aggregate across batches. The three batches produce A_1, A_2 and A_3. We calculate their mean and the sample standard deviation of these three summaries.",
+        "Finally, we report A-bar plus or minus s_A. The mean describes the average time ratio across the three batches, while the sample standard deviation describes the variation between them. Since the statistical units are the three batches, n = 3 and the standard-deviation formula uses a denominator of 3 - 1.",
+        "All calculations in this figure use timed runs only. Warmup records are excluded from aggregation."
+      ],
+      "equations": [
+        {
+          "after": 2,
+          "latex": "R_{b,w}=\\bar{t}^{A}_{b,w}/\\bar{t}^{B}_{b,w}"
+        },
+        {
+          "after": 4,
+          "latex": "A_b=\\frac{1}{6}\\sum_{w=1}^{6}R_{b,w}"
+        },
+        {
+          "after": 5,
+          "latex": "\\bar A=\\frac{1}{3}\\sum_{b=1}^{3}A_b"
+        },
+        {
+          "after": 5,
+          "latex": "s_A=\\sqrt{\\frac{1}{3-1}\\sum_{b=1}^{3}(A_b-\\bar A)^2}"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "olden-workloads",
+      "title": "Six Olden workloads",
+      "image": "assets/module-03-olden-workloads-v0.0.png",
+      "zh": [
+        "这张图展示了我们采用的六项 Olden 程序。",
+        "这六个程序的组合涵盖多种计算任务和内存访问场景，包括树结构遍历、图计算、哈希结构操作、排序和路径构造。它们涉及不同形式的数据组织，以及节点字段读取、间接访存和指针连接更新等操作。",
+        "通过这组六程序，我们能够从不同计算场景观察 ASan 的整体运行开销。所有程序都采用一致的 ASan 设置、采样规则和统计方法，使后续结果能够清楚展示不同程序之间的开销差异。"
+      ],
+      "en": [
+        "This figure shows the six Olden programs used in our experiment.",
+        "Together, they cover a range of computational tasks and memory-access scenarios, including tree traversal, graph computation, hash-structure operations, sorting and route construction. They involve different forms of data organization, with operations such as reading node fields, accessing memory indirectly and updating pointer links.",
+        "This set of six programs lets us observe ASan's overall execution overhead across different computational scenarios. All programs use consistent ASan settings, sampling rules and statistical methods, allowing the subsequent results to clearly show differences in overhead between programs."
+      ]
+    }
+  ]
+}

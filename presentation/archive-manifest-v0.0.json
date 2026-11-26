@@ -1,0 +1,246 @@
+{
+  "artifact_id": "presentation-archive-publication",
+  "exact_version": "v0.0",
+  "created_date": "2026-11-26",
+  "timezone": "Asia/Shanghai",
+  "scope": "Byte-identical user-authorized module 3 and module 4 archives and their existing source, data, review and version records.",
+  "module_indices": {
+    "module-03": "v0.2",
+    "module-04": "v0.3"
+  },
+  "file_count": 46,
+  "total_bytes": 13889647,
+  "provenance_boundary": "Historical local-only status and logical local paths describe creation time. Referenced private inputs and renders are not included. Public English plan revisions do not replace the hash-bound original local plans.",
+  "files": [
+    {
+      "path": "presentation/modules/module-03/assets/module-03-experimental-workflow-v0.0.png",
+      "bytes": 1076033,
+      "sha256": "a085d93147a2cfac6196e032090d3905075292e453d5ffeeae74f6ab67852cee"
+    },
+    {
+      "path": "presentation/modules/module-03/assets/module-03-olden-workloads-v0.0.png",
+      "bytes": 1310677,
+      "sha256": "293cd227c33c1f2219c4165e0ed442bdddec45ec3bae36789e8f3ec4bd6337f9"
+    },
+    {
+      "path": "presentation/modules/module-03/assets/module-03-sampling-structure-v0.0.png",
+      "bytes": 1269655,
+      "sha256": "78466d4051da963f59a67bf6665c33b8ef58e874f846586eeb931657bc553c0f"
+    },
+    {
+      "path": "presentation/modules/module-03/assets/module-03-settings-comparison-v0.0.png",
+      "bytes": 1351851,
+      "sha256": "aa9ac121a87801ee8ecc078a398fce3b9aad7bcf7b07dc0cdf98cf5f688b6fd2"
+    },
+    {
+      "path": "presentation/modules/module-03/assets/module-03-statistical-aggregation-v0.0.png",
+      "bytes": 1368707,
+      "sha256": "bbfb5eea30a0933fdfce16908a5f39caadc0737f71f1e6bd43437814d1a74f67"
+    },
+    {
+      "path": "presentation/modules/module-03/module.json",
+      "bytes": 11812,
+      "sha256": "c521afce7cc221fd877578b1943d2ea4786b2516674852013115adbe1f98fe8f"
+    },
+    {
+      "path": "presentation/modules/module-03/output/pdf/module-03-speaker-notes-en-v0.0.pdf",
+      "bytes": 6131897,
+      "sha256": "354437a6d2619cc034971a722acca8f5479ee8daafc874f2b812feeba039dddb"
+    },
+    {
+      "path": "presentation/modules/module-03/speaker-notes/build-speaker-notes.py",
+      "bytes": 10368,
+      "sha256": "23f85de28131ae008c96eb30da73cdcc08078c6ff66b11e1ec65ce3588ea2751"
+    },
+    {
+      "path": "presentation/modules/module-03/speaker-notes/generation-v0.0.json",
+      "bytes": 6407,
+      "sha256": "3ec35fcde9062406ec81b6bda920f2a24ba9370a32f9749ce80d523e61f6245c"
+    },
+    {
+      "path": "presentation/modules/module-03/speaker-notes/source-v0.0.json",
+      "bytes": 17205,
+      "sha256": "0df495906a2b1f5c58179ba170893dfacae2194b75c4072e23fee24f86eb630b"
+    },
+    {
+      "path": "presentation/modules/module-03/version-archive.json",
+      "bytes": 3881,
+      "sha256": "4366a367e000f8a09532d3049eedea81730dd0a4cedddc8278827c43cc018bfb"
+    },
+    {
+      "path": "presentation/modules/module-03/versions/module-v0.0.json",
+      "bytes": 8436,
+      "sha256": "310ca350ad039be4e9f1e1c1c6ea9b293de4e7580b96064bfdbc8f10ef4a46cf"
+    },
+    {
+      "path": "presentation/modules/module-03/versions/module-v0.1.json",
+      "bytes": 9635,
+      "sha256": "3b34aba21c8ac163454dc5922535e5c5ef876fec938c8cc3bdb2ee0d43d49ca2"
+    },
+    {
+      "path": "presentation/modules/module-03/versions/module-v0.2.json",
+      "bytes": 11812,
+      "sha256": "c521afce7cc221fd877578b1943d2ea4786b2516674852013115adbe1f98fe8f"
+    },
+    {
+      "path": "presentation/modules/module-04/assets/module-04-main-batch-summary-v0.0.png",
+      "bytes": 167553,
+      "sha256": "f90e17edd0076659ed08e217d0ded9bebe58070f25e81d70190a7440ce8705de"
+    },
+    {
+      "path": "presentation/modules/module-04/assets/module-04-main-batch-summary-v0.0.svg",
+      "bytes": 3191,
+      "sha256": "cd30e218e497d8bd608ebdf5f07859f2488e1074e268aced333a3a411c088f8f"
+    },
+    {
+      "path": "presentation/modules/module-04/assets/module-04-main-batch-summary-v0.1.png",
+      "bytes": 262281,
+      "sha256": "b6c4a1218960577c41b81ff9a83a55f166e5694e5f966dd87296f0343169b23e"
+    },
+    {
+      "path": "presentation/modules/module-04/assets/module-04-program-runtime-ratios-v0.0.png",
+      "bytes": 172366,
+      "sha256": "ac4a49f2351c146572566d706e7749b589c1ffcc07415ec404ddde22c3ef464c"
+    },
+    {
+      "path": "presentation/modules/module-04/data/module-04-main-batch-summary-v0.0.csv",
+      "bytes": 254,
+      "sha256": "1482739bf706e7a4aa8a77f25e146f1e42dfb6ccd82b9baa3ce5a4dc4a8fbd8a"
+    },
+    {
+      "path": "presentation/modules/module-04/data/per-program-inputs-v0.0.csv",
+      "bytes": 1479,
+      "sha256": "705b8c9f24abd7e1280f99617b1a55c8b329aa49a3be09cb52c491cbefcf830f"
+    },
+    {
+      "path": "presentation/modules/module-04/data/program-runtime-ratio-inputs-v0.0.csv",
+      "bytes": 1538,
+      "sha256": "e4161c6f9cabb2b62412e28af176862b76159c96b93227290a677a7916ccb689"
+    },
+    {
+      "path": "presentation/modules/module-04/data/program-runtime-ratios-v0.0.csv",
+      "bytes": 507,
+      "sha256": "f0ba40982e0af42e1974686594d19f8dadf792ce971d8b98344b5c9db399697d"
+    },
+    {
+      "path": "presentation/modules/module-04/data/program-runtime-ratios-v0.0.json",
+      "bytes": 1258,
+      "sha256": "69d9caa613e85aba5ff1327510696ce025d868d158f612ce272cd3707b73b8b5"
+    },
+    {
+      "path": "presentation/modules/module-04/module.json",
+      "bytes": 9176,
+      "sha256": "7804acebefd63d1128cde3e7c455eeeb05b80e058e048dffc88bd8eeb2f8eba1"
+    },
+    {
+      "path": "presentation/modules/module-04/output/pdf/module-04-main-batch-summary-v0.0.pdf",
+      "bytes": 2389,
+      "sha256": "728993ce58c02eb9e60bec1bb4e5ddf71206e45d26c73d37d6bc5004342afaab"
+    },
+    {
+      "path": "presentation/modules/module-04/output/pdf/module-04-speaker-notes-en-v0.0.pdf",
+      "bytes": 570089,
+      "sha256": "a35b19824f3d903d4414d51a08259d0f953dca60fbad12bf4c9e147a2ea44eb4"
+    },
+    {
+      "path": "presentation/modules/module-04/provenance/generation-v0.0.json",
+      "bytes": 4419,
+      "sha256": "e6027323f86b3c5233dd4d3a91e13eedd13c8d132815f8b79d612cc61d5951d3"
+    },
+    {
+      "path": "presentation/modules/module-04/provenance/generation-v0.1.json",
+      "bytes": 3246,
+      "sha256": "0a8a0d921d94f48c7bc3a4251dd4acd11da3bdc36c12e05cced544cca1b2ae08"
+    },
+    {
+      "path": "presentation/modules/module-04/provenance/program-runtime-ratios-archive-v0.0.json",
+      "bytes": 3632,
+      "sha256": "9095dde3873f4db277c2855518a06737226c975158c1a3417502cd10f7af1403"
+    },
+    {
+      "path": "presentation/modules/module-04/provenance/program-runtime-ratios-generation-v0.0.json",
+      "bytes": 6066,
+      "sha256": "62593932105529eef667b04b4018d47ebe3b784ec8bd543ad54a894163a5297b"
+    },
+    {
+      "path": "presentation/modules/module-04/provenance/program-runtime-ratios-portability-review-v0.0.json",
+      "bytes": 502,
+      "sha256": "944f4dd6ee3c4130bd88309e10909f5be1a93a7e412048ca0e8d0f01d66a494e"
+    },
+    {
+      "path": "presentation/modules/module-04/provenance/program-runtime-ratios-preview-review-v0.0.json",
+      "bytes": 1385,
+      "sha256": "5c6ba700986380c61587d7baabb696c1459ba767cd64575e51c7dfbe18b3d98d"
+    },
+    {
+      "path": "presentation/modules/module-04/provenance/review-v0.0.json",
+      "bytes": 1447,
+      "sha256": "28af7d1f131b111fe5f69e793f4c127ef0d412832e3d3235d7ae7795d65bcb3d"
+    },
+    {
+      "path": "presentation/modules/module-04/provenance/review-v0.1.json",
+      "bytes": 1288,
+      "sha256": "18eabe95dce7c12c2803f7e917d139b89c3eee87eedd011583dd98d7bcb5ff61"
+    },
+    {
+      "path": "presentation/modules/module-04/source/build-main-batch-summary-v0.1.py",
+      "bytes": 7352,
+      "sha256": "28eba5e59f6d874477be1a873fbee62c98f45e5e5b517015c23fd670cca18aac"
+    },
+    {
+      "path": "presentation/modules/module-04/source/build-main-batch-summary.py",
+      "bytes": 12431,
+      "sha256": "0cad78cfad2b4fd5e176067baec453bdd6af1bf8e9779bb9aab53e00e0d1bd3c"
+    },
+    {
+      "path": "presentation/modules/module-04/source/build-program-ratios-v0.0.py",
+      "bytes": 15473,
+      "sha256": "54241a51e3c76b197395067fbc19553fcf3e00e8ce5e8852425a74cd7d4f44c5"
+    },
+    {
+      "path": "presentation/modules/module-04/source/module-04-main-batch-summary-v0.0.tex",
+      "bytes": 916,
+      "sha256": "6ed1f6f6ad69c1422f654f19c968fae8bf5775485585447769004fa93c8bef35"
+    },
+    {
+      "path": "presentation/modules/module-04/speaker-notes/build-speaker-notes.py",
+      "bytes": 7269,
+      "sha256": "1bf530d8620b8c7d7988584866be63536e87b7a43b2d71ef00b4d3c0d92184dd"
+    },
+    {
+      "path": "presentation/modules/module-04/speaker-notes/generation-v0.0.json",
+      "bytes": 7850,
+      "sha256": "b29fccaa9cd68d80b012a1c150fce9bd6713d3b96a2d2d791c5ba2170b9e8356"
+    },
+    {
+      "path": "presentation/modules/module-04/speaker-notes/source-v0.0.json",
+      "bytes": 4869,
+      "sha256": "64f83cd82203b5a0b6109d2f4dcbddd69015ac6ee3247299e2147887d7da2f62"
+    },
+    {
+      "path": "presentation/modules/module-04/version-archive.json",
+      "bytes": 5717,
+      "sha256": "2f3995c72f9f747a7bf354d61d8f069b4fb26f58d55fda7a5e107b5a1642d842"
+    },
+    {
+      "path": "presentation/modules/module-04/versions/module-v0.0.json",
+      "bytes": 4204,
+      "sha256": "0f03123833426165fc61f071e2a03dfc6070545f8abacb7660dffabf085ab25e"
+    },
+    {
+      "path": "presentation/modules/module-04/versions/module-v0.1.json",
+      "bytes": 3976,
+      "sha256": "ae11e4264ca0f28ae60cfd2b959d869ce52b46d874e78e21c2b040b76d65bfa9"
+    },
+    {
+      "path": "presentation/modules/module-04/versions/module-v0.2.json",
+      "bytes": 7972,
+      "sha256": "9499f753e719cb281f2ad9b05888b5eb132614b5795ed451c2f2492e340de9c9"
+    },
+    {
+      "path": "presentation/modules/module-04/versions/module-v0.3.json",
+      "bytes": 9176,
+      "sha256": "7804acebefd63d1128cde3e7c455eeeb05b80e058e048dffc88bd8eeb2f8eba1"
+    }
+  ]
+}

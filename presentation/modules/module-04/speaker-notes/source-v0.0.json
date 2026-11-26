@@ -1,0 +1,59 @@
+{
+  "artifact_id": "module-04-speaker-notes-en",
+  "exact_version": "v0.0",
+  "language": "en",
+  "created_date": "2026-11-26",
+  "timezone": "Asia/Shanghai",
+  "basis": "User-confirmed Chinese narration translated into English, paired one-to-one with the two approved archived figures, using the Module 3 figure-left/narration-right PDF format.",
+  "ai_assistance": "AI-assisted English translation, layout and PDF generation; independent content and visual checks recorded separately.",
+  "sections": [
+    {
+      "number": 1,
+      "id": "main-batch-summary",
+      "title": "Batch summary and paper comparison",
+      "image": "assets/module-04-main-batch-summary-v0.1.png",
+      "image_sha256": "b6c4a1218960577c41b81ff9a83a55f166e5694e5f966dd87296f0343169b23e",
+      "zh": [
+        "先看主实验的整体结果。按照前面介绍的统计方法，三个独立虚拟机批次的汇总倍率约为2.28、2.28和2.25，结果比较接近。跨批均值为2.27，样本标准差约为0.015。",
+        "也就是说，在本组选定的六个Olden程序和实验设置下，ASan的等权平均耗时倍率约为2.27，对应耗时增加约127%。",
+        "原论文Figure 2报告的倍率为1.73，我们的倍率相对高约31%。但双方的工作负载、平台和工具链不同，因此这里作描述性对照，具体差异及其解释将在后面的分析模块展开。"
+      ],
+      "en": [
+        "Let us first look at the overall results of the main experiment. Following the statistical method introduced earlier, the suite-level runtime ratios from the three independent virtual-machine batches were approximately 2.28, 2.28, and 2.25. These values were close to one another. The mean across batches was 2.27, with a sample standard deviation of approximately 0.015.",
+        "In other words, for the six selected Olden programs under our experimental settings, the equal-weight mean ASan runtime ratio was about 2.27, corresponding to an increase in runtime of approximately 127%.",
+        "Figure 2 of the original paper reports a ratio of 1.73. Our runtime ratio was approximately 31% higher. However, the workloads, platforms, and toolchains differ, so this is a descriptive comparison. We will examine these differences and their interpretation in the later analysis section."
+      ],
+      "transition": {
+        "zh": "不过，这个总体平均值还不能充分描述每个程序的表现。接下来，我们把六个程序分别展开。",
+        "en": "However, this overall average does not fully describe the behavior of each program. We now look at the six programs individually."
+      },
+      "reference_notes": [
+        "Project data: original formal campaign exp-001-v0-2-20261118t170938z.",
+        "Paper: Serebryany et al., AddressSanitizer: A Fast Address Sanity Checker, USENIX ATC 2012, Figure 2.",
+        "Setup differences: Module 3. The paper comparison is descriptive."
+      ]
+    },
+    {
+      "number": 2,
+      "id": "program-runtime-ratios",
+      "title": "Program runtime ratios",
+      "image": "assets/module-04-program-runtime-ratios-v0.0.png",
+      "image_sha256": "ac4a49f2351c146572566d706e7749b589c1ffcc07415ec404ddde22c3ef464c",
+      "zh": [
+        "这张图展示每个程序的ASan耗时倍率。虚线1.0表示与基线耗时相同；黑点表示三个批次的平均倍率，误差线表示批间样本标准差。",
+        "六个程序的平均倍率都大于1，但增加幅度差异很大。em3d最低，约为1.34倍；treeadd最高，约为4.64倍，其他程序位于两者之间。",
+        "因此，整体的2.27倍概括的是这组六程序的平均结果，各程序实际承受的开销并不相同。这种程序间差异，是我们后续分析需要关注的重要现象。"
+      ],
+      "en": [
+        "This figure shows the ASan runtime ratio for each program. The dashed line at 1.0 represents the same runtime as the baseline. The black points show the mean ratios across the three batches, and the error bars show the between-batch sample standard deviations.",
+        "The mean ratios for all six programs were greater than 1, but the size of the increase varied considerably. em3d had the lowest ratio, at approximately 1.34, while treeadd had the highest, at approximately 4.64. The other programs fell between these values.",
+        "Therefore, the overall ratio of 2.27 summarizes the average result for this six-program suite, while the actual overhead differs across programs. This variation is an important observation for our subsequent analysis."
+      ],
+      "reference_notes": [
+        "Project data: original formal campaign exp-001-v0-2-20261118t170938z.",
+        "Points: across-batch means; error bars: between-batch sample SD, n = 3.",
+        "All six programs are retained, including short-running mst."
+      ]
+    }
+  ]
+}

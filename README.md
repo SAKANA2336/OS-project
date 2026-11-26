@@ -34,6 +34,10 @@ On Windows, start Docker Desktop with Linux containers enabled, then run this in
 
 A successful run prints `PASS: 7/7 functional checks`, the image ID, and the evidence directory. Initial setup downloads the base image and dependencies. The [environment guide](outputs/asan-environment/README.md) lists requirements, time limits, and failure recovery. The [validation run](runs/env-20261108t013027z-6c0e488a/README.md) records the verified image, package versions, and output.
 
+## Presentation materials
+
+The [archived module materials](presentation/README.md) provide the reviewed methodology and main-result figures, paired English speaker-note PDFs, sources and integrity records. The integrated deck remains in progress.
+
 ## Project records
 
 - [Current status](docs/PROJECT_STATE.md) and [handoff](docs/HANDOFF.md)

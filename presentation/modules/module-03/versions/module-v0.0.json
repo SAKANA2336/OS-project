@@ -1,0 +1,175 @@
+{
+  "controlled_object_id": "presentation-module-03",
+  "exact_version": "v0.0",
+  "document_role": "current_module_index",
+  "status": "draft",
+  "title_zh": "模块三：复现设置与实验方法",
+  "title_en": "Module 3: Reproduction setup and methodology",
+  "created_date": "2026-11-26",
+  "timezone": "Asia/Shanghai",
+  "archive_ref": "version-archive.json",
+  "completion": {
+    "image_archive": "complete",
+    "image_count": 4,
+    "speaker_notes": "pending_discussion",
+    "slide_layout": "pending",
+    "integrated_deck": "not_created"
+  },
+  "archive_policy": "This module owns byte-identical snapshots of the four reviewed v0.0 PNGs. Existing shared assets are retained to preserve earlier links. Change images under a new continuous version and preserve this snapshot.",
+  "images": [
+    {
+      "id": "experimental-workflow",
+      "exact_version": "v0.0",
+      "title_zh": "实验流程图",
+      "title_en": "Experimental workflow",
+      "path": "assets/module-03-experimental-workflow-v0.0.png",
+      "original_logical_path": "presentation/assets/module-03-experimental-workflow-v0.0.png",
+      "bytes": 1076033,
+      "sha256": "a085d93147a2cfac6196e032090d3905075292e453d5ffeeae74f6ab67852cee",
+      "dimensions_px": [
+        1903,
+        826
+      ],
+      "purpose": "Primary explanation of paired baseline/ASan builds, timing, validation and aggregation.",
+      "local_generation_record": ".local/presentation-build/module-03-flowchart-v0.0/generation.json",
+      "review": "Previously passed independent source/content and visual review; PNG decode and byte hash rechecked during archiving."
+    },
+    {
+      "id": "settings-comparison",
+      "exact_version": "v0.0",
+      "title_zh": "实验设置对照表",
+      "title_en": "Paper and reproduction settings",
+      "path": "assets/module-03-settings-comparison-v0.0.png",
+      "original_logical_path": "presentation/assets/module-03-settings-comparison-v0.0.png",
+      "bytes": 1351851,
+      "sha256": "aa9ac121a87801ee8ecc078a398fce3b9aad7bcf7b07dc0cdf98cf5f688b6fd2",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "purpose": "Explain comparable settings and disclosed paper/project differences.",
+      "local_generation_record": ".local/presentation-build/module-03-tables-v0.0/generation.json",
+      "review": "Previously passed independent source/content and visual review; PNG decode and byte hash rechecked during archiving."
+    },
+    {
+      "id": "sampling-structure",
+      "exact_version": "v0.0",
+      "title_zh": "采样结构表",
+      "title_en": "Sampling and statistical units",
+      "path": "assets/module-03-sampling-structure-v0.0.png",
+      "original_logical_path": "presentation/assets/module-03-sampling-structure-v0.0.png",
+      "bytes": 1269655,
+      "sha256": "78466d4051da963f59a67bf6665c33b8ef58e874f846586eeb931657bc553c0f",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "purpose": "Explain repetitions and distinguish 180 timed executions from n=3 independent batch summaries.",
+      "local_generation_record": ".local/presentation-build/module-03-tables-v0.0/generation.json",
+      "review": "Previously passed independent source/content and visual review; PNG decode and byte hash rechecked during archiving."
+    },
+    {
+      "id": "olden-workloads",
+      "exact_version": "v0.0",
+      "title_zh": "六项 Olden 程序概览",
+      "title_en": "Selected Olden workloads",
+      "path": "assets/module-03-olden-workloads-v0.0.png",
+      "original_logical_path": "presentation/assets/module-03-olden-workloads-v0.0.png",
+      "bytes": 1310677,
+      "sha256": "293cd227c33c1f2219c4165e0ed442bdddec45ec3bae36789e8f3ec4bd6337f9",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "purpose": "Identify the fixed six-program subset and source-level structures without claiming representativeness.",
+      "local_generation_record": ".local/presentation-build/module-03-olden-workloads-v0.0/generation.json",
+      "review": "Previously passed independent source/content and visual review; PNG decode and byte hash rechecked during archiving."
+    }
+  ],
+  "sources": [
+    {
+      "id": "paper",
+      "logical_path": ".local/sources/papers/addresssanitizer-atc12-2012.pdf",
+      "sha256": "adf8b68d3dfeb8fac172e16e4e985a806226a9f904708c12a101d2b765b758e7",
+      "bytes": 218424,
+      "use": "AddressSanitizer, USENIX ATC 2012, section 4 performance setup; source PDF remains local and unchanged."
+    },
+    {
+      "id": "formal-plan",
+      "logical_path": "experiments/exp-001/PLAN.md",
+      "sha256": "b8849f4fde807a86ad8933ef5dcf3bcda0ce7b1e5598681a3215cdebb26a7a0b",
+      "bytes": 11371,
+      "use": "Frozen main experiment v0.2."
+    },
+    {
+      "id": "workload-lock",
+      "logical_path": "workloads/llvm-suite-lock.json",
+      "sha256": "169b5f76f4cd73bd0d9ad0c25d3f636e9dc316d0bd9369d3cf4631e2ba0a56f0",
+      "bytes": 38471,
+      "use": "LLVM Test Suite llvmorg-18.1.3, commit 72a946a42cbce06afef68b2326ff6c3869d09799."
+    },
+    {
+      "id": "formal-history",
+      "logical_path": "experiments/exp-001/VERSION_ARCHIVE.md",
+      "sha256": "43fe9fb127d37acd88fe0e9c5e86355f6fdd7ab8e40f82f309a30711346cc48a",
+      "bytes": 5450,
+      "use": "Formal retention rationale and prior pilot exposure."
+    },
+    {
+      "id": "pilot-history",
+      "logical_path": "results/run-20261114t130529z-exp-001-a01-ce70aa/materials/provenance/project/experiments/exp-001/PLAN.md",
+      "sha256": "8573bae4824bfa635be2e40982cdb690fddd0e682c7aa33b2c207f4ec932045f",
+      "bytes": 8696,
+      "use": "Historical six-workload selection record; not an independent full-candidate screening study."
+    }
+  ],
+  "content_assessment": {
+    "additional_main_image_required": false,
+    "covered": [
+      "Selected workloads",
+      "Paper/project setup and deviations",
+      "Paired execution and timing boundaries",
+      "Repetitions, ratio definition and aggregation"
+    ],
+    "remaining_work": [
+      "Agree on spoken explanation and slide selection",
+      "Add concise paper and code citations when composing slides",
+      "Keep full flags and invalid-run conditions in notes or backup material"
+    ]
+  },
+  "presentation_proposal": {
+    "status": "proposal_for_discussion",
+    "duration_seconds": [
+      45,
+      60
+    ],
+    "duration_basis": "Suggested allocation within the course five-minute group presentation, not a mandatory per-module limit.",
+    "main_figures": [
+      "settings-comparison",
+      "experimental-workflow"
+    ],
+    "backup_figures": [
+      "olden-workloads",
+      "sampling-structure"
+    ],
+    "spoken_sequence": [
+      "State the overhead question and ARM64/selected-Olden scope",
+      "Explain baseline versus ASan and fixed conditions",
+      "Explain warmup, paired timing and validation outside timing",
+      "Define the ratio and summarize over n=3 independent VM batches"
+    ]
+  },
+  "speaker_notes_constraints": [
+    "Use the six workload names bisort, em3d, mst, perimeter, treeadd and tsp.",
+    "Describe the six as a fixed, auditable subset retained from pilot work, without claiming random or representative selection.",
+    "All six use ASan instrumentation, shadow memory and runtime support. Do not assign one program to only one ASan component.",
+    "Report ratio of mean ASan time to mean baseline time per program, arithmetic mean of six program ratios within each batch, then mean and sample SD across three batch summaries.",
+    "Each program/arm/batch has one warmup and five timed runs. Totals are 36 warmups, 180 timed executions and 90 timed pairs, with n=3 batch summaries.",
+    "Wall-clock timing includes startup, initialization and program output. Reference-output validation is outside timing.",
+    "Disclose requested malloc context depth 0 and effective depth 1 if discussing that setting.",
+    "This is a reduced-scale methodological and local-direction reproduction under different workloads, hardware and toolchain. Numerical equivalence to the paper SPEC result is not established.",
+    "Keep original formal main results separate from clean-entry acceptance and extension batches."
+  ],
+  "ai_assistance": "Images were generated using AI with source-derived labels and independent technical/visual review. The archive adds no measured result.",
+  "release_status": "Local work archive only. No new commit, push or tag."
+}

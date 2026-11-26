@@ -1,0 +1,25 @@
+{
+  "status": "passed_temporary_preview_only",
+  "source_campaign": "exp-001-v0-2-20261118t170938z",
+  "numerical_review": "All 18 per-program batch ratios, six means and six sample SDs agree with original formal evidence; also independently checked by a second agent.",
+  "visual_review": "Full final PNG inspected: six programs in fixed source order; black-and-white Times serif style; unchanged plot geometry and data; correct linear axis and dashed 1.0 reference; legible numeric labels and footnotes; no clipping or overlap.",
+  "checks": {
+    "output_hashes": "passed",
+    "svg_xml": "passed",
+    "single_page_pdf": "passed",
+    "pdf_program_and_value_labels": "passed",
+    "sample_size_and_short_run_note": "passed",
+    "renderer_stderr": "empty",
+    "embedded_fonts": [
+      "/AAAAAA+TimesNewRomanPS-BoldMT",
+      "/AAAAAA+TimesNewRomanPSMT"
+    ],
+    "png_dimensions": [
+      2800,
+      1875
+    ]
+  },
+  "scope": "Temporary preview under the user-authorized tmp subtree only. No repository or release-area writes, no archiving, no module index or state update, no host settings changed.",
+  "prior_render": "Parent directory retains first preview and Fontconfig diagnostics. This render embeds regular/bold Times New Roman and uses tmp-only font configuration/cache.",
+  "reviewed_png_sha256": "ac4a49f2351c146572566d706e7749b589c1ffcc07415ec404ddde22c3ef464c"
+}

@@ -1,0 +1,184 @@
+{
+  "artifact_id": "module-04-speaker-notes-en",
+  "exact_version": "v0.0",
+  "status": "complete_local_archive",
+  "created_date": "2026-11-26",
+  "timezone": "Asia/Shanghai",
+  "language": "en",
+  "authorization": "User confirmed the preceding Chinese narration and explicitly requested English translation, one-to-one pairing with the two images, a PDF like Module 3, and archival in Module 4.",
+  "pdf": {
+    "path": "output/pdf/module-04-speaker-notes-en-v0.0.pdf",
+    "sha256": "a35b19824f3d903d4414d51a08259d0f953dca60fbad12bf4c9e147a2ea44eb4",
+    "bytes": 570089,
+    "pages": 2,
+    "page_format": "A3 landscape; figure left, English narration right; Module 3 typography and dimensions"
+  },
+  "source": {
+    "path": "speaker-notes/source-v0.0.json",
+    "sha256": "64f83cd82203b5a0b6109d2f4dcbddd69015ac6ee3247299e2147887d7da2f62",
+    "contents": "Confirmed Chinese narration, corresponding English translation, page-1 transition, two figure identities/hashes and reference notes"
+  },
+  "builder": {
+    "path": "speaker-notes/build-speaker-notes.py",
+    "sha256": "1bf530d8620b8c7d7988584866be63536e87b7a43b2d71ef00b4d3c0d92184dd",
+    "dependencies": [
+      "Python 3",
+      "reportlab",
+      "Pillow"
+    ],
+    "rebuild_command": "python3 presentation/modules/module-04/speaker-notes/build-speaker-notes.py --output /tmp/module-04-speaker-notes-en-rebuilt.pdf",
+    "overwrite_policy": "Refuses an existing output; verifies both original PNG hashes before generation.",
+    "font_portability": "Embeds Times New Roman when available; --font-dir accepts an explicit font location. Otherwise uses bundled Bitstream Vera. Exact PDF bytes require the recorded fonts and ReportLab version.",
+    "metadata_time": "ReportLab invariant mode fixes internal timestamps for deterministic generation; actual artifact date is recorded here and in the footer."
+  },
+  "figure_mapping": [
+    {
+      "figure_number": 1,
+      "page": 1,
+      "figure_id": "main-batch-summary",
+      "image": "assets/module-04-main-batch-summary-v0.1.png",
+      "image_sha256": "b6c4a1218960577c41b81ff9a83a55f166e5694e5f966dd87296f0343169b23e"
+    },
+    {
+      "figure_number": 2,
+      "page": 2,
+      "figure_id": "program-runtime-ratios",
+      "image": "assets/module-04-program-runtime-ratios-v0.0.png",
+      "image_sha256": "ac4a49f2351c146572566d706e7749b589c1ffcc07415ec404ddde22c3ef464c"
+    }
+  ],
+  "source_hashes": {
+    "results/exp-001-v0-2-20261118t170938z/summary.json": "eb28447ba05382968cf948c86ba1b2bd1127a56b548b880de5904c1624c8a353",
+    "experiments/exp-001/PLAN.md": "b8849f4fde807a86ad8933ef5dcf3bcda0ce7b1e5598681a3215cdebb26a7a0b",
+    "presentation/modules/module-03/speaker-notes/build-speaker-notes.py": "23f85de28131ae008c96eb30da73cdcc08078c6ff66b11e1ec65ce3588ea2751"
+  },
+  "build_environment": {
+    "pages": [
+      {
+        "page": 1,
+        "figure_id": "main-batch-summary",
+        "asset": "assets/module-04-main-batch-summary-v0.1.png",
+        "image_sha256": "b6c4a1218960577c41b81ff9a83a55f166e5694e5f966dd87296f0343169b23e",
+        "image_bounds_pt": [
+          42.0,
+          268.04,
+          526.0,
+          347.82
+        ],
+        "narration_bottom_pt": 375.89
+      },
+      {
+        "page": 2,
+        "figure_id": "program-runtime-ratios",
+        "asset": "assets/module-04-program-runtime-ratios-v0.0.png",
+        "image_sha256": "ac4a49f2351c146572566d706e7749b589c1ffcc07415ec404ddde22c3ef464c",
+        "image_bounds_pt": [
+          42.0,
+          265.83,
+          526.0,
+          352.23
+        ],
+        "narration_bottom_pt": 499.89
+      }
+    ],
+    "fonts": [
+      {
+        "alias": "Body",
+        "filename": "Times New Roman.ttf",
+        "sha256": "f3b4ffff71c2a0c7227d37497683b2498fb2d0a4e8beae26f022e3ccfcaabfa3"
+      },
+      {
+        "alias": "BodyBold",
+        "filename": "Times New Roman Bold.ttf",
+        "sha256": "50f5b1f27b7d34621090e437e8b1dd4510a22d2823fc876b3286bed327b64bbb"
+      }
+    ],
+    "page_size_pt": [
+      1190.5511811023623,
+      841.8897637795277
+    ],
+    "reportlab_version": "4.4.9"
+  },
+  "validation": {
+    "translation": "Independent Chinese/English technical and oral-language review passed with no required fixes.",
+    "complete_text": "All six English paragraphs and the transition were found in extracted PDF text.",
+    "structure": "Exactly two pages and two corresponding section bookmarks; page numbers checked.",
+    "images": "Each page contains its corresponding approved image; decoded embedded RGB pixels match the original PNGs exactly.",
+    "fonts": "Both regular and bold TrueType fonts embedded on both pages.",
+    "visual": "Both latest Poppler-rendered pages independently reviewed; no clipping or overlap. PyMuPDF rendered both pages and the first page was additionally inspected for glyph/renderer consistency.",
+    "statistical_scope": "2.27 denotes a runtime ratio and about 127% additional runtime; the approximately 31% comparison concerns runtime ratios. Error bars are between-batch sample SDs, n=3. No causal explanation or numerical equivalence to the paper is claimed.",
+    "checks": {
+      "pages": 2,
+      "bookmarks": 2,
+      "text_checks": "passed",
+      "image_pixel_checks": "passed",
+      "font_embedding_checks": "passed",
+      "independent_renderers": [
+        "Poppler pdftoppm",
+        "PyMuPDF"
+      ],
+      "page_checks": [
+        {
+          "page": 1,
+          "figure_id": "main-batch-summary",
+          "all_english_paragraphs_present": true,
+          "transition_present": true,
+          "embedded_figure_rgb_pixels_identical": true,
+          "image_dimensions_px": [
+            3445,
+            2278
+          ],
+          "embedded_fonts": [
+            "/AAAAAA+TimesNewRomanPSMT",
+            "/AAAAAA+TimesNewRomanPS-BoldMT"
+          ]
+        },
+        {
+          "page": 2,
+          "figure_id": "program-runtime-ratios",
+          "all_english_paragraphs_present": true,
+          "transition_present": false,
+          "embedded_figure_rgb_pixels_identical": true,
+          "image_dimensions_px": [
+            2800,
+            1875
+          ],
+          "embedded_fonts": [
+            "/AAAAAA+TimesNewRomanPSMT",
+            "/AAAAAA+TimesNewRomanPS-BoldMT"
+          ]
+        }
+      ],
+      "pdf_sha256": "a35b19824f3d903d4414d51a08259d0f953dca60fbad12bf4c9e147a2ea44eb4"
+    },
+    "previews": [
+      {
+        "page": 1,
+        "renderer": "Poppler pdftoppm",
+        "local_render": ".local/presentation-build/module-04-speaker-notes-v0.0/qa/page-1.png",
+        "sha256": "d9e6d40a4a77105910bafda3831fed393adaeae772b36f29777699d8fbf7bd81"
+      },
+      {
+        "page": 1,
+        "renderer": "PyMuPDF",
+        "local_render": ".local/presentation-build/module-04-speaker-notes-v0.0/qa/fitz-page-1.png",
+        "sha256": "8f978062fad5acaf53f16dff71242365d320a0bbcae3865b2b7c56d1a6d4aee6"
+      },
+      {
+        "page": 2,
+        "renderer": "Poppler pdftoppm",
+        "local_render": ".local/presentation-build/module-04-speaker-notes-v0.0/qa/page-2.png",
+        "sha256": "9a5b95753f86e465bcb4613914fc6644363e8eccf226f107e4f2aabaa6ea48a1"
+      },
+      {
+        "page": 2,
+        "renderer": "PyMuPDF",
+        "local_render": ".local/presentation-build/module-04-speaker-notes-v0.0/qa/fitz-page-2.png",
+        "sha256": "d99061af8d75e98cf08e0574e2976ad1ce9824a9cdfc95ef27899d4e576bef58"
+      }
+    ]
+  },
+  "ai_assistance": "AI-assisted translation, layout and generation; independent content and layout review retained in this record.",
+  "scope": "Authorized two-figure English speaker-note PDF and necessary source/generation records only. Existing figures, previous module snapshots, protocols, raw runs and findings remain unchanged.",
+  "release": "Local work archive only; no commit, push or tag."
+}

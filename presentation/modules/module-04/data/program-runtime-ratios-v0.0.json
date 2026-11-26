@@ -1,0 +1,50 @@
+[
+  {
+    "program": "bisort",
+    "mean_runtime_ratio": 1.5421404126364546,
+    "batch_sample_sd": 0.004035620262115457,
+    "n_vm_batches": 3,
+    "short_run_flag": false,
+    "display": "1.5421 ± 0.0040"
+  },
+  {
+    "program": "em3d",
+    "mean_runtime_ratio": 1.3356467588842091,
+    "batch_sample_sd": 0.013812396271263086,
+    "n_vm_batches": 3,
+    "short_run_flag": false,
+    "display": "1.3356 ± 0.0138"
+  },
+  {
+    "program": "mst",
+    "mean_runtime_ratio": 1.8041306610781516,
+    "batch_sample_sd": 0.03816053609655927,
+    "n_vm_batches": 3,
+    "short_run_flag": true,
+    "display": "1.8041 ± 0.0382"
+  },
+  {
+    "program": "perimeter",
+    "mean_runtime_ratio": 2.5619736784329,
+    "batch_sample_sd": 0.006955798530395149,
+    "n_vm_batches": 3,
+    "short_run_flag": false,
+    "display": "2.5620 ± 0.0070"
+  },
+  {
+    "program": "treeadd",
+    "mean_runtime_ratio": 4.643151538089672,
+    "batch_sample_sd": 0.06300846436450003,
+    "n_vm_batches": 3,
+    "short_run_flag": false,
+    "display": "4.6432 ± 0.0630"
+  },
+  {
+    "program": "tsp",
+    "mean_runtime_ratio": 1.7356972763740226,
+    "batch_sample_sd": 0.007598465412198428,
+    "n_vm_batches": 3,
+    "short_run_flag": false,
+    "display": "1.7357 ± 0.0076"
+  }
+]

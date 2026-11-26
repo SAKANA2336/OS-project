@@ -1,6 +1,6 @@
 # Project handoff
 
-Last verified on 2026-11-25 (Asia/Shanghai).
+Last verified on 2026-11-26 (Asia/Shanghai).
 
 Start with the [project status](PROJECT_STATE.md), [current protocol](PROTOCOL.md), and [workspace rules](../AGENTS.md). Use the independent daily repository with no remote for development. The release repository is reserved for authorized publication.
 
@@ -22,3 +22,8 @@ Start with the [project status](PROJECT_STATE.md), [current protocol](PROTOCOL.m
 ## Reproduce on another member's machine
 
 Use the [standalone package and verified extraction instructions](reproduction-package.md). Its extracted README is the complete source-entry guide and records the one-host clean-main acceptance. The next member should use new IDs and their own bounded execution allowance, retain all failed attempts and share the new run evidence. Existing measured ratios are reference observations, not software acceptance thresholds. No final tag or additional experiment is authorized by this package publication.
+
+
+## Archived presentation modules
+
+Continue modular presentation work from the [presentation archive](../presentation/README.md), module 3 index v0.2 and module 4 index v0.3. Their five-page and two-page English notes pair each current figure with the confirmed narration. Retain all archived bytes and version history; new generated materials require explicit archival authorization. The public entry describes historical private-source references and full-evidence generator requirements. This publication preserves the original scientific results; integrated slide composition and final approval remain subsequent work. See D-034.

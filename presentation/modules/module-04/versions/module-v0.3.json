@@ -1,0 +1,216 @@
+{
+  "controlled_object_id": "presentation-module-04",
+  "exact_version": "v0.3",
+  "document_role": "current_module_index",
+  "status": "draft",
+  "title_zh": "模块四：主实验结果",
+  "title_en": "Module 4: Main results",
+  "created_date": "2026-11-26",
+  "timezone": "Asia/Shanghai",
+  "archive_ref": "version-archive.json",
+  "completion": {
+    "first_figure": "combined_png_archived_per_user_request",
+    "figure_count": 2,
+    "other_figures": "unapproved_previews_not_archived",
+    "speaker_notes": "english_pdf_archived",
+    "integrated_deck": "not_created"
+  },
+  "figures": [
+    {
+      "id": "main-batch-summary",
+      "exact_version": "v0.1",
+      "title_zh": "三批主实验汇总与精简论文对照",
+      "title_en": "Main experiment: batch summary and paper comparison",
+      "formats": {
+        "png": {
+          "path": "assets/module-04-main-batch-summary-v0.1.png",
+          "bytes": 262281,
+          "sha256": "b6c4a1218960577c41b81ff9a83a55f166e5694e5f966dd87296f0343169b23e"
+        }
+      },
+      "source_campaign": "exp-001-v0-2-20261118t170938z",
+      "aggregate": {
+        "mean": 2.2704567209159014,
+        "sample_sd": 0.015097758809435247,
+        "n": 3
+      },
+      "display_decimal_places": 4,
+      "purpose": "Combine the accepted original three-batch summary with only the selected compact Paper vs. Ours runtime-ratio row.",
+      "comparison": {
+        "paper_figure_2_runtime_ratio": 1.73,
+        "absolute_ratio_gap": 0.5404567209159015,
+        "relative_gap_percent": 31.240272885312226,
+        "scope": "Descriptive comparison across different workloads/platforms; numerical equivalence and causal attribution are not established. Setup differences are referenced to Module 3."
+      },
+      "supersedes_asset_version": "v0.0",
+      "earlier_asset_retained": "assets/module-04-main-batch-summary-v0.0.png"
+    },
+    {
+      "id": "program-runtime-ratios",
+      "exact_version": "v0.0",
+      "title_zh": "六程序主实验耗时倍率",
+      "title_en": "Main experiment: program runtime ratios",
+      "formats": {
+        "png": {
+          "path": "assets/module-04-program-runtime-ratios-v0.0.png",
+          "bytes": 172366,
+          "sha256": "ac4a49f2351c146572566d706e7749b589c1ffcc07415ec404ddde22c3ef464c"
+        }
+      },
+      "source_campaign": "exp-001-v0-2-20261118t170938z",
+      "source_builder": "source/build-program-ratios-v0.0.py",
+      "source_builder_sha256": "54241a51e3c76b197395067fbc19553fcf3e00e8ce5e8852425a74cd7d4f44c5",
+      "generation_record": "provenance/program-runtime-ratios-generation-v0.0.json",
+      "review_record": "provenance/program-runtime-ratios-preview-review-v0.0.json",
+      "archive_receipt": "provenance/program-runtime-ratios-archive-v0.0.json",
+      "source_hashes": {
+        "results/exp-001-v0-2-20261118t170938z/summary.json": "eb28447ba05382968cf948c86ba1b2bd1127a56b548b880de5904c1624c8a353",
+        "experiments/exp-001/PLAN.md": "b8849f4fde807a86ad8933ef5dcf3bcda0ce7b1e5598681a3215cdebb26a7a0b",
+        "runs/run-20261118t170939z-exp-001-a01/guest-evidence/data/run-20261118t170939z-exp-001-a01/metrics/records.json": "db41e66d70a33926d4735cb848849cacd763eab626eeb6328bc9f25727989787",
+        "runs/run-20261118t171144z-exp-001-a02/guest-evidence/data/run-20261118t171144z-exp-001-a02/metrics/records.json": "080dc404696f86905e63ce059a7a4c1de2558ba9a1f94d247dfd7f4707e27bac",
+        "runs/run-20261118t171349z-exp-001-a03/guest-evidence/data/run-20261118t171349z-exp-001-a03/metrics/records.json": "7e3089557e991ba9d2b20970ff99befcceb5c7cce9495f8c3b1c620c2ca198f2"
+      },
+      "program_order": [
+        "bisort",
+        "em3d",
+        "mst",
+        "perimeter",
+        "treeadd",
+        "tsp"
+      ],
+      "source_values": [
+        {
+          "program": "bisort",
+          "mean_runtime_ratio": 1.5421404126364546,
+          "batch_sample_sd": 0.004035620262115457,
+          "n_vm_batches": 3,
+          "short_run_flag": false,
+          "display": "1.5421 ± 0.0040"
+        },
+        {
+          "program": "em3d",
+          "mean_runtime_ratio": 1.3356467588842091,
+          "batch_sample_sd": 0.013812396271263086,
+          "n_vm_batches": 3,
+          "short_run_flag": false,
+          "display": "1.3356 ± 0.0138"
+        },
+        {
+          "program": "mst",
+          "mean_runtime_ratio": 1.8041306610781516,
+          "batch_sample_sd": 0.03816053609655927,
+          "n_vm_batches": 3,
+          "short_run_flag": true,
+          "display": "1.8041 ± 0.0382"
+        },
+        {
+          "program": "perimeter",
+          "mean_runtime_ratio": 2.5619736784329,
+          "batch_sample_sd": 0.006955798530395149,
+          "n_vm_batches": 3,
+          "short_run_flag": false,
+          "display": "2.5620 ± 0.0070"
+        },
+        {
+          "program": "treeadd",
+          "mean_runtime_ratio": 4.643151538089672,
+          "batch_sample_sd": 0.06300846436450003,
+          "n_vm_batches": 3,
+          "short_run_flag": false,
+          "display": "4.6432 ± 0.0630"
+        },
+        {
+          "program": "tsp",
+          "mean_runtime_ratio": 1.7356972763740226,
+          "batch_sample_sd": 0.007598465412198428,
+          "n_vm_batches": 3,
+          "short_run_flag": false,
+          "display": "1.7357 ± 0.0076"
+        }
+      ],
+      "display_decimal_places": 4,
+      "dimensions_px": [
+        2800,
+        1875
+      ],
+      "purpose": "Show program-level mean ASan/baseline ratios and between-batch sample SDs across the three original formal batches (n=3).",
+      "scope": "All six workloads retained, including short-running mst; no causal program-characteristic explanation or cross-machine stability claim."
+    }
+  ],
+  "source_builder": "source/build-main-batch-summary-v0.1.py",
+  "source_builder_sha256": "28eba5e59f6d874477be1a873fbee62c98f45e5e5b517015c23fd670cca18aac",
+  "generation_record": "provenance/generation-v0.1.json",
+  "review_record": "provenance/review-v0.1.json",
+  "source_hashes": {
+    "results/exp-001-v0-2-20261118t170938z/summary.json": "eb28447ba05382968cf948c86ba1b2bd1127a56b548b880de5904c1624c8a353",
+    "experiments/exp-001/PLAN.md": "b8849f4fde807a86ad8933ef5dcf3bcda0ce7b1e5598681a3215cdebb26a7a0b",
+    "presentation/modules/module-04/versions/module-v0.0.json": "0f03123833426165fc61f071e2a03dfc6070545f8abacb7660dffabf085ab25e",
+    "presentation/modules/module-04/assets/module-04-main-batch-summary-v0.0.png": "f90e17edd0076659ed08e217d0ded9bebe58070f25e81d70190a7440ce8705de",
+    ".local/sources/papers/addresssanitizer-atc12-2012.pdf": "adf8b68d3dfeb8fac172e16e4e985a806226a9f904708c12a101d2b765b758e7"
+  },
+  "source_values": [
+    {
+      "batch": 1,
+      "run_id": "run-20261118t170939z-exp-001-a01",
+      "runtime_ratio": 2.27929042864134,
+      "measured_executions": 60,
+      "warmups": 12,
+      "benchmarks": 6
+    },
+    {
+      "batch": 2,
+      "run_id": "run-20261118t171144z-exp-001-a02",
+      "runtime_ratio": 2.2790558774609084,
+      "measured_executions": 60,
+      "warmups": 12,
+      "benchmarks": 6
+    },
+    {
+      "batch": 3,
+      "run_id": "run-20261118t171349z-exp-001-a03",
+      "runtime_ratio": 2.2530238566454566,
+      "measured_executions": 60,
+      "warmups": 12,
+      "benchmarks": 6
+    }
+  ],
+  "archive_policy": "Generated content is archived only after explicit user authorization. Both current PNGs and the two-page English speaker-note PDF were explicitly authorized. Necessary bilingual source, generation code and review records accompany the PDF. Earlier assets and index snapshots remain unchanged; other unapproved previews remain unarchived.",
+  "ai_assistance": "AI-assisted figure layout, English translation and PDF generation. Numerical text follows the original frozen formal results; independent content, figure-identity and visual checks passed.",
+  "release_status": "Local work artifact only; no commit, push or tag.",
+  "last_updated_date": "2026-11-26",
+  "proposed_narration_order": [
+    "main-batch-summary",
+    "program-runtime-ratios"
+  ],
+  "presentation_order": [
+    "main-batch-summary",
+    "program-runtime-ratios"
+  ],
+  "speaker_notes": {
+    "exact_version": "v0.0",
+    "language": "en",
+    "status": "complete_local_archive",
+    "pdf": "output/pdf/module-04-speaker-notes-en-v0.0.pdf",
+    "source": "speaker-notes/source-v0.0.json",
+    "builder": "speaker-notes/build-speaker-notes.py",
+    "generation_record": "speaker-notes/generation-v0.0.json",
+    "pdf_sha256": "a35b19824f3d903d4414d51a08259d0f953dca60fbad12bf4c9e147a2ea44eb4",
+    "pages": 2,
+    "figure_mapping": [
+      {
+        "figure_number": 1,
+        "page": 1,
+        "figure_id": "main-batch-summary",
+        "image": "assets/module-04-main-batch-summary-v0.1.png",
+        "image_sha256": "b6c4a1218960577c41b81ff9a83a55f166e5694e5f966dd87296f0343169b23e"
+      },
+      {
+        "figure_number": 2,
+        "page": 2,
+        "figure_id": "program-runtime-ratios",
+        "image": "assets/module-04-program-runtime-ratios-v0.0.png",
+        "image_sha256": "ac4a49f2351c146572566d706e7749b589c1ffcc07415ec404ddde22c3ef464c"
+      }
+    ]
+  }
+}

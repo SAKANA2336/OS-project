@@ -1,0 +1,101 @@
+{
+  "controlled_object_id": "presentation-module-04",
+  "exact_version": "v0.0",
+  "document_role": "current_module_index",
+  "status": "draft",
+  "title_zh": "模块四：主实验结果",
+  "title_en": "Module 4: Main results",
+  "created_date": "2026-11-26",
+  "timezone": "Asia/Shanghai",
+  "archive_ref": "version-archive.json",
+  "completion": {
+    "first_figure": "complete_local_archive",
+    "figure_count": 1,
+    "other_figures": "pending",
+    "speaker_notes": "not_requested",
+    "integrated_deck": "not_created"
+  },
+  "figures": [
+    {
+      "id": "main-batch-summary",
+      "exact_version": "v0.0",
+      "title_zh": "三批正式主实验汇总表",
+      "title_en": "Main experiment: batch summary",
+      "formats": {
+        "png": {
+          "path": "assets/module-04-main-batch-summary-v0.0.png",
+          "bytes": 167553,
+          "sha256": "f90e17edd0076659ed08e217d0ded9bebe58070f25e81d70190a7440ce8705de"
+        },
+        "svg": {
+          "path": "assets/module-04-main-batch-summary-v0.0.svg",
+          "bytes": 3191,
+          "sha256": "cd30e218e497d8bd608ebdf5f07859f2488e1074e268aced333a3a411c088f8f"
+        },
+        "pdf": {
+          "path": "output/pdf/module-04-main-batch-summary-v0.0.pdf",
+          "bytes": 2389,
+          "sha256": "728993ce58c02eb9e60bec1bb4e5ddf71206e45d26c73d37d6bc5004342afaab"
+        },
+        "tex": {
+          "path": "source/module-04-main-batch-summary-v0.0.tex",
+          "bytes": 916,
+          "sha256": "6ed1f6f6ad69c1422f654f19c968fae8bf5775485585447769004fa93c8bef35"
+        },
+        "csv": {
+          "path": "data/module-04-main-batch-summary-v0.0.csv",
+          "bytes": 254,
+          "sha256": "1482739bf706e7a4aa8a77f25e146f1e42dfb6ccd82b9baa3ce5a4dc4a8fbd8a"
+        }
+      },
+      "source_campaign": "exp-001-v0-2-20261118t170938z",
+      "aggregate": {
+        "mean": 2.2704567209159014,
+        "sample_sd": 0.015097758809435247,
+        "n": 3
+      },
+      "display_decimal_places": 4,
+      "purpose": "Present three original formal batch-level suite ratios and their across-batch mean and sample SD."
+    }
+  ],
+  "source_builder": "source/build-main-batch-summary.py",
+  "source_builder_sha256": "0cad78cfad2b4fd5e176067baec453bdd6af1bf8e9779bb9aab53e00e0d1bd3c",
+  "generation_record": "provenance/generation-v0.0.json",
+  "review_record": "provenance/review-v0.0.json",
+  "source_hashes": {
+    "results/exp-001-v0-2-20261118t170938z/summary.json": "eb28447ba05382968cf948c86ba1b2bd1127a56b548b880de5904c1624c8a353",
+    "experiments/exp-001/PLAN.md": "b8849f4fde807a86ad8933ef5dcf3bcda0ce7b1e5598681a3215cdebb26a7a0b",
+    "runs/run-20261118t170939z-exp-001-a01/guest-evidence/data/run-20261118t170939z-exp-001-a01/metrics/records.json": "db41e66d70a33926d4735cb848849cacd763eab626eeb6328bc9f25727989787",
+    "runs/run-20261118t171144z-exp-001-a02/guest-evidence/data/run-20261118t171144z-exp-001-a02/metrics/records.json": "080dc404696f86905e63ce059a7a4c1de2558ba9a1f94d247dfd7f4707e27bac",
+    "runs/run-20261118t171349z-exp-001-a03/guest-evidence/data/run-20261118t171349z-exp-001-a03/metrics/records.json": "7e3089557e991ba9d2b20970ff99befcceb5c7cce9495f8c3b1c620c2ca198f2"
+  },
+  "source_values": [
+    {
+      "batch": 1,
+      "run_id": "run-20261118t170939z-exp-001-a01",
+      "runtime_ratio": 2.27929042864134,
+      "measured_executions": 60,
+      "warmups": 12,
+      "benchmarks": 6
+    },
+    {
+      "batch": 2,
+      "run_id": "run-20261118t171144z-exp-001-a02",
+      "runtime_ratio": 2.2790558774609084,
+      "measured_executions": 60,
+      "warmups": 12,
+      "benchmarks": 6
+    },
+    {
+      "batch": 3,
+      "run_id": "run-20261118t171349z-exp-001-a03",
+      "runtime_ratio": 2.2530238566454566,
+      "measured_executions": 60,
+      "warmups": 12,
+      "benchmarks": 6
+    }
+  ],
+  "archive_policy": "Preserve these reviewed v0.0 assets. Revisions receive the next continuous version and retain this index snapshot.",
+  "ai_assistance": "AI-assisted code and layout; all displayed numbers are deterministically recomputed from sealed formal records and independently checked.",
+  "release_status": "Local work artifact only; no commit, push or tag."
+}

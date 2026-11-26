@@ -1,0 +1,20 @@
+% Requires \usepackage{booktabs}. Values are recomputed from formal exp-001 evidence.
+\begin{table}[t]
+\centering
+\caption{Main-experiment summary across three independent ARM64 VM batches.}
+\label{tab:main-batch-summary}
+\begin{tabular}{lr}
+\toprule
+VM batch & Suite runtime ratio ($\times$) \\
+\midrule
+Batch 1 & 2.2793 \\
+Batch 2 & 2.2791 \\
+Batch 3 & 2.2530 \\
+\addlinespace
+\textbf{Mean $\pm$ SD} & \textbf{2.2705 $\pm$ 0.0151} \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{0.95\linewidth}\footnotesize
+Each batch value is the equal-weight arithmetic mean of six Olden program ratios. Each program ratio is mean ASan time divided by mean baseline time over five timed executions per arm. The final row reports the mean and sample SD across three independent VM batches ($n=3$). Warmups are excluded. All six programs, including short-running \texttt{mst}, are retained.
+\end{minipage}
+\end{table}

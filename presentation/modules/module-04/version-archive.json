@@ -1,0 +1,72 @@
+{
+  "controlled_object_id": "presentation-module-04",
+  "exact_version": "v0.3",
+  "document_role": "append_only_version_archive",
+  "current_ref": "module.json",
+  "entries": [
+    {
+      "exact_version": "v0.0",
+      "date": "2026-11-26",
+      "status": "draft",
+      "reason": "User selected the three-batch formal main-experiment summary and requested a concise research-paper-style chart/table.",
+      "scope": "First module-4 table asset, vector/raster exports, full-precision source CSV, reproducible builder, provenance and review.",
+      "known_results_at_creation": "Original formal main and extension results and later clean-entry acceptance were already known. This table uses only the original exp-001 formal campaign.",
+      "alternatives": "Two-column monochrome three-rule table selected for clarity. Per-program figures, paper comparison, extension and clean-entry results belong to other assets.",
+      "migration": "New module-04 directory; module-03 and all existing sources, results and raw runs remain unchanged.",
+      "affected_runs": [],
+      "rerun_decision": "No experimental rerun; only deterministic derived-table generation.",
+      "current_document_sha256": "0f03123833426165fc61f071e2a03dfc6070545f8abacb7660dffabf085ab25e",
+      "restoration_snapshot": "versions/module-v0.0.json",
+      "next_allowed_version": "v0.1",
+      "major_version_authorization": "absent"
+    },
+    {
+      "exact_version": "v0.1",
+      "date": "2026-11-26",
+      "status": "draft",
+      "reason": "The user requested merging the selected one-row Paper vs. Ours result comparison with the accepted first summary, and explicitly authorized archival of only the new combined image.",
+      "scope": "One new combined PNG; necessary builder, generation/review records and current-index snapshot. No additional figure or vector export was archived.",
+      "known_results_at_creation": "Original formal main, extension and clean-entry acceptance outcomes were already known; the displayed main data and descriptive paper gap are unchanged.",
+      "alternatives": "Keep the full settings table versus compact result-only comparison. User selected the compact row and a single combined graphic; settings are referenced to Module 3.",
+      "migration": "Current figure points to v0.1 PNG. Prior v0.0 image, formats, sources and index snapshot remain unchanged. Other preview figures remain temporary and unarchived.",
+      "affected_runs": [],
+      "rerun_decision": "No rerun; presentation-only consolidation.",
+      "current_document_sha256": "ae11e4264ca0f28ae60cfd2b959d869ce52b46d874e78e21c2b040b76d65bfa9",
+      "restoration_snapshot": "versions/module-v0.1.json",
+      "next_allowed_version": "v0.2",
+      "major_version_authorization": "absent"
+    },
+    {
+      "exact_version": "v0.2",
+      "date": "2026-11-26",
+      "status": "draft",
+      "reason": "User explicitly authorized archiving the selected six-program runtime-ratio PNG and requested discussion of its narration together with the other archived image.",
+      "scope": "Add one approved PNG and necessary generator, full-precision data and provenance/review records. Narration is discussed in the conversation only.",
+      "known_results_at_creation": "Original formal main/extension and later clean-entry acceptance outcomes were already known; no observations or verdicts changed.",
+      "alternatives": "Retain only a temporary preview versus archive the selected PNG. User selected the PNG; other preview figures and vector exports were excluded from the archive.",
+      "migration": "Retain the v0.1 combined summary image and all earlier files. Add a second figure; proposed spoken order is combined summary then program-level ratios. Only the generator output-directory guard is adapted for portability; regenerated PNG is byte-identical.",
+      "affected_runs": [],
+      "rerun_decision": "No experimental rerun. Static regeneration and source checks only.",
+      "current_document_sha256": "9499f753e719cb281f2ad9b05888b5eb132614b5795ed451c2f2492e340de9c9",
+      "restoration_snapshot": "versions/module-v0.2.json",
+      "next_allowed_version": "v0.3",
+      "major_version_authorization": "absent"
+    },
+    {
+      "exact_version": "v0.3",
+      "date": "2026-11-26",
+      "status": "draft",
+      "reason": "User confirmed the preceding Chinese narration and requested an English PDF matching Module 3, pairing both archived figures one-to-one and archiving it in Module 4.",
+      "scope": "Add the two-page speaker-note PDF, bilingual narration source, portable builder and generation/QA record; update the module index and status/handoff pointers.",
+      "known_results_at_creation": "Original formal main/extension and later clean-entry outcomes were already known. The narration uses only the original exp-001 main results; no observation or verdict changed.",
+      "alternatives": "A separate slide deck versus the requested Module 3-style reading document. The user selected a PDF like Module 3; A3 landscape figure-left/narration-right layout retained.",
+      "migration": "New speaker-note artifact v0.0; current module index advances v0.2 to v0.3. Both approved figures, all previous assets and earlier snapshots remain byte-identical.",
+      "affected_runs": [],
+      "rerun_decision": "No experimental rerun. Deterministic PDF generation, text/image/font/structure checks and independent content/layout review only.",
+      "current_document_sha256": "7804acebefd63d1128cde3e7c455eeeb05b80e058e048dffc88bd8eeb2f8eba1",
+      "restoration_snapshot": "versions/module-v0.3.json",
+      "next_allowed_version": "v0.4",
+      "major_version_authorization": "absent"
+    }
+  ]
+}

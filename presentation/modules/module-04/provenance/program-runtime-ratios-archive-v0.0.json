@@ -1,0 +1,56 @@
+{
+  "artifact_id": "module-04-program-runtime-ratios",
+  "exact_version": "v0.0",
+  "document_role": "authorized_archive_receipt",
+  "archive_date": "2026-11-26",
+  "timezone": "Asia/Shanghai",
+  "authorization": "User explicitly requested archiving the selected six-program runtime-ratio image. Standing instruction: archive generated content only after explicit user authorization.",
+  "scope": "One byte-identical PNG and necessary reproducibility source/data/review records. PDF/SVG exports, the full Paper-vs-Ours preview and speaker-note drafts are not archived.",
+  "approved_png_sha256": "ac4a49f2351c146572566d706e7749b589c1ffcc07415ec404ddde22c3ef464c",
+  "archive_path": "assets/module-04-program-runtime-ratios-v0.0.png",
+  "original_generation_record": "program-runtime-ratios-generation-v0.0.json",
+  "original_review_record": "program-runtime-ratios-preview-review-v0.0.json",
+  "record_time_boundary": "The copied generation/review records describe the pre-authorization preview stage. This receipt records the subsequent user-authorized archive.",
+  "portable_builder": "../source/build-program-ratios-v0.0.py",
+  "portable_builder_sha256": "54241a51e3c76b197395067fbc19553fcf3e00e8ce5e8852425a74cd7d4f44c5",
+  "original_builder_sha256": "086d69ba13519bd2c9e87540f7911592900be9f8b4f750208643ca7d67756449",
+  "portability_change": "Replace the machine-specific temporary-output subtree gate with a new/empty external-output-directory guard that rejects the source repository. Statistics, geometry, fonts and labels are unchanged.",
+  "regeneration_validation": "Portable builder checked the complete original evidence tree and produced a byte-identical PNG in a new external temporary directory.",
+  "rebuild_requirements": "Complete work-repository formal evidence tree, Python ReportLab, pdftoppm, and the specified Times New Roman regular/bold fonts supplied using --font-dir. CSV files alone are not the current renderer input.",
+  "rebuild_command": "python3 -B presentation/modules/module-04/source/build-program-ratios-v0.0.py --root . --out <new-empty-directory-outside-repository> --font-dir <times-new-roman-directory>",
+  "archived_files": {
+    "assets/module-04-program-runtime-ratios-v0.0.png": {
+      "bytes": 172366,
+      "sha256": "ac4a49f2351c146572566d706e7749b589c1ffcc07415ec404ddde22c3ef464c"
+    },
+    "data/program-runtime-ratios-v0.0.csv": {
+      "bytes": 507,
+      "sha256": "f0ba40982e0af42e1974686594d19f8dadf792ce971d8b98344b5c9db399697d"
+    },
+    "data/program-runtime-ratios-v0.0.json": {
+      "bytes": 1258,
+      "sha256": "69d9caa613e85aba5ff1327510696ce025d868d158f612ce272cd3707b73b8b5"
+    },
+    "data/program-runtime-ratio-inputs-v0.0.csv": {
+      "bytes": 1538,
+      "sha256": "e4161c6f9cabb2b62412e28af176862b76159c96b93227290a677a7916ccb689"
+    },
+    "provenance/program-runtime-ratios-generation-v0.0.json": {
+      "bytes": 6066,
+      "sha256": "62593932105529eef667b04b4018d47ebe3b784ec8bd543ad54a894163a5297b"
+    },
+    "provenance/program-runtime-ratios-preview-review-v0.0.json": {
+      "bytes": 1385,
+      "sha256": "5c6ba700986380c61587d7baabb696c1459ba767cd64575e51c7dfbe18b3d98d"
+    },
+    "source/build-program-ratios-v0.0.py": {
+      "bytes": 15473,
+      "sha256": "54241a51e3c76b197395067fbc19553fcf3e00e8ce5e8852425a74cd7d4f44c5"
+    },
+    "provenance/program-runtime-ratios-portability-review-v0.0.json": {
+      "bytes": 502,
+      "sha256": "944f4dd6ee3c4130bd88309e10909f5be1a93a7e412048ca0e8d0f01d66a494e"
+    }
+  },
+  "experimental_impact": "None; no new measurements, protocol/claim changes, evidence edits or release operations."
+}
